@@ -106,11 +106,10 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
   }
 
   function add_publication(title, img, author, note, link, bib, tag){
-    // link=[[url, arXiv],]
+    // link=[[url, arXiv],]        <a target="_blank" href=${link[0][0]}>\
     document.write('<tr>')
     if (link!=null) {
       document.write(`<td><div style="width: 230px">\
-      <a target="_blank" href=${link[0][0]}>\
       <img width="230" height="130" src=${img}></a>\
       </div></td>`)
     } else {
