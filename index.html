@@ -42,7 +42,7 @@
  <A HREF="#Education">Education</A> |
   <A HREF="#Education">Experience </A> |
  <A HREF="#Publications">Publications</A> |
- <A HREF="#Projects">Projects</A> |
+ <!-- <A HREF="#Projects">Projects</A> | -->
  <A HREF="#Talks">Talks</A> |
  <A HREF="#Services">Services</A> |
  <A HREF="#Skills">Skills</A> |
@@ -62,7 +62,7 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 <A NAME="Profile"><h2>Profile</h2></A>
 <b>Greetings, welcome to my website!</b>
 <ul>
-<li>I am a second-year undergraduate student at ANU. I'm currently working at Data61 (formerly known as NICTA) with Dr.Shoeiby Mehrdad, Dr.Lars Petersson and lots of wonderful academics from CSIRO & ANU.</li>
+<li>I am a second-year undergraduate student at ANU. I'm currently working independently at Data61 (formerly known as NICTA) with Dr.Shoeiby Mehrdad, Dr.Lars Petersson and lots of wonderful academics from CSIRO & ANU.</li>
 <li>At the beginning, I was born in <a href="https://en.wikipedia.org/wiki/Chengdu">Chengdu</a>, Sichuan. It's famous for spicy hot pot and pandas. </li>
 </ul>
 
@@ -91,27 +91,84 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 <A NAME="Experience"><h2>Experience</h2></A>
 <ul>
 <li>Research intern at Data61, CSIRO.<i> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Jul. 2020 - Jun.2021. </i> </a></li>
-&nbsp;advised by Dr.Shoeiby Mehrdad and Dr.Lars Petersson.
+&nbsp;advised by Dr.Mehrdad Shoeiby and Dr.Lars Petersson.
 </ul>
 
+<!-- define a function to add publication -->
+<script type="text/javascript">
+  function show_hide(eid) {
+    var x = document.getElementById(eid);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function add_publication(title, img, author, note, link, bib, tag){
+    // link=[[url, arXiv],]
+    document.write('<tr>')
+    if (link!=null) {
+      document.write(`<td><div style="width: 230px">\
+      <a target="_blank" href=${link[0][0]}>\
+      <img width="230" height="130" src=${img}></a>\
+      </div></td>`)
+    } else {
+      document.write(`<td><div style="width: 230px">\
+      <img width="230" height="130" src=${img}></a>\
+      </div></td>`)
+    }
+
+    document.write('<td>')
+    document.write(`<p class="title">${title}</p>`)
+    document.write(`<p class="author">${author}</p>`)
+    if (note) {document.write(`<p class="note">${note}</p>`)}
+    if (link!=null) {
+      document.write('<p class="link">')
+      for (var idx = 0; idx < link.length; idx++){
+        document.write(`<a target="_blank" href=${link[idx][0]}>[${link[idx][1]}]</a>&nbsp;`)}
+      // document.write(`<a href="javascript:;" onclick="show_hide(${tag})">[BibTex]</a>`)
+      document.write('</p>')
+    }
+    document.write(`<div class="bib" id=${tag} style="display:none;"><pre>${bib}</pre></div>`)
+    document.write('</td></tr>')
+
+  }
+</script>
 
 <A NAME="Publications"><h2>Publications</h2></A>
 <ul>
 Two first-authored papers are under review in top-tier conferences:
 <p style="text-indent: -1.6rem;margin-left: 0rem;">
-<li> <b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Lars Petersson, Mohammad Ali Armin.
-<b>Single Underwater Image Restoration by contrastive learning.</b>
-[<a href="./Files/han_underwater.pdf">pdf</a>]
-</li>
-<li> <b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Mohammad Ali Armin.
-<b>Dual Contrastive Learning for Unsupervised Image-to-Image Translation.</b>
-[<a href="./Files/han_dualcontrastive.pdf">pdf</a>][<a href="./Files/supp_CVPR2339.pdf">supp</a>]
-</li>
+  <table>
+    <script type="text/javascript">
+    add_publication(title='Single Underwater Image Restoration by Contrastive Learning',
+                    img='./Files/paperimages/paper2.png',
+                      author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Wei Ran, Lars Petersson, Mohammad Ali Armin.',
+                      note='Under Review',
+                      link=[["./Files/han_underwater.pdf","PDF"]],
+                    //  ["https://arxiv.org/abs/2010.09709","arXiv"],["https://github.com/TengdaHan/CoCLR","Code"],["https://youtu.be/oMcd6maQgQk","Video"],["http://www.robots.ox.ac.uk/~vgg/research/CoCLR/","Project page"]
+    //                   bib="@InProceedings{han2020coclr,\
+    // \ntitle={Self-supervised Co-Training for Video Representation Learning},\
+    // \nauthor={Tengda Han and Weidi Xie and Andrew Zisserman},\
+    // \nbooktitle={Neurips},\
+    // \nyear={2020}}",
+    //                   tag=2,
+                      );
+   add_publication(title='Dual Contrastive Learning for Unsupervised Image-to-Image Translation',
+                    img='./Files/paperimages/paper1.png',
+                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Mohammad Ali Armin.',
+                    note='Under Review',
+                    link=[["./Files/han_dualcontrastive.pdf","PDF"],["./Files/supp_CVPR2339.pdf","supp"]],);
 
+
+
+  </script>
+  </table>
 </p>
 </ul>
 
-<A NAME="Projects"><h2>Projects</h2></A>
+<!-- <A NAME="Projects"><h2>Projects</h2></A>
 <b>Some projects are quite naive, I will remove them later.
 Please click the image for detailed information and source code, feel free to use them though I don't think they are useful.</b>
 <ul>
@@ -130,7 +187,7 @@ Please click the image for detailed information and source code, feel free to us
 <li>Android voting App</li>
 <a href="./voting.html"><img src="./Files/vote1.png" alt="" height="400px" /> </a>
 <br>
-</ul>
+</ul> -->
 
 
 <A NAME="Talks"><h2>Talks</h2></A>
@@ -145,17 +202,17 @@ Please click the image for detailed information and source code, feel free to us
 <ul>
 <b>Membership</b>
 <li>IEEE Student Member, since 2020.</li>
-<b>Review</b> </br>
-NA
+<b>Reviews</b> </br>
+<li>NA</li>
 </ul>
 </font>
 
 <A NAME="Skills"><h2>Skills</h2></A>
 <ul>
 <li><b>Programing Language</b></li>
-Proficient in Java, MATLAB, Python.
+Proficient in MATLAB, Python.
 <br>
-Familiar with Haskell, R, CSS, Html, Assembly (ARMV7), SQL.
+Familiar with Java, Haskell, R, CSS, Html, Assembly (ARMV7), SQL.
 <Li><b>Tool</b></li>
 NumPy, PyTorch, Git, LaTeX.
 <li><b>Language</b></li>
