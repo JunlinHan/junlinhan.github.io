@@ -52,7 +52,8 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 [<a href="https://schlar.google.com/citations?user=Hb6OKF0AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>]
 [<a href="https://github.com/junlinhan" target="_blank">GitHub</a>]
 [<a href="https://orcd.org/0000-0002-7116-9327" target="_blank">ORCID</a>]
-[<a href="./Files/Resume.pdf">Curriculum Vitae</a>] Google scholar and ORCID are under construction.
+[<a href="./Files/Resume.pdf">Curriculum Vitae</a>]
+[<a href="https://orcd.org/0000-0002-7116-9327" target="_blank">Google Scholar</a>]
 </td></tr></table>
 
 
@@ -95,6 +96,7 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 </ul>
 
 <!-- define a function to add publication -->
+<!-- define a function to add publication -->
 <script type="text/javascript">
   function show_hide(eid) {
     var x = document.getElementById(eid);
@@ -106,10 +108,11 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
   }
 
   function add_publication(title, img, author, note, link, bib, tag){
-    // link=[[url, arXiv],]        <a target="_blank" href=${link[0][0]}>\
+    // link=[[url, arXiv],]
     document.write('<tr>')
     if (link!=null) {
       document.write(`<td><div style="width: 230px">\
+      <a target="_blank" href=${link[0][0]}>\
       <img width="230" height="130" src=${img}></a>\
       </div></td>`)
     } else {
@@ -126,65 +129,58 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
       document.write('<p class="link">')
       for (var idx = 0; idx < link.length; idx++){
         document.write(`<a target="_blank" href=${link[idx][0]}>[${link[idx][1]}]</a>&nbsp;`)}
-      // document.write(`<a href="javascript:;" onclick="show_hide(${tag})">[BibTex]</a>`)
+      document.write(`<a href="javascript:;" onclick="show_hide(${tag})">[BibTex]</a>`)
       document.write('</p>')
     }
-    // document.write(`<div class="bib" id=${tag} style="display:none;"><pre>${bib}</pre></div>`)
+    document.write(`<div class="bib" id=${tag} style="display:none;"><pre>${bib}</pre></div>`)
     document.write('</td></tr>')
 
   }
 </script>
 
 <A NAME="Publications"><h2>Publications</h2></A>
-<ul>
-Two first-authored papers are under review in top-tier conferences:
-<p style="text-indent: -1.6rem;margin-left: 0rem;">
-  <table>
-    <script type="text/javascript">
+
+<table>
+  <script type="text/javascript">
+  add_publication(title='Wholistic Segmentation: Learning to Segment Every Pixel',
+                   img='./paperimages/paper3.PNG',
+                   author='Hong jie, Weihao Li, <b>Junlin Han</b>, Mehrtash Harandi, Lars Petersson',
+                   note='Under Review',
+                   link=[["./Files/han_dualcontrastiv.pdf","Coming soon"]],
+                   bib="@InProceedings{hong2021wholistic,\
+                   \ntitle={Wholistic Segmentation: Learning to Segment Every Pixel},\
+                   \nauthor={Hong jie and Weihao Li and Junlin Han and Mehrtash Harandi and Lars Petersson},\
+                   \nbooktitle={TBD},\
+                   \nyear={2021}}",
+                   tag=3);
     add_publication(title='Single Underwater Image Restoration by Contrastive Learning',
                     img='./paperimages/paper2.PNG',
-                      author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Wei Ran, Lars Petersson, Mohammad Ali Armin',
-                      note='Under Review',
-                      link=[["./Files/han_underwater.pdf","PDF"]]
-                    //  ["https://arxiv.org/abs/2010.09709","arXiv"],["https://github.com/TengdaHan/CoCLR","Code"],["https://youtu.be/oMcd6maQgQk","Video"],["http://www.robots.ox.ac.uk/~vgg/research/CoCLR/","Project page"]
-    //                   bib="@InProceedings{han2020coclr,\
-    // \ntitle={Self-supervised Co-Training for Video Representation Learning},\
-    // \nauthor={Tengda Han and Weidi Xie and Andrew Zisserman},\
-    // \nbooktitle={Neurips},\
-    // \nyear={2020}}",
-    //                   tag=2,
-                      );
+                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Mohammad Ali Armin',
+                    note='<p>IGARSS 2021, <font color="red">oral </font>',
+                    link=[["./Files/han_contrastivewater.pdf","PDF"],["https://arxiv.org/abs/2103.09697","arXiv"],["https://github.com/JunlinHan/CWR","Code"],["https://github.com/JunlinHan/CWR","Dataset"]],
+                    bib="@InProceedings{han2021cwr,\
+                    \ntitle={Single Underwater Image Restoration by Contrastive Learning},\
+                    \nauthor={Junlin Han and Mehrdad Shoeiby and Tim Malthus and Elizabeth Botha and Janet Anstee and Saeed Anwar and Ran Wei and Lars Petersson and Mohammad Ali Armin},\
+                    \nbooktitle={IEEE International Geoscience and Remote Sensing Symposium (IGARSS)},\
+                    \nyear={2021}}",
+                    tag=2);
+
    add_publication(title='Dual Contrastive Learning for Unsupervised Image-to-Image Translation',
                     img='./paperimages/paper1.PNG',
                     author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Mohammad Ali Armin',
                     note='Under Review',
-                    link=[["./Files/han_dualcontrastive.pdf","PDF"],["./Files/supp_CVPR2339.pdf","supp"]]);
+                    link=[["./Files/han_dualcontrastive.pdf","PDF"],["./Files/supp_CVPR2339.pdf","supp"]],
+                    bib="@InProceedings{han2021dual,\
+                    \ntitle={Dual Contrastive Learning for Unsupervised Image-to-Image Translation},\
+                    \nauthor={Junlin Han and Mehrdad Shoeiby and Lars Petersson and Mohammad Ali Armin},\
+                    \nbooktitle={TBD},\
+                    \nyear={2021}}",
+                    tag=1);
   </script>
   </table>
-</p>
-</ul>
 
-<!-- <A NAME="Projects"><h2>Projects</h2></A>
-<b>Some projects are quite naive, I will remove them later.
-Please click the image for detailed information and source code, feel free to use them though I don't think they are useful.</b>
-<ul>
-<li>Contour detection</li>
-<a href="./contour.html"><img src="./Files/contour.png" alt="" height="215px" /> </a>
-<br>
-<li>Camera calibration & homography </li>
-<a href="./camera_calibraion.html"><img src="./Files/wrap.png" alt="" height="215px" /> </a>
-</p>
-<li>Harris corner & K-means segmentation & PCA faces</li>
-<a href="./lab2.html"><img src="./Files/pcaface.png" alt="" height="215px" /> </a>
-<br>
-<li>IQ-focus game</li>
-<a href="./iqfocus.html"><img src="./Files/iqfocus.png" alt="" height="400px" /> </a>
-<br>
-<li>Android voting App</li>
-<a href="./voting.html"><img src="./Files/vote1.png" alt="" height="400px" /> </a>
-<br>
-</ul> -->
 
+<p><br /></p>
 
 <A NAME="Talks"><h2>Talks</h2></A>
 <b>I share some of my talks and slides here, feel free to use them if you are interested in.</b>
@@ -199,7 +195,7 @@ Please click the image for detailed information and source code, feel free to us
 <b>Membership</b>
 <li>IEEE Student Member, since 2020.</li>
 <b>Reviews</b> </br>
-<li>NA</li>
+<li>NITRE (CVPRW) 2021.</li>
 </ul>
 </font>
 
