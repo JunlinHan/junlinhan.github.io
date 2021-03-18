@@ -38,6 +38,7 @@
 <br />Location: Synergy Building, CSIRO Black Mountain Site, Acton ACT 2601, Australia.<br />
 <class="staffshortcut">
  <A HREF="#Profile">Profile</A> |
+<A HREF="#News">News</A> |
  <A HREF="#Interest">Research Interests</A> |
  <A HREF="#Education">Education</A> |
   <A HREF="#Education">Experience </A> |
@@ -63,11 +64,14 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 <A NAME="Profile"><h2>Profile</h2></A>
 <b>Greetings, welcome to my website!</b>
 <ul>
-<li>I am a second-year undergraduate student at ANU. I'm currently working at Data61 (formerly known as NICTA) with <a herf ="https://scholar.google.com.au/citations?user=6-YaKHsAAAAJ&hl=en">Dr.Mehrdad Shoeiby</a>, <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr.Lars Petersson</a>. I'm also fortunate to be advised by <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof.Hongdong Li. </a></li>
+<li>I am a third-year undergraduate student at ANU. I'm currently working at Data61 (formerly known as NICTA) with <a herf ="https://scholar.google.com.au/citations?user=6-YaKHsAAAAJ&hl=en">Dr.Mehrdad Shoeiby</a>, <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr.Lars Petersson</a>. I'm also fortunate to be advised by <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof.Hongdong Li. </a></li>
 <li>At the beginning, I was born in <a href="https://en.wikipedia.org/wiki/Chengdu">Chengdu</a>, Sichuan. It's famous for spicy cuisines and pandas. </li>
 </ul>
 
-
+<A NAME="News"><h2>News</h2></A>
+<ul>
+<li>[2021.03] A paper accepted to IGARSS 2021 as <font color="red">Oral </font> presentation. See <A HREF="#Publications">Publications</A>.
+</ul>
 
 <A NAME="Interest"><h2>Research Interests</h2></A>
 <b>My research interests lie in computer vision & machine learning (usually deep learning), I'm focusing on </b>
@@ -129,10 +133,10 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
       document.write('<p class="link">')
       for (var idx = 0; idx < link.length; idx++){
         document.write(`<a target="_blank" href=${link[idx][0]}>[${link[idx][1]}]</a>&nbsp;`)}
-      document.write(`<a href="javascript:;" onclick="show_hide(${tag})">[BibTex]</a>`)
+      // document.write(`<a href="javascript:;" onclick="show_hide(${tag})">[BibTex]</a>`)
       document.write('</p>')
     }
-    document.write(`<div class="bib" id=${tag} style="display:none;"><pre>${bib}</pre></div>`)
+    // document.write(`<div class="bib" id=${tag} style="display:none;"><pre>${bib}</pre></div>`)
     document.write('</td></tr>')
 
   }
@@ -146,36 +150,20 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
                    img='./paperimages/paper3.png',
                    author='Hong jie, Weihao Li, <b>Junlin Han</b>, Mehrtash Harandi, Lars Petersson',
                    note='Under Review',
-                   link=[["./Files/han_dualcontrastiv.pdf","Coming soon"]],
-                   bib="@InProceedings{hong2021wholistic,\
-                   \ntitle={Wholistic Segmentation: Learning to Segment Every Pixel},\
-                   \nauthor={Hong jie and Weihao Li and Junlin Han and Mehrtash Harandi and Lars Petersson},\
-                   \nbooktitle={TBD},\
-                   \nyear={2021}}",
-                   tag=3);
+                   link=[["./Files/han_dualcontrastiv.pdf","Coming soon"]]);
     add_publication(title='Single Underwater Image Restoration by Contrastive Learning',
                     img='./paperimages/paper2.PNG',
                     author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Mohammad Ali Armin',
                     note='<p>IGARSS 2021, <font color="red">Oral </font>',
-                    link=[["./Files/han_contrastivewater.pdf","PDF"],["https://arxiv.org/abs/2103.09697","arXiv"],["https://github.com/JunlinHan/CWR","Code"],["https://github.com/JunlinHan/CWR","Dataset"]],
-                    bib="@InProceedings{han2021cwr,\
-                    \ntitle={Single Underwater Image Restoration by Contrastive Learning},\
-                    \nauthor={Junlin Han and Mehrdad Shoeiby and Tim Malthus and Elizabeth Botha and Janet Anstee and Saeed Anwar and Ran Wei and Lars Petersson and Mohammad Ali Armin},\
-                    \nbooktitle={IEEE International Geoscience and Remote Sensing Symposium (IGARSS)},\
-                    \nyear={2021}}",
-                    tag=2);
+                    link=[["./Files/han_contrastivewater.pdf","PDF"],["https://arxiv.org/abs/2103.09697","arXiv"],
+                    ["https://github.com/JunlinHan/CWR","Code"],["https://github.com/JunlinHan/CWR","Dataset"]
+                    ,["bibtex/paper2.txt/","BibTex"]]);
 
    add_publication(title='Dual Contrastive Learning for Unsupervised Image-to-Image Translation',
                     img='./paperimages/paper1.PNG',
                     author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Mohammad Ali Armin',
                     note='Under Review',
-                    link=[["./Files/han_dualcontrastive.pdf","PDF"],["./Files/supp_CVPR2339.pdf","supp"]],
-                    bib="@InProceedings{han2021dual,\
-                    \ntitle={Dual Contrastive Learning for Unsupervised Image-to-Image Translation},\
-                    \nauthor={Junlin Han and Mehrdad Shoeiby and Lars Petersson and Mohammad Ali Armin},\
-                    \nbooktitle={TBD},\
-                    \nyear={2021}}",
-                    tag=1);
+                    link=[["./Files/han_dualcontrastive.pdf","Coming soon"]]);
   </script>
   </table>
 
