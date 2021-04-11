@@ -1,0 +1,6 @@
+@inproceedings{han2021dcl,
+  title={Dual Contrastive Learning for Unsupervised Image-to-Image Translation},
+  author={Junlin Han and Mehrdad Shoeiby and Lars Petersson and Mohammad Ali Armin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2021}
+}
