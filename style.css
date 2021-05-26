@@ -1,5 +1,5 @@
 body {
-    background: #eee;
+    background: #0B0B3B;
 }
 a {
     color: #ed5b5b;
@@ -9,15 +9,16 @@ a:focus {
     color: #ed5b5b;
 }
 h1 {
-    font-family: 'Satisfy', cursive;
     font-size: 100px;
     text-align: center;
-    color: #bd2929;
+    color: white;
     margin: 50px;
 }
 h2 {
     font-family: 'Satisfy', cursive;
     font-size: 30px;
+    text-align: center;
+    color: red;
     line-height: 45px;
     margin-top: 50px;
 }
@@ -30,7 +31,7 @@ h3 {
 h4 {
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
-    color: black;
+    color: #FFFF00;
     margin-bottom: 10px;
 }
 p {
@@ -79,7 +80,6 @@ ul.socialmedia {
     margin: 0 auto;
 }
 #credits {
-    background: #434242;
     padding-top: 25px;
     margin-top: 45px;
 }
