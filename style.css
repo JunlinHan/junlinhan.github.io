@@ -8,30 +8,49 @@ a:hover,
 a:focus {
     color: #ed5b5b;
 }
+@font-face {
+    font-family: big;
+    src: url("BIG JOHN.otf");
+}
+@font-face {
+    font-family: small;
+    src: url("Mitr-Light.ttf");
+}
+@font-face {
+    font-family: middle;
+    src: url("Mitr-SemiBold.ttf");
+}
 h1 {
+    font-family: big;
     font-size: 100px;
     text-align: center;
     color: white;
-    margin: 50px;
+    line-height: 30px;
 }
 h2 {
-    font-family: 'Satisfy', cursive;
-    font-size: 30px;
+    font-family: small;
+    font-size: 24.5px;
     text-align: center;
-    color: #d2242a;
+    color: white;
     line-height: 45px;
     margin-top: 50px;
 }
 h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 55px;
-    color: #a09e9e;
-    margin-bottom: 20px;
+    font-family: big;
+    font-size: 125px;
+    text-align: center;
+    color: white;
 }
 h4 {
-    font-family: 'Open Sans', sans-serif;
+    font-family:middle;
     font-size: 25px;
     color: #e6c01b;
+    margin-bottom: 10px;
+}
+h5 {
+    font-family:middle;
+    font-size: 1px;
+    color: #353a6a;
     margin-bottom: 10px;
 }
 p {
