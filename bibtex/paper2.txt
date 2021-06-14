@@ -1,5 +1,5 @@
 @inproceedings{han2021cwr,
-  title={Single Underwater Image Restoration by contrastive learning},
+  title={Single Underwater Image Restoration by Contrastive Learning},
   author={Junlin Han and Mehrdad Shoeiby and Tim Malthus and Elizabeth Botha and Janet Anstee and Saeed Anwar and Ran Wei and Lars Petersson and Mohammad Ali Armin},
   booktitle={IEEE International Geoscience and Remote Sensing Symposium (IGARSS)},
   year={2021}
