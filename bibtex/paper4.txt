@@ -1,0 +1,6 @@
+@article{han2021underwater,
+  title={Underwater Image Restoration via Contrastive Learning and a Real-world Dataset},
+  author={Junlin Han and Mehrdad Shoeiby and Tim Malthus and Elizabeth Botha and Janet Anstee and Saeed Anwar and Ran Wei and Mohammad Ali Armin and Honngdong Li and Lars Petersson},
+  journal={arXiv preprint arXiv:2106.10718},
+  year={2021}
+}
