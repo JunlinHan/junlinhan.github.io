@@ -208,7 +208,7 @@
 					</td>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
+							<span style="font-size:24px"><a href='https://github.com/JunlinHan/BID'>[GitHub]</a></span><br>
 						</center>
 					</td>
 				</tr>
@@ -221,7 +221,7 @@
 			<tr>
 				<td width=260px>
 					<center>
-						<img class="round" style="width:500px" src="./resources/teaser.png"/>
+						<img class="round" style="width:1000px" src="./resources/paper5/BID.gif"/>
 					</center>
 				</td>
 			</tr>
@@ -240,19 +240,41 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				We present and study a task named Blind Image Decomposition (BID). The task requires separating a superimposed image with an unknown number of source components and mixing methodologies, into constituent underlying images, to reach complex real-world scenarios. For example, rain exists in different formats such as rain streak and raindrop. While raining, snow and haze often co-occur. Thus, to restore a rainy image, one should consider all possible formats/intensities of every component in a sense of combination, instead of assuming a fixed one. Rainy images under the BID setting are recognized as a combination of all possibilities between every source component. Following the setting of BID, we construct three benchmarking datasets, including mixed image decomposition across multiple domains, real-scenario image deraining, and joint (shadow/reflection/watermark) removal. Also, a simple yet general, strong, and flexible network, BIDeN (Blind Image Decomposition Network), is proposed to perform various BID tasks. Experimental results show that BIDeN outperforms image decomposition method, and is competitive to methods designed for specific tasks, under a more challenging setting.
+				We present and study a novel task named <font color="red">B</font>lind <font color="red">I</font>mage <font color="red">D</font>ecomposition (<font color="red">BID</font>), which requires separating a superimposed image into constituent underlying images in a blind setting, that is, both the source components involved in mixing as well as the mixing mechanism are unknown. For example, rain may consist of multiple components, such as rain streaks, raindrops, snow, and haze. Rainy images can be treated as an arbitrary combination of these components, some of them or all of them. How to decompose superimposed images, like rainy images, into distinct source components is a crucial step towards real-world vision systems. To facilitate research on this new task, we construct three benchmark datasets, including mixed image decomposition across multiple domains, real-scenario deraining, and joint shadow/reflection/watermark removal. Moreover, we propose a simple yet general <font color="red">B</font>lind <font color="red">I</font>mage <font color="red">De</font>composition <font color="red">N</font>etwork (<font color="red">BIDeN</font>) to serve as a strong baseline for future work. Experimental results demonstrate the tenability of our benchmarks and the effectiveness of BIDeN.
 			</td>
 		</tr>
 	</table>
 	<br>
 
+	<center><h1>Applications</h1></center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:500px" src="./resources/paper5/task2.png"/>
+						<img class="round" style="height:300px" src="./resources/paper5/task3.png"/>
+						<img class="round" style="width:850px" src="./resources/paper5/bid_rain.png"/>
+						<img class="round" style="width:850px" src="./resources/paper5/bid_joint.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table align=center width=850px>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</table>
+	</center>
+
 	<hr>
 	<center><h1>Talk</h1></center>
-	<p align="center">
+	Coming (not very) soon.
+	<!-- <p align="center">
 		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-	</p>
+	</p> -->
 
-	<table align=center width=800px>
+	<!-- <table align=center width=800px>
 		<br>
 		<tr>
 			<center>
@@ -261,7 +283,7 @@
 			</center>
 		</tr>
 	</table>
-	<hr>
+	<hr> -->
 
 	<center><h1>Code</h1></center>
 
@@ -277,16 +299,18 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:450px" src="./resources/method_diagram.png"/></td>
+					<td><img class="round" style="width:1000px" src="./resources/paper5/network.png"/></td>
 				</center>
 			</td>
 		</tr>
 	</table>
+	<center>
+	The architecture of Blind Image Decomposition Network (BIDeN).
+	</center>
 	<table align=center width=850px>
 		<center>
 			<tr>
 				<td>
-					Short description if wanted
 				</td>
 			</tr>
 		</center>
@@ -294,19 +318,18 @@
 	<table align=center width=800px>
 		<br>
 		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
+			<span style="font-size:28px">&nbsp;<a href='https://github.com/JunlinHan/BID'>[GitHub]</a>
 			</center>
-		</span>
 	</table>
 	<br>
 	<hr>
 	<table align=center width=450px>
-		<center><h1>Paper and Supplementary Material</h1></center>
+		<center><h1>Paper</h1></center>
 		<tr>
 			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">F. Author, S. Author, T. Author.<br>
-				<b>Creative and Descriptive Paper Title.</b><br>
-				In Conference, 20XX.<br>
+			<td><span style="font-size:14pt">Han <i>et al.</i><br>
+				<b>Blind Image Decomposition</b><br>
+				Preprint<br>
 				(hosted on <a href="">ArXiv</a>)<br>
 				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
 				<span style="font-size:4pt"><a href=""><br></a>
@@ -319,7 +342,7 @@
 	<table align=center width=600px>
 		<tr>
 			<td><span style="font-size:14pt"><center>
-				<a href="./resources/bibtex.txt">[Bibtex]</a>
+				<a href="./resources/paper5/paper5.txt">[Bibtex]</a>
 			</center></td>
 		</tr>
 	</table>

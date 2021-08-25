@@ -40,6 +40,7 @@
  <A HREF="#Education">Education</A> |
   <A HREF="#Education">Experience </A> |
  <A HREF="#Publications">Publications</A> |
+ <br>
  <!-- <A HREF="#Projects">Projects</A> | -->
  <A HREF="#Talks">Talks</A> |
  <A HREF="#Services">Services</A> |
@@ -60,11 +61,12 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 <b>Greetings, welcome to my website!</b>
 <ul>
 <li>I am a third-year undergraduate student at ANU. I'm currently working at Data61 (formerly known as NICTA), where I'm fortunate to be co-advised by <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a> and <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a>.</li>
-<li>At the beginning, I was born in <a href="https://en.wikipedia.org/wiki/Chengdu">Chengdu</a>, Sichuan. It's famous for spicy cuisines and pandas. </li>
+<!-- <li>At the beginning, I was born in <a href="https://en.wikipedia.org/wiki/Chengdu">Chengdu</a>, Sichuan. It's famous for spicy cuisines and pandas. </li> -->
 </ul>
 
 <A NAME="News"><h2>News</h2></A>
 <ul>
+<li>[08.2021] Our latest paper, Blind Image Decomposition is out. A novel computer vision/graphics task. BIDeN (Blind Image Decomposition Network) is designed to serve as a baseline. Chcek the <a href = "https://junlinhan.github.io/projects/BID.html"> project page</a> for more.
 <li>[04.2021] A paper (Topic: Image-to-Image Translation) accepted to <a href="https://data.vision.ee.ethz.ch/cvl/ntire21/">NTIRE</a> (<a href="http://cvpr2021.thecvf.com/">CVPRW</a>) 2021 as <font color="red">oral </font> presentation. The new SOTA method for unsupervised image-to-image translation. Code is available. </li>
 <li>[03.2021] A paper (Topic: Underwater Image Restoration) accepted to <a href="https://igarss2021.com/">IGARSS</a> 2021 as <font color="red">oral </font> presentation. Code and dataset are available.</li>
 </ul>
@@ -72,27 +74,27 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 <A NAME="Interest"><h2>Research Interests</h2></A>
 <ul>
 <li>My research interests lie in computer vision & computer graphics, and I'm always looking for ways to apply graphics techniques to vision, or vice versa. I'm also interested in machine learning and applications in remote sensing. </li>
-<li>My work span learning for content creation, learning for visual perception, and learning for scene understanding.</li>
+<li>I have broad research interests, my work span content creation, visual perception, scene understanding, image restoration/enhancement, self-supervised representation learning, 3D vision.</li>
 </ul>
 
 
 
 
 <A NAME="Education"><h2>Education</h2></A>
-<b>Undergraduate (2019 - 2023)</b>
+<b>Undergraduate (2019 - 06.2023)</b>
 <ul>
-<li>B.S. Information Technology (Honours), <a href="https://cecs.anu.edu.au/">College of Engineering and Computer Science</a>, <a href="https://www.anu.edu.au/">ANU</a>.
+<li>B.S. Information Technology (Honours), <a href="https://cecs.anu.edu.au/">College of Engineering and Computer Science</a>, <a href="https://www.anu.edu.au/">ANU</a>
 </li>
-&nbsp; GPA in US standard: 3.95/4.0.
+&nbsp; GPA in US standard: 3.95/4.0
 <!-- <li>Some courseworks: Computer Vision (7.0/7.0), Discrete Mathematical Models (7.0/7.0), Programming as Problem Solving (7.0/7.0), Statistical Techniques (7.0/7.0), Programming for Scientists (7.0/7.0), Relational Databases(7.0/7.0), Information Theory (6.0/7.0).</li> -->
 <li>Public online courses: CS231N: Convolutional Neural Networks for Visual Recognition, CS131: Computer Vision: Foundations and Applications, CS231A: Computer Vision, From 3D Reconstruction to Recognition, and CS224n: Natural Language Processing with Deep Learning. </li>
 </ul>
 
 <A NAME="Experience"><h2>Experience</h2></A>
-<b>Research intern at Data61, CSIRO. (07.2020 - 12.2021)</b>
+<b>Research intern at Data61, CSIRO. (08.2020 - 12.2021)</b>
 <ul>
-<li> Topics: Low-level vision and Generative models. </li>
-<li> Advised by <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a>, <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a>.
+<li> Topics: low-level vision, generative models, self-supervised learning </li>
+<li> Advised by <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a>, <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a>
 </ul>
 
 <!-- define a function to add publication -->
@@ -143,9 +145,14 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
 
 <table>
   <script type="text/javascript">
+  add_publication(title='Blind Image Decomposition',
+                 img='./projects/resources/paper5/BID.gif',
+                 author='<b>Junlin Han</b>, Weihao Li, Pengfei Fang, Chunyi Sun, Jie Hong, Ali Armin, <br>Lars Petersson, Hongdong Li',
+                 note='Preprint',
+                 link=[["https://junlinhan.github.io/projects/BID.html","project page"], ["https://arxiv.org/abs/2106.10718","arXiv"],["https://github.com/JunlinHan/BID","Code"],["https://github.com/JunlinHan/BID","Dataset"],["./bibtex/paper5.txt","BibTex"]]);
   add_publication(title='Underwater Image Restoration via Contrastive Learning and a Real-world Dataset',
                  img='./paperimages/paper4.JPG',
-                 author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Mohammad Ali Armin, Hongdong Li, Lars Petersson',
+                 author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, <br> Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Ali Armin, <br> Hongdong Li, Lars Petersson',
                  note='Preprint',
                  link=[["https://arxiv.org/abs/2106.10718","arXiv"],["https://github.com/JunlinHan/CWR","Code"],["https://github.com/JunlinHan/CWR","Dataset"],["./bibtex/paper4.txt","BibTex"]]);
     add_publication(title='Wholistic Segmentation: Learning to Segment Every Pixel',
@@ -155,15 +162,15 @@ Email: junlinhcv@gmail.com, junlin.han@data61.csiro.au. <br />
                    link=[["./Files/han_dualcontrastiv.pdf","Coming soon"]]);
     add_publication(title='Single Underwater Image Restoration by Contrastive Learning',
                     img='./paperimages/paper2.JPG',
-                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Mohammad Ali Armin',
-                    note='<a href="https://igarss2021.com/"> IGARSS (<font color="red">Oral</font>), 2021</a>',
+                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Ali Armin',
+                    note='<a href="https://igarss2021.com/"> IGARSS (<font color="red">oral</font>), 2021</a>',
                     link=[["https://arxiv.org/abs/2103.09697","arXiv"],
                     ["https://github.com/JunlinHan/CWR","Code"],["https://github.com/JunlinHan/CWR","Dataset"]
                     ,["./bibtex/paper2.txt","BibTex"]]);
    add_publication(title='Dual Contrastive Learning for Unsupervised Image-to-Image Translation',
                     img='./paperimages/paper1.PNG',
-                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Mohammad Ali Armin',
-                      note=' <a href="https://data.vision.ee.ethz.ch/cvl/ntire21/">NTIRE, CVPRW (<font color="red">Oral</font>), 2021</a> ',
+                    author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Ali Armin',
+                      note=' <a href="https://data.vision.ee.ethz.ch/cvl/ntire21/">NTIRE, CVPRW (<font color="red">oral</font>), 2021</a> ',
                     link=[["https://arxiv.org/abs/2104.07689","arXiv"],["https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.pdf","CVF"],
                     ["https://github.com/JunlinHan/DCLGAN","Code"], ["./bibtex/paper1.txt","BibTex"],["https://youtu.be/w0oltXvLgmI","Video"],["./Files/DCLGAN_slide.pptx","Slide"]]);
   </script>
@@ -195,13 +202,13 @@ Photonics Journal (PJ) 2021
 <A NAME="Skills"><h2>Skills</h2></A>
 <ul>
 <li><b>Programing Language</b></li>
-Proficient in MATLAB, Python.
+Proficient in MATLAB, Python
 <br>
-Familiar with Java, Haskell, R, CSS, Html, Assembly (ARMV7), SQL.
+Familiar with Java, Haskell, R, CSS, Html, Assembly (ARMV7), SQL
 <Li><b>Tool</b></li>
-NumPy, PyTorch, Git, LaTeX.
+NumPy, PyTorch, Git, LaTeX
 <li><b>Language</b></li>
-English (Fluent), Madarian (Native).
+English (Fluent), Madarian (Native)
 </ul>
 </font>
 
