@@ -1,0 +1,6 @@
+@inproceedings{hong2022goss,
+  title={GOSS: Towards Generalized Open-set Semantic Segmentation},
+  author={Jie Hong, Weihao Li, Junlin Han, Jiyang Zheng, Pengfei Fang, Mehrtash Harandi, Lars Petersson},
+  booktitle={arXiv preprint arXiv:2203.12116},
+  year={2022}
+}
