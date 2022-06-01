@@ -1,0 +1,6 @@
+@inproceedings{han2022cropmix,
+  title={CropMix: Sampling a Rich Input Distribution via Multi-Scale Cropping},
+  author={Junlin Han and Lars Petersson and Hongdong Li and Ian Reid},
+  booktitle={arXiv preprint arXiv:2205.15955},
+  year={2022}
+}
