@@ -1,6 +1,6 @@
-@inproceedings{han2021bid,
+@inproceedings{han2022bid,
   title={Blind Image Decomposition},
   author={Junlin Han and Weihao Li and Pengfei Fang and Chunyi Sun and Jie Hong and Mohammad Ali Armin and Lars Petersson and Hongdong Li},
-  booktitle={arXiv preprint arXiv:2108.11364},
-  year={2021}
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2022}
 }
