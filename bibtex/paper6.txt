@@ -1,0 +1,6 @@
+@inproceedings{hong2022curvature,
+  title={Curvature-Aware Geometry for Visual Anomaly Recognition},
+  author={Jie Hong, Pengfei Fang, Weihao Li, Junlin Han, Lars Petersson, Mehrtash Harandi},
+  booktitle={arXiv preprint arXiv:2208.01188},
+  year={2022}
+}
