@@ -213,7 +213,7 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				We study the problem of measuring how memorable an image will be to machines, as a pathway toward understanding machine intelligence. Firstly, we propose a self-supervised machine memory quantification pipeline, dubbed ``MachineMem measurer'', to collect machine memorability scores of visual data. Similar to humans, machines also tend to memorize certain kinds of images, whereas the types of images that machines and humans memorialize are distinct. Through in-depth analysis and comprehensive visualizations, we gradually unveil that complex images are usually more memorable to machines.  
+				This paper studies the problem of measuring how memorable an image will be to machines, as a path to explore machine intelligence. Firstly, we propose a self-supervised machine memory quantification pipeline, dubbed ``MachineMem measurer'', to collect machine memorability scores of images. Similar to humans, machines also tend to memorize certain kinds of images, whereas the types of images that machines and humans memorialize are different. Through in-depth analysis and comprehensive visualizations, we gradually unveil that "complex" images are usually more memorable to machines.  
 We further conduct extensive experiments across 11 different machines (from conventional linear classifiers to modern ViTs) and 9 pre-training methods to analyze and understand machine memory. This work proposes the concept of machine memorability and opens a new research direction at the interface between machine memory and visual data.  
 			</td>
 		</tr>
@@ -244,11 +244,29 @@ We further conduct extensive experiments across 11 different machines (from conv
 
 		<tr>
 			<td>
-			 <B>Design idea:</B> The design of the MachineMem measurer follows the key idea used in the <a href="http://web.mit.edu/phillipi/Public/MemorabilityPAMI/index.html">visual memory game</a>, that is, quantifying machine memory through a repeat detection task. The visual memory game can be summarized using 3 keywords: see, repeat, and detect. We design MachineMem measurer as a 3-stage pipeline, where each stage corresponds to each keyword. 
+			 <B>Design idea:</B> The design of the MachineMem measurer follows the key idea used in the <a href="http://web.mit.edu/phillipi/Public/MemorabilityPAMI/index.html">visual memory game</a>, that is, quantifying machine memory through a repeat detection task. The visual memory game can be summarized using 3 keywords: see, repeat, and detect. We design the MachineMem measurer as a 3-stage pipeline, where each stage corresponds to a keyword.  
 			</td>
 		</tr>
 	</table>
 	<br>
+
+	<center><h1>Predict Machine Memory</h1></center>
+<table align=center width=850px>
+	<tr>
+		<td>
+			Collecting MachineMem scores with the MachineMem measurer can be time-consuming. Thereby, we trained our MachineMem predictor and HumanMem predictor. Collecting MachineMem scores with the MachineMem measurer can be time-consuming. Thereby, we trained our MachineMem predictor and HumanMem predictor. They are runnable in this website!
+Upload your image to see how memorable it is!
+			<br><B>Upload your image to see how memorable it is!</B> 
+		<br>
+		</td>
+	</tr>
+</table>
+<br>
+<script type="module"
+src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
+</script>
+<gradio-app space="Junlinh/memorability_prediction"></gradio-app>
+
 	<!-- <hr>
 	<center><h1>Talk</h1></center>
 	Coming soon.
