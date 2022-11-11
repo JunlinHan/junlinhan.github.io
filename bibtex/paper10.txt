@@ -1,0 +1,6 @@
+@inproceedings{sun2022nerfeditor,
+  title={NeRFEditor: Differentiable Style Decomposition for Full 3D Scene Editing},
+  author={Chunyi Sun and Yanbin Liu and Junlin Han and Stephen Gould},
+  booktitle={arXiv preprint arXiv:},
+  year={2022}
+}
