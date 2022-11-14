@@ -16,6 +16,10 @@
 		font-weight:300;
 	}
 
+	h2 {
+		font-weight:300;
+	}
+
 	.disclaimerbox {
 		background-color: #eee;
 		border: 1px solid #eeeeee;
@@ -198,7 +202,7 @@
 					</td>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://github.com/JunlinHan/BID'>[GitHub]</a></span><br>
+							<span style="font-size:24px"><a href='https://github.com/JunlinHan/MachineMem'>[Code]</a></span><br>
 						</center>
 					</td>
 				</tr>
@@ -235,7 +239,7 @@
 		<tr>
 			<td>
 		     <b>A realization of the MachineMem measurer.</b> Our MachineMem measurer has three stages: (a) Seeing images through self-supervision, (b) Recognizing seen and unseen images, and (c) Predicting whether an image has been seen. Each image presented here (cat, apple, and bird) denotes an 
-			 image set ( <i>A, B,</i> and <i>C</i>) containing n images. We are interested in measuring MachineMem scores of set <i>A</i>. 
+			 image set (<i>A, B,</i> and <i>C</i>) containing n images. We are interested in measuring MachineMem scores of set <i>A</i>. 
 			 In each episode of the MachineMem measurer, we randomly draw set <i>B</i> and set <i>C</i> from a large dataset while keeping the cat set identical. 
 			 MachineMem scores of set <i>A</i> are obtained by repeating MachineMem measurer <i>m</i> times. 
 			</td>
@@ -253,7 +257,7 @@
 <table align=center width=850px>
 	<tr>
 		<td>
-			Collecting MachineMem scores with the MachineMem measurer can be time-consuming. Thereby, we trained our MachineMem predictor and HumanMem predictor. They are runnable in this website!
+			Collecting MachineMem scores with the MachineMem measurer can be time-consuming. Thereby, we trained our MachineMem predictor and HumanMem predictor. 
 			<br><B>Upload your image to see how memorable it is!</B> 
 		<br>
 		</td>
@@ -271,7 +275,7 @@ src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
 <table align=center width=850px>
 	<tr>
 		<td>
-			Are image attributes enough to determine whether images will be memorable to machines? Here we study 13 image attributes. Based on MachineMem scores of images, we sort all LaMem images and group them into 10 groups, from the group with a mean of lowest MachineMem scores to the highest.
+			Are image attributes enough to determine whether images will be memorable to machines? We study 13 image attributes. Based on MachineMem scores of images, we sort all LaMem images and group them into 10 groups, from the group with a mean of lowest MachineMem scores to the highest.
 		</td>
 	</tr>
 </table>
@@ -286,10 +290,7 @@ src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
 <table align=center width=850px>
 	<tr>
 		<td>
-			<b>Relation between image groups and varying image attributes.</b>  Value and contrast are the two most notable attributes that
-		 correlate moderately (<i>ρ</i> ≥ 0.3) with MachineMem scores. Attributes including hue and saturation correlate weakly (0.15 ≤ <i>ρ</i> < 0.3)
-		 with MachineMem scores. NIQE, entropy, number of objects, and number of classes are very weakly (0.08 ≤ <i>ρ</i> < 0.15) correlated with
-		 MachineMem scores. Spearman’s correlation (<i>ρ</i>) is computed based on all data (58741 <a href="http://memorability.csail.mit.edu/index.html">laMem</a> images).
+		 Value and contrast are the two most notable attributes that correlate moderately (<i>ρ</i> ≥ 0.3) with MachineMem scores. Spearman’s correlation (<i>ρ</i>) is computed based on all data (58741 <a href="http://memorability.csail.mit.edu/index.html">laMem</a> images).
 		</td>
 	</tr>
 </table>
@@ -299,7 +300,7 @@ src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
 <table align=center width=850px>
 	<tr>
 		<td>
-			Do images belonging to certain classes tend to be more or less memorable to machines? We use the MachineMem predictor to predict  MachineMem scores of all ImageNet training images to obtain mean MachineMem scores of 1000 (ImageNet) classes. 
+			Do images belonging to certain classes tend to be more or less memorable to machines? We use the MachineMem predictor to predict MachineMem scores of all ImageNet training images to obtain mean MachineMem scores of 1000 (ImageNet) classes. 
 		</td>
 	</tr>
 </table>
@@ -314,7 +315,7 @@ src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
 <table align=center width=850px>
 	<tr>
 		<td>
-			<b>ImageNet objects sorted by their mean MachineMem scores.</b> We report the top-5 and bot-5 classes and their mean MachineMem scores. The top classes tend to have lower value and stronger contrast. For example, panda images always have both white and black colors and are likely to have green backgrounds, all these together provide strong contrast. The bottom classes usually have light backgrounds covering a large percentage of pixels. This explains why classes ranked as the bottom are usually related to sky and sea.
+			 We report the top-5 and bot-5 classes and their mean MachineMem scores. The top classes tend to have lower value and stronger contrast.  The bottom classes usually have light backgrounds covering a large percentage of pixels. 
 		</td>
 	</tr>
 </table>
@@ -339,9 +340,8 @@ src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
 <table align=center width=850px>
 	<tr>
 		<td>
-			<b>Images generated by GANalyze.</b>  We visualize what will happen if we make an image more or less memorable to machines.
 We summarize 6 trends, where the first 3 of them (value, contrast, and number of objects) are previously found in the quantitative analysis
-part. We show the results of GANalyze as further confirmations. For certain objects, viewing angle, shape, and tasty are hidden trends that
+part. For certain objects, viewing angle, shape, and tasty are hidden trends that
 are unveiled by GANalyze. An overall trend is that GANalyze is often complexifying images to make them more memorable to machines.
 		</td>
 	</tr>
@@ -396,7 +396,7 @@ Here we explore two questions to shed light on understanding machine memory: Wil
 		<td>
 			Spearman's correlation (<i>ρ</i>) of two machines/methods is presented at each off-diagonal. 
 			<br>
-			<b>left:</b> Machines within each category (conventional machines, classic CNNs, modern CNNs, and recent ViTs) usually show strong correlations, that is, they tend to memorize similar images. However, machines across each category do not show obvious correlations most of the time.
+			<b>left:</b> Machines within each category (conventional machines, classic CNNs, modern CNNs, and recent ViTs) usually show strong correlations. However, machines across each category do not show obvious correlations most of the time.
 			<br>
 			<b>right:</b> For an identical structured machine, MachineMem can be treated as an intrinsic and stable property of an image that is shared across different backgrounds (pre-training knowledge). 
 		</td>
@@ -420,7 +420,7 @@ Here we explore two questions to shed light on understanding machine memory: Wil
 				<b>What Images are More Memorable to Machines?</b><br>
 				<a href="https://arxiv.org/abs/2108.11364">preprint </a><br>
 				(hosted on <a href="https://arxiv.org/abs/2108.11364">ArXiv</a>)<br>
-				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				(<a href="https://github.com/JunlinHan/MachineMem">Code</a>)<br>
 				<span style="font-size:4pt"><a href=""><br></a>
 				</span>
 			</td>
