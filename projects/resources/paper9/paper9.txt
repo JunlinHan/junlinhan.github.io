@@ -1,6 +1,6 @@
 @inproceedings{han2022machinemem,
   title={What Images are More Memorable to Machines?},
   author={Junlin Han and Huangying Zhan and Jie Hong and Pengfei Fang and Hongdong Li and Lars Petersson and Ian Reid},
-  booktitle={arXiv preprint arXiv:,
+  booktitle={arXiv preprint arXiv:2211.07625},
   year={2022}
 }
