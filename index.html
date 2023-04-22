@@ -159,6 +159,7 @@ Email: junlin.han@data61.csiro.au, junlinhcv@gmail.com<br />
   }
 </script>
 
+
 <A NAME="Publications"><h2>Publications</h2></A>
 Representative papers are <font color="green">highlighted</font>.
 
@@ -166,6 +167,26 @@ Representative papers are <font color="green">highlighted</font>.
 <button id="show-selected">Show Selected Only</button>
 <button id="show-all">Show All</button>
 <div id="selected-content" class="content">
+
+  <script>
+    function setInitialState() {
+      document.getElementById('selected-content').style.display = 'block';
+      document.getElementById('all-content').style.display = 'none';
+    }
+    
+    document.addEventListener('DOMContentLoaded', setInitialState);
+    
+    document.getElementById('show-selected').addEventListener('click', function () {
+      document.getElementById('selected-content').style.display = 'block';
+      document.getElementById('all-content').style.display = 'none';
+    });
+    
+    document.getElementById('show-all').addEventListener('click', function () {
+      document.getElementById('selected-content').style.display = 'none';
+      document.getElementById('all-content').style.display = 'block';
+    });
+    </script>
+    
 <table>
   <script type="text/javascript"> 
       add_publication(title='<font color="green"> What Images are More Memorable to Machines?</font>',
@@ -253,26 +274,6 @@ Representative papers are <font color="green">highlighted</font>.
 
 <p><br /></p>
 
-<script>
-function setInitialState() {
-  document.getElementById('selected-content').style.display = 'block';
-  document.getElementById('all-content').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', setInitialState);
-
-document.getElementById('show-selected').addEventListener('click', function () {
-  document.getElementById('selected-content').style.display = 'block';
-  document.getElementById('all-content').style.display = 'none';
-});
-
-document.getElementById('show-all').addEventListener('click', function () {
-  document.getElementById('selected-content').style.display = 'none';
-  document.getElementById('all-content').style.display = 'block';
-});
-
-
-</script>
 <!-- <A NAME="Talks"><h2>Talks</h2></A>
 <b>I share some of my talks and slides here, please feel free to use them if you are interested in.</b>
 <ul>
