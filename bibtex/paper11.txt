@@ -1,0 +1,6 @@
+@inproceedings{jie2023hyperbolic,
+  title={Hyperbolic Audio-visual Zero-shot Learning},
+  author={Jie Hong, Zeeshan Hayder, Junlin Han, Pengfei Fang, Mehrtash Harandi, Lars Petersson},
+  booktitle={International Conference on Computer Vision (ICCV)},
+  year={2023}
+}
