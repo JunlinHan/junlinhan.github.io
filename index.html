@@ -182,17 +182,17 @@ I am also interested in extending my research to other scientific domains, such 
 
 
 <A NAME="Publications"><h2>Publications</h2></A>
-Representative papers are <font color="green">highlighted</font>.
+Representative papers (as leading author) are <font color="green">highlighted</font>.
 
 <br>
-<button id="show-selected">Show Selected Only</button>
 <button id="show-all">Show All</button>
+<button id="show-selected">Show Selected</button>
 <div id="selected-content" class="content">
 
   <script>
     function setInitialState() {
-      document.getElementById('selected-content').style.display = 'block';
-      document.getElementById('all-content').style.display = 'none';
+      document.getElementById('selected-content').style.display = 'none';
+      document.getElementById('all-content').style.display = 'block';
     }
     
     document.addEventListener('DOMContentLoaded', setInitialState);
@@ -242,7 +242,7 @@ Representative papers are <font color="green">highlighted</font>.
       add_publication(title=' NeRFEditor: Differentiable Style Decomposition for Full 3D Scene Editing',
                       img='./paperimages/paper10.png',
                       author='Chunyi Sun, Yanbin Liu, <b>Junlin Han</b>, Stephen Gould',
-                      note='IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024',
+                      note='WACV, 2024',
                       link=[["https://chuny1.github.io/NeRFEditor/nerfeditor.html","Project page"],["https://arxiv.org/abs/2212.03848","arXiv"], ["https://arxiv.org/pdf/2212.03848.pdf","pdf"],["./bibtex/paper10.txt","BibTex"]]
                       );         
       add_publication(title=' Hyperbolic Audio-visual Zero-shot Learning',
