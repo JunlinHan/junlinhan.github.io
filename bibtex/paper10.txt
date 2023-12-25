@@ -1,5 +1,5 @@
 @inproceedings{sun2024nerfeditor,
-  title={NeRFEditor: Differentiable Style Decomposition for Full 3D Scene Editing},
+  title={NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing},
   author={Chunyi Sun and Yanbin Liu and Junlin Han and Stephen Gould},
   booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
   year={2024}
