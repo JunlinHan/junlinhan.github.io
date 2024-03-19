@@ -81,14 +81,14 @@ Email: junlinhcv@gmail.com; junlinhan@meta.com; junlin.han@eng.ox.ac.uk<br />
   <summary>(1) <b>Generation</b> and <b>manipulation</b> of 2D, 3D, and 4D visual data,</summary>   
   <br>
   Selected projects: <a href="https://github.com/JunlinHan/DCLGAN">Image-to-Image translation</a>, <a href="https://junlinhan.github.io/projects/BID.html">Image decomposition</a>, 
-  <a href="https://chuny1.github.io/NeRFEditor/nerfeditor.html">NeRF editing</a>, <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D generation</a>
+  <a href="https://chuny1.github.io/NeRFEditor/nerfeditor.html">NeRF editing</a>, <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D generation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Large 3D generative models</a>
   <br>
 </details>
 <br>
 <details>
   <summary>(2) Use <b>augmented, synthetic, and distilled data</b> for training machine learning systems,</summary>   
   <br>
- Selected projects: <a href="https://github.com/JunlinHan/YOCO">How to perform data augmentation</a> 
+ Selected projects: <a href="https://github.com/JunlinHan/YOCO">How to perform data augmentation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Synthetic data for training 3D generative models</a>
   <br>
 </details>
 <br>
@@ -191,14 +191,16 @@ I am also interested in extending my research to other scientific domains, such 
 Representative papers (as leading author) are <font color="green">highlighted</font>.
 
 <br>
-<button id="show-all">Show All</button>
-<button id="show-selected">Show Selected</button>
+<div>
+  <button id="show-selected" style="padding: 10px 20px; background-color: #4c84af; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;" onclick="showSelected()">Show Selected Papers</button>
+  <button id="show-all" style="padding: 10px 20px; background-color: #4c84af; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;" onclick="showAll()">Show All Papers</button>
+</div>
 <div id="selected-content" class="content">
 
   <script>
     function setInitialState() {
-      document.getElementById('selected-content').style.display = 'none';
-      document.getElementById('all-content').style.display = 'block';
+      document.getElementById('selected-content').style.display = 'block';
+      document.getElementById('all-content').style.display = 'none';
     }
     
     document.addEventListener('DOMContentLoaded', setInitialState);
@@ -216,6 +218,11 @@ Representative papers (as leading author) are <font color="green">highlighted</f
     
 <table>
   <script type="text/javascript"> 
+      add_publication(title='<font color="green">VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models</font>',
+                      img='./paperimages/paper16.png',
+                      author='<b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr',
+                      note='Preprint',
+                      link=[["https://junlinhan.github.io/projects/vfusion3d.html","Project page"], ["https://arxiv.org/abs/2403.12034","arXiv"], ["https://arxiv.org/pdf/2403.12034.pdf","pdf"],["./bibtex/paper16.txt","BibTex"]]);   
       add_publication(title='<font color="green"> What Images are More Memorable to Machines?</font>',
                    img='./paperimages/paper9.png',
                    author='<b>Junlin Han</b>, Huangying Zhan, Jie Hong, Pengfei Fang, Hongdong Li, Lars Petersson, Ian Reid',
@@ -239,9 +246,21 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 <div id="all-content" class="content">
   <table>
     <script type="text/javascript"> 
+      add_publication(title='<font color="green">VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models</font> ',
+                      img='./paperimages/paper16.png',
+                      author='<b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr',
+                      note='Preprint',
+                      link=[["https://junlinhan.github.io/projects/vfusion3d.html","Project page"], ["https://arxiv.org/abs/2403.12034","arXiv"], ["https://arxiv.org/pdf/2403.12034.pdf","pdf"],["./bibtex/paper16.txt","BibTex"]]
+                      );   
+      add_publication(title=' Strong and Controllable Blind Image Decomposition',
+                      img='./paperimages/paper15.png',
+                      author='Zeyu Zhang*, <b>Junlin Han*</b>, Chenhui Gou*, Hongdong Li, Liang Zheng',
+                      note='Preprint',
+                      link=[["https://arxiv.org/abs/2403.10520","arXiv"], ["https://arxiv.org/pdf/2403.10520.pdf","pdf"], ["https://github.com/Zhangzeyu97/CBD.git","Code"],["./bibtex/paper15.txt","BibTex"]]
+                      );       
       add_publication(title=' How Many Unicorns Are in This Image? A Safety Evaluation Benchmark for Vision LLMs',
                       img='./paperimages/paper14.png',
-                      author='Haoqin Tu, Chenhang Cui, Zijun Wang, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie',
+                      author='Haoqin Tu*, Chenhang Cui*, Zijun Wang*, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie',
                       note='Preprint',
                       link=[["https://arxiv.org/abs/2311.16101","arXiv"], ["https://arxiv.org/pdf/2311.16101.pdf","pdf"], ["https://github.com/UCSC-VLAA/vllm-safety-benchmark","Code"],["./bibtex/paper14.txt","BibTex"]]
                       );        
@@ -310,16 +329,10 @@ Representative papers (as leading author) are <font color="green">highlighted</f
                       author='<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Ali Armin',
                         note=' NTIRE, CVPRW (<font color="red">oral</font>), 2021',
                       link=[["https://arxiv.org/abs/2104.07689","arXiv"], ["https://arxiv.org/pdf/2104.07689.pdf","pdf"], ["https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.pdf","CVF"],
-                      ["https://github.com/JunlinHan/DCLGAN","Code"],["https://youtu.be/w0oltXvLgmI","Video"],["./Files/DCLGAN_slide.pptx","Slide"],["./bibtex/paper1.txt","BibTex"]]);     
-    add_publication(title=' SFD: Structure from Deformable Neural Point Field',
-                      img='./paperimages/paper12.jpg',
-                      author='Chunyi Sun, Huangying Zhan, <b>Junlin Han</b>, Stephen Gould',
-                      note='Under review',
-                      link=[["https://arxiv.org/abs/2212.03848","Paper coming soon"]]);                                                                 
+                      ["https://github.com/JunlinHan/DCLGAN","Code"],["https://youtu.be/w0oltXvLgmI","Video"],["./Files/DCLGAN_slide.pptx","Slide"],["./bibtex/paper1.txt","BibTex"]]);                                                                  
     </script>
     </table>
   </div>
-
 <p><br /></p>
 
 <!-- <A NAME="Talks"><h2>Talks</h2></A>
@@ -335,7 +348,7 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 <A NAME="Services"><h2>Services</h2></A>
 <ul>
 <li><b>Conference review</b></li>
-CVPR 2022 2023 2024, NeurIPS 2022 2023, ICML 2022 2024, ECCV 2022, ICLR 2023 2024, ICCV 2023, ACCV 2022, AAAI 2023, BMVC 2023, WACV 2024
+CVPR 2022 2023 2024, NeurIPS 2022 2023, ICML 2022 2024, ECCV 2022 2024, ICLR 2023 2024, ICCV 2023, ACCV 2022, AAAI 2023, BMVC 2023, WACV 2024
 <br>
 <li><b>Journal review</b> </li>
 Transactions on Image Processing (TIP), Transactions on Geoscience and Remote Sensing (TGRS), Pattern Recognition, Neurocomputing, Journal of Oceanic Engineering (JOE)
@@ -381,7 +394,7 @@ for summer research at Data61-CSIRO
 <A NAME="Miscs"><h2>Miscs</h2></A>
 <ul>
 <li>At the beginning, I was born and raised in <a href="https://en.wikipedia.org/wiki/Chengdu">Chengdu</a>, which is famous for spice and pandas. </li>
-<li>I enjoyed residing and pursuing my studies in the diverse and captivating countries of Singapore and Australia.</li>
+<li>I enjoyed residing and pursuing my studies in the diverse and captivating countries of Singapore, Australia, and UK.</li>
 <li>Apart from my research, I am passionate about traveling (especially nature travel), taking photographs, fishing, and swimming.   </li>
 </ul>
 </font>
