@@ -1,6 +1,6 @@
 @article{han2024vfusion3d,
-  title={VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models},
-  author={Junlin Han, Filippos Kokkinos, Philip Torr},
-  journal={arXiv preprint arXiv:2403.12034},
+  title={Vfusion3d: Learning scalable 3d generative models from video diffusion models},
+  author={Han, Junlin and Kokkinos, Filippos and Torr, Philip},
+  journal={European Conference on Computer Vision (ECCV)},
   year={2024}
 }

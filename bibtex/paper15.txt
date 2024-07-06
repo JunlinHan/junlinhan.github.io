@@ -1,6 +1,6 @@
 @article{zhang2024strongbid,
   title={Strong and Controllable Blind Image Decomposition},
-  author={Zeyu Zhang, Junlin Han, Chenhui Gou, Hongdong Li, Liang Zheng},
+  author={Zhang, Zeyu and Han, Junlin and Gou, Chenhui and Li, Hongdong and Zheng, Liang},
   journal={arXiv preprint arXiv:2403.10520},
   year={2024}
 }
