@@ -1,0 +1,6 @@
+@article{wang2024mvssurvey,
+  title={Learning-based Multi-View Stereo: A Survey},
+  author={Fengjinhua Wang, Qingtian Zhu, Di Chang, Quankai Gao, Junlin Han, Tong Zhang, Richard Hartley, Marc Pollefeys},
+  journal={arXiv preprint arXiv:2408.15235},
+  year={2024}
+}
