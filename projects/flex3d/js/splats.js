@@ -95,7 +95,7 @@ export async function setSplatScene(name, view) {
     // on the x-axis.
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, Math.PI, 0);
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, 0, 0);  // NEW!
-    const rotation = new SPLAT.Vector3(0, Math.PI/2, 0); // Rotate around Y and then X
+    const rotation = new SPLAT.Vector3(Math.PI/2, 0, 0); // Rotate around Y and then X
     splat.rotation = SPLAT.Quaternion.FromEuler(rotation);
     splat.applyRotation();
 
@@ -105,8 +105,8 @@ export async function setSplatScene(name, view) {
     view.progressDialog.close();
     // Not sure if these are meant to be public, but it's javascript anything goes :)
     var controls = new OrbitControls(camera, view.canvas, /*alpha=*/0.0, /*beta=*/0.0, /*radius=*/startRadius, /*enableKeyboardControls=*/false);
-    controls.minAngle = -10
-    controls.maxAngle = 10
+    controls.minAngle = -30
+    controls.maxAngle = 30
     controls.minZoom = 0.6
     controls.maxZoom = 0.9
     controls.zoomSpeed = 0.03
