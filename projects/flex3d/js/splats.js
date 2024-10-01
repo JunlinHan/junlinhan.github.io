@@ -95,7 +95,7 @@ export async function setSplatScene(name, view) {
     // on the x-axis.
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, Math.PI, 0);
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, 0, 0);  // NEW!
-    const rotation = new SPLAT.Vector3(0, 0, 0); // Rotate around Y and then X
+    const rotation = new SPLAT.Vector3(Math.PI/2, 0, 0); // Rotate around Y and then X
     splat.rotation = SPLAT.Quaternion.FromEuler(rotation);
     splat.applyRotation();
 
