@@ -73,7 +73,7 @@ export async function setSplatScene(name, view) {
     view.loading = true;
     view.lastClick = new Date();
 
-    const startRadius = 1.5
+    const startRadius = 1
 
     const cameraData = new SPLAT.CameraData();
     cameraData.fx = 0.9 * startRadius * view.canvas.offsetWidth
@@ -107,8 +107,8 @@ export async function setSplatScene(name, view) {
     var controls = new OrbitControls(camera, view.canvas, /*alpha=*/0.0, /*beta=*/0.0, /*radius=*/startRadius, /*enableKeyboardControls=*/false);
     controls.minAngle = -45
     controls.maxAngle = 45
-    controls.minZoom = 0.7
-    controls.maxZoom = 0.9
+    controls.minZoom = 0.9
+    controls.maxZoom = 1.6
     controls.zoomSpeed = 0.03
     controls.panSpeed = 0.2
     controls.orbitSpeed = 1.75
