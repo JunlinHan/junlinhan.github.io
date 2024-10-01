@@ -76,8 +76,8 @@ export async function setSplatScene(name, view) {
     const startRadius = 1
 
     const cameraData = new SPLAT.CameraData();
-    cameraData.fx = 0.9 * startRadius * view.canvas.offsetWidth
-    cameraData.fy = 0.9 * startRadius * view.canvas.offsetHeight
+    cameraData.fx = 0.7 * startRadius * view.canvas.offsetWidth
+    cameraData.fy = 0.7 * startRadius * view.canvas.offsetHeight
 
     const camera = new SPLAT.Camera(cameraData);
     const renderer = new SPLAT.WebGLRenderer(view.canvas);
