@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Flex3D: Feed-Forward 3D Generation With Flexible Reconstruction Model And Input View Curation</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZERS5BVPS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8ZERS5BVPS');
+    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    <script defer src="js/fontawesome.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/synced_video_selector.js"></script>
+
+    <script type="module">
+        import { createSplatView, setSplatScene, setupCarousel } from "./js/splats.js"
+        setupCarousel(createSplatView("splat-picker"), document.querySelector("#splat-carousel"));
+    </script>
+    <style>
+        .final-element {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body style="padding: 5%; padding-top: min(15px, 5%); padding-bottom: min(5px, 5%); width: 100%">
+    <div class="container-lg text-center" style="max-width: 1500px; margin: auto;" id="main">
+        <header role="banner">
+            <!-- <div class="container" id="main"> -->
+            <div class="row">
+                <h2 class="col-md-12 text-center" style="padding-top: 10px">
+                    <b>Flex3D:</b> Feed-Forward 3D Generation With Flexible Reconstruction Model And Input View Curation</br>
+                </h2>
+                <h4 class="col-md-12 text-center" style="padding-top: 10px; padding-bottom: 10px;">
+                    Preprint
+                </h4>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                </div>
+                <div class="container-fluid text-center">
+                    <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://junlinhan.github.io/">Junlin Han¹²</a><div style="display: inline; font-family:verdana"></div></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://jytime.github.io/">Jianyuan Wang¹²</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://www.robots.ox.ac.uk/~vedaldi/">Andrea Vedaldi¹²</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://www.robots.ox.ac.uk/~phst/">Philip Torr²</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://fkokkinos.github.io/">Filippos Kokkinos¹</a><div style="display: inline; font-family:verdana"></div></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 text-center" style="font-size: calc(min(3vw, 15px))">
+                    ¹GenAI, Meta&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;²University of Oxford &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
+                        style="display: inline; font-family:verdana; font-size: calc(min(3vw, 15px))">
+            </div>
+            <div class="row text-center">
+                <span class="link-block" style="padding-top: 10px; padding-bottom: 10px">
+                    <a href="https://arxiv.org/abs/2402.08682" class="external-link button is-normal is-rounded is-dark"
+                        style="width: 80px; font-size: 15px">
+                        <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>Paper</span>
+                    </a>
+                </span>
+            </div>
+        </header>
+
+        <main role="main">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <video id="co3d-grid"  width="70%" autoplay loop muted controls playsinline>
+                        <source src="videos/teaser/splash_video.mp4" type="video/mp4"></source>
+                        A splash video showing 3D reconstruction results.
+                    </video>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 rounded"
+                    style="text-align: center; padding: 10px; padding-bottom: 0px; background-color: #eef6ff;">
+                    <h6 style="text-align: center"><strong>Summary: </strong>Flex3D is a two-stage pipeline that generates high-quality 3D assets from single images or text prompts.</h6>
+                </div>
+            </div><br><br>
+
+
+            <div class="row col-md-8 offset-md-2 rounded card" style="padding-top: 15px; padding-bottom: 5px; background-color: #f6faff; border: 5px solid #eef6ff">
+                <h2 style="text-align: center;">Interactive Results</h2>
+                <span style="padding-bottom: 5px;">Explore reconstruction results (Gaussian Splats) below.</span>
+                <div class="text-center" id="splat-picker">
+                    <div id="progress-container">
+                        <dialog open id="progress-dialog">
+                            <label for="progress-indicator">Loading model...</label>
+                            <progress max="100" id="progress-indicator"></progress>
+                        </dialog>
+                    </div>
+
+                    <canvas id="splat-canvas" class="w-100 rounded" style="max-width:440px; aspect-ratio: 1; cursor: grab; margin-left: auto; margin-right: auto;"></canvas>
+                </div>
+
+                <div class="splat-carousel position-relative" id="splat-carousel" role="group"
+                    aria-relevant="additions text">
+                    <div class="splat-carousel-items">
+                        <div id="splat-carousel-prototype">
+                            <div class="splat-carousel-item">
+                                <img class="card-img" style="user-drag: none;pointer-events: none; user-select:none;" src="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="splat-carousel-buttons">
+                        <button class="splat-carousel-button left">&#8249;</button>
+                        <button class="splat-carousel-button right">&#8250;</button>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3> Method </h3>
+                    <image width=100% src="img/method.png"
+                        alt="A diagram explaining the method in broad strokes, like explained in the caption."></image>
+
+                    <figcaption class="text-justify margin-5" style="text-align: left;">
+                        <b>Flex3D</b> comprises two stages:
+			 (1) candidate view generation and selection, and
+			 (2) 3D reconstruction using FlexRM.
+			 In the first stage, an input image or textual prompt drives the generation of a diverse set of candidate views through fine-tuned multi-view and video diffusion models.
+			 These views are subsequently filtered based on quality and consistency using a view selection mechanism.
+			 The second stage leverages the selected high-quality views, feeding them to FlexRM which reconstruct the 3D object using a tri-plane representation decoded into 3D Gaussians.
+                        </p>
+                </div>
+            </div>
+            
+
+            <!-- <div class="row justify-content-center">
+                <div class="col-md-8 center text-start">
+                    <label style="display: inline" for="bibtex">
+                        <h4 style="text-align: center">BibTeX </h4>
+                    </label>
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{melaskyriazi2024im3d,
+    title={IM-3D: Iterative Multiview Diffusion and Reconstruction for High-Quality 3D Generation},
+    author={Luke Melas-Kyriazi and Iro Laina and Christian Rupprecht and Natalia Neverova and Andrea Vedaldi and Oran Gafni and Filippos Kokkinos},
+    journal={International Conference on Machine Learning, 2024},
+    year={2024}
+}
+                        </textarea>
+                </div>
+            </div> -->
+
+        </main>
+        <footer>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-start">
+
+                    <p class="text-justify" style="text-align: left;">
+                        <i>
+                            The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>, <a
+                                href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>, <a
+                                href="https://reconfusion.github.io">ReconFusion</a>, <a
+                                href="https://lukemelas.github.io/IM-3D/">Im-3D</a>, and <a
+                                href="https://junlinhan.github.io/flex3d/">CAT3D</a>.
+                        </i>
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+</body>
+
+</html>
