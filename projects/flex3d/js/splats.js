@@ -73,7 +73,7 @@ export async function setSplatScene(name, view) {
     view.loading = true;
     view.lastClick = new Date();
 
-    const startRadius = 0.5
+    const startRadius = 0.3
 
     const cameraData = new SPLAT.CameraData();
     cameraData.fx = 0.9 * startRadius * view.canvas.offsetWidth
@@ -95,7 +95,7 @@ export async function setSplatScene(name, view) {
     // on the x-axis.
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, Math.PI, 0);
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, 0, 0);  // NEW!
-    const rotation = new SPLAT.Vector3(Math.PI/2, -Math.PI/2, 0); // Rotate around Y and then X
+    const rotation = new SPLAT.Vector3(Math.PI/2, Math.PI, 0); // Rotate around Y and then X
     splat.rotation = SPLAT.Quaternion.FromEuler(rotation);
     splat.applyRotation();
 
@@ -107,8 +107,8 @@ export async function setSplatScene(name, view) {
     var controls = new OrbitControls(camera, view.canvas, /*alpha=*/0.0, /*beta=*/0.0, /*radius=*/startRadius, /*enableKeyboardControls=*/false);
     controls.minAngle = -45
     controls.maxAngle = 45
-    controls.minZoom = 0.4
-    controls.maxZoom = 0.7
+    controls.minZoom = 0.2
+    controls.maxZoom = 0.6
     controls.zoomSpeed = 0.03
     controls.panSpeed = 0.2
     controls.orbitSpeed = 1.75
