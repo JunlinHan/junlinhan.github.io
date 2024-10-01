@@ -49,7 +49,6 @@ async function listLocalFolders() { // NEW
         "12",
         "13",
         "14",
-        "15",
     ]
     return keys
 }
@@ -107,7 +106,7 @@ export async function setSplatScene(name, view) {
     var controls = new OrbitControls(camera, view.canvas, /*alpha=*/0.0, /*beta=*/0.0, /*radius=*/startRadius, /*enableKeyboardControls=*/false);
     controls.minAngle = -45
     controls.maxAngle = 45
-    controls.minZoom = 0.9
+    controls.minZoom = 0.8
     controls.maxZoom = 1.6
     controls.zoomSpeed = 0.03
     controls.panSpeed = 0.2
