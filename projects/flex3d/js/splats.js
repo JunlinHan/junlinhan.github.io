@@ -1,8 +1,6 @@
 
 import { OrbitControls } from "./OrbitControls.js";
 import * as SPLAT from "https://cdn.jsdelivr.net/npm/gsplat@latest";
-// const bucket = "https://storage.googleapis.com/lab-storage-bucket-37/projects/vis-test/orbit"
-// const bucket = "https://storage.googleapis.com/mf_gaussian_splats"
 const bucket = "models"
 
 function shuffleArray(array) {
@@ -97,7 +95,7 @@ export async function setSplatScene(name, view) {
     // on the x-axis.
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, Math.PI, 0);
     // const rotation = new SPLAT.Vector3(Math.PI - Math.PI / 20.0, 0, 0);  // NEW!
-    const rotation = new SPLAT.Vector3(Math.PI + Math.PI / 20.0, 0, 0);  // NEW!
+    const rotation = new SPLAT.Vector3(-Math.PI / 2.0, 0, 0); // Rotate 90 degrees around the X-axis
     splat.rotation = SPLAT.Quaternion.FromEuler(rotation);
     splat.applyRotation();
 
