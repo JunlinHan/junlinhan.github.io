@@ -105,8 +105,8 @@ export async function setSplatScene(name, view) {
     view.progressDialog.close();
     // Not sure if these are meant to be public, but it's javascript anything goes :)
     var controls = new OrbitControls(camera, view.canvas, /*alpha=*/0.0, /*beta=*/0.0, /*radius=*/startRadius, /*enableKeyboardControls=*/false);
-    controls.minAngle = -50
-    controls.maxAngle = 50
+    controls.minAngle = -45
+    controls.maxAngle = 45
     controls.minZoom = 0.6
     controls.maxZoom = 0.9
     controls.zoomSpeed = 0.03
