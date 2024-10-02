@@ -82,8 +82,7 @@ Email: junlinhcv@gmail.com; junlinhan@meta.com; junlin.han@eng.ox.ac.uk<br />
 <details>
   <summary>(1) <b>Generation</b> and <b>manipulation</b> of 2D, 3D, and 4D visual data,</summary>
   <br>
-  Selected projects: <a href="https://github.com/JunlinHan/DCLGAN">Image-to-Image translation</a>, <a href="https://junlinhan.github.io/projects/BID.html">Image decomposition</a>,
-  <a href="https://chuny1.github.io/NeRFEditor/nerfeditor.html">3D editing</a>, <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D scene generation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Large 3D generative models</a>
+  Selected projects:  <a href="https://junlinhan.github.io/projects/BID.html">Image decomposition</a>,  <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D scene generation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Large 3D generative models</a>, <a href="https://junlinhan.github.io/projects/flex3d">High-quality 3D generation</a>
   <br>
 </details>
 <br>
@@ -164,20 +163,66 @@ I am also interested in extending my research to other scientific domains, such 
     }
   }
 
-  function add_publication(title, img, author, note, link, bib, tag){
+  // function add_publication(title, img, author, note, link, bib, tag){
+  //   // link=[[url, arXiv],]
+  //   document.write('<tr>')
+  //   if (link!=null) {
+  //     document.write(`<td><div style="width: 230px">\
+  //     <a target="_blank" href=${link[0][0]}>\
+  //     <img width="230" height="130" src=${img}></a>\
+  //     </div></td>`)
+  //   } else {
+  //     document.write(`<td><div style="width: 230px">\
+  //     <img width="230" height="130" src=${img}></a>\
+  //     </div></td>`)
+  //   }
+
+  //   document.write('<td>')
+  //   document.write(`<p class="title">${title}</p>`)
+  //   document.write(`<p class="author">${author}</p>`)
+  //   if (note) {document.write(`<p class="note">${note}</p>`)}
+  //   if (link!=null) {
+  //     document.write('<p class="link">')
+  //     for (var idx = 0; idx < link.length; idx++){
+  //       document.write(`<a target="_blank" href=${link[idx][0]}>[${link[idx][1]}]</a>&nbsp;`)}
+  //     document.write('</p>')
+  //   }
+  //   document.write('</td></tr>')
+
+  // }
+
+  function add_publication(title, media, author, note, link, bib, tag){
     // link=[[url, arXiv],]
     document.write('<tr>')
     if (link!=null) {
-      document.write(`<td><div style="width: 230px">\
-      <a target="_blank" href=${link[0][0]}>\
-      <img width="230" height="130" src=${img}></a>\
-      </div></td>`)
+      if(media.endsWith('.mp4')) {
+        document.write(`<td><div style="width: 230px">\
+        <a target="_blank" href=${link[0][0]}>\
+        <video width="230" height="130" autoplay loop muted>\
+          <source src=${media} type="video/mp4">\
+          Your browser does not support the video tag.\
+        </video></a>\
+        </div></td>`)
+      } else {
+        document.write(`<td><div style="width: 230px">\
+        <a target="_blank" href=${link[0][0]}>\
+        <img width="230" height="130" src=${media}></a>\
+        </div></td>`)
+      }
     } else {
-      document.write(`<td><div style="width: 230px">\
-      <img width="230" height="130" src=${img}></a>\
-      </div></td>`)
+      if(media.endsWith('.mp4')) {
+        document.write(`<td><div style="width: 230px">\
+        <video width="230" height="130" autoplay loop muted>\
+          <source src=${media} type="video/mp4">\
+          Your browser does not support the video tag.\
+        </video>\
+        </div></td>`)
+      } else {
+        document.write(`<td><div style="width: 230px">\
+        <img width="230" height="130" src=${media}>\
+        </div></td>`)
+      }
     }
-
     document.write('<td>')
     document.write(`<p class="title">${title}</p>`)
     document.write(`<p class="author">${author}</p>`)
@@ -189,7 +234,6 @@ I am also interested in extending my research to other scientific domains, such 
       document.write('</p>')
     }
     document.write('</td></tr>')
-
   }
 </script>
 
@@ -225,6 +269,11 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 
 <table>
   <script type="text/javascript">
+      add_publication(title='<font color="green">Flex3D: Feed-Forward 3D Generation With Flexible Reconstruction Model And Input View Curation</font>',
+                      img='./projects/flex3d/videos/teaser/splash_video.mp4',
+                      author='<b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos',
+                      note='Preprint',
+                      link=[["https://junlinhan.github.io/projects/flex3d","Project page"], ["https://arxiv.org/abs/2410.00890","arXiv"], ["https://arxiv.org/pdf/2410.00890.pdf","pdf"], ["./bibtex/paper19.txt","BibTex"]]);
       add_publication(title='<font color="green">VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models</font>',
                       img='./paperimages/paper16.png',
                       author='<b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr',
@@ -253,6 +302,11 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 <div id="all-content" class="content">
   <table>
     <script type="text/javascript">
+        add_publication(title='<font color="green">Flex3D: Feed-Forward 3D Generation With Flexible Reconstruction Model And Input View Curation</font>',
+                      img='./projects/flex3d/videos/teaser/splash_video.mp4',
+                      author='<b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos',
+                      note='Preprint',
+                      link=[["https://junlinhan.github.io/projects/flex3d","Project page"], ["https://arxiv.org/abs/2410.00890","arXiv"], ["https://arxiv.org/pdf/2410.00890.pdf","pdf"], ["./bibtex/paper19.txt","BibTex"]]);
       add_publication(title='DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer',
                       img='./paperimages/paper18.jpg',
                       author='Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab',
@@ -369,7 +423,7 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 <a href="https://icml-fm-wild.github.io/">Foundation Models in the Wild</a>, ICML 2024
 <br>
 <li><b>Conference review</b></li>
-CVPR 2022 2023 2024, ICCV 2023, ECCV 2022 2024, ICML 2022 2024, NeurIPS 2022 2023, ICLR 2023 2024, SIGGRAPH Asia 2024, ACCV 2022, BMVC 2023, WACV 2024, AAAI 2023
+CVPR 2022 2023 2024, ICCV 2023, ECCV 2022 2024, ICML 2022 2024, NeurIPS 2022 2023, ICLR 2023 2024 2025, SIGGRAPH Asia 2024, ACCV 2022, BMVC 2023, WACV 2024, AAAI 2023
 <br>
 <li><b>Journal review</b> </li>
 Transactions on Pattern Analysis and Machine Intelligence (TPAMI),  International Journal of Computer Vision (IJCV), Transactions on Image Processing (TIP), Transactions on Geoscience and Remote Sensing (TGRS)
