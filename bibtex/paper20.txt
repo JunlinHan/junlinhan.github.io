@@ -1,0 +1,6 @@
+@article{yang2024semanticsds,
+  title={Semantic Score Distillation Sampling for Compositional Text-to-3D Generation},
+  author={Yang, Ling and Zhang, Zixiang and Han, Junlin and Zeng, Bohan and Li, Runjia and Torr, Philip and Zhang, Wentao},
+  journal={arXiv preprint arXiv:2410.09009},
+  year={2024}
+}
