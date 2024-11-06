@@ -58,12 +58,15 @@ Email: junlinhcv@gmail.com; junlinhan@meta.com; junlin.han@eng.ox.ac.uk<br />
     Before that, I worked as a research scientist at <a href="https://www.cybever.ai/">Cybever</a>, a 3D AI-generated content (AIGC) startup for a few months. 
     I obtained my BSc from the <a href="https://www.anu.edu.au/">Australian National University</a> under the supervision of <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a>, <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a>, and <a href="https://mbzuai.ac.ae/study/faculty/ian-reid/">Prof. Ian Reid</a>.</li>
 <li>I acknowledge that information asymmetry can significantly hinder research opportunities for junior students. If you’re interested in chatting about life, research, or potential collaborations, feel free to email me. </li>
-<li> For undergrad and master students at Oxford only: If you are interested in an internship at TVG working on 3D vision or MLLM with me, please email me your current CV to discuss further. </li>
 </ul>
+<!-- <li> For undergrad and master students at Oxford only: If you are interested in an internship at TVG working on 3D vision or MLLM with me, please email me your current CV to discuss further. </li>
+-->
+
 
 <A NAME="News"><h2>News</h2
   ></A>
 <ul>
+<li>[10.2024] Two papers (<a href="https://chuny1.github.io/3DGPT/3dgpt.html">3D-GPT</a> and <a href="https://dreambeast3d.github.io/">DreamBeast</a>) were accepted to <a href="https://3dvconf.github.io/2025/">3DV 2025</a>. Congratulations to <a href="https://chuny1.github.io/">Chunyi</a> and <a href="https://runjiali-rl.github.io/">Runjia</a>! 3D-GPT is pioneering work in large-scale 3D scene generation, and DreamBeast is a fascinating project generating fantastical 3D animals.</li>
 <li>[07.2024] <a href="https://junlinhan.github.io/projects/vfusion3d.html">VFusion3D</a> and <a href="https://arxiv.org/abs/2311.16101">Unicorns</a> were accepted to <a href="https://eccv.ecva.net/">ECCV 2024</a>! VFusion3D is the first work exploring scalable 3D generative/reconstruction models as a step towards a 3D foundation. Check it out if you are interested in 3D generation. </li>
 <li>[04.2024] We are organizing <a href="https://icml-fm-wild.github.io/"> ICML 2024 Foundation Models in the Wild Workshop</a>, submissions on related topics are very welcomed! </li>
 <li>[10.2023] Starting my PhD at Meta and Oxford! </li>
@@ -83,7 +86,7 @@ Email: junlinhcv@gmail.com; junlinhan@meta.com; junlin.han@eng.ox.ac.uk<br />
 <details>
   <summary>(1) <b>Generation</b> and <b>manipulation</b> of 2D, 3D, and 4D visual data,</summary>
   <br>
-  Selected projects:  <a href="https://junlinhan.github.io/projects/BID.html">Image decomposition</a>,  <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D scene generation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Large 3D generative models</a>, <a href="https://junlinhan.github.io/projects/flex3d">High-quality 3D generation</a>
+  Selected projects:  <a href="https://junlinhan.github.io/projects/BID.html">Image decomposition</a>,  <a href="https://chuny1.github.io/3DGPT/3dgpt.html">LLM for 3D scene generation</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html">Large 3D reconstruction models</a>, <a href="https://junlinhan.github.io/projects/flex3d">High-quality 3D generation</a>
   <br>
 </details>
 <br>
@@ -303,6 +306,18 @@ Representative papers (as leading author) are <font color="green">highlighted</f
 <div id="all-content" class="content">
   <table>
     <script type="text/javascript">
+      add_publication(title='3D-GPT: Procedural 3D Modeling with Large Language Models',
+                      img='./paperimages/paper13.png',
+                      author='Chunyi Sun*, <b>Junlin Han*</b>, Weijian Deng, Xinlong Wang, Zishan Qin, Stephen Gould',
+                      note='3DV, 2025',
+                      link=[["https://chuny1.github.io/3DGPT/3dgpt.html","Project page"],["https://arxiv.org/abs/2310.12945","arXiv"], ["https://arxiv.org/pdf/2310.12945.pdf","pdf"], ["https://github.com/Chuny1/3DGPT","Code"],["./bibtex/paper13.txt","BibTex"]]
+                      );
+       add_publication(title='DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer',
+                      img='./paperimages/paper18.jpg',
+                      author='Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab',
+                      note='3DV, 2025',
+                      link=[["https://dreambeast3d.github.io/","Project page"],["https://arxiv.org/abs/2409.08271","arXiv"], ["https://arxiv.org/pdf/2409.08271","pdf"], ["https://github.com/runjiali-rl/threestudio-dreambeast","Code"],["./bibtex/paper18.txt","BibTex"]]
+                      );
         add_publication(title='Semantic Score Distillation Sampling for Compositional Text-to-3D Generation',
                       img='./paperimages/paper20.jpg',
                       author='Ling Yang, Zixiang Zhang, <b>Junlin Han</b>, Bohan Zeng, Runjia Li, Philip Torr, Wentao Zhang',
@@ -313,12 +328,7 @@ Representative papers (as leading author) are <font color="green">highlighted</f
                       author='<b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos',
                       note='Preprint',
                       link=[["https://junlinhan.github.io/projects/flex3d","Project page"], ["https://arxiv.org/abs/2410.00890","arXiv"], ["https://arxiv.org/pdf/2410.00890.pdf","pdf"], ["./bibtex/paper19.txt","BibTex"]]);
-      add_publication(title='DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer',
-                      img='./paperimages/paper18.jpg',
-                      author='Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab',
-                      note='Preprint',
-                      link=[["https://dreambeast3d.github.io/","Project page"],["https://arxiv.org/abs/2409.08271","arXiv"], ["https://arxiv.org/pdf/2409.08271","pdf"], ["https://github.com/runjiali-rl/threestudio-dreambeast","Code"],["./bibtex/paper18.txt","BibTex"]]
-                      );
+
       add_publication(title='Learning-based Multi-View Stereo: A Survey',
                       img='./paperimages/paper17.jpg',
                       author='Fangjinhua Wang*, Qingtian Zhu*, Di Chang*, Quankai Gao, <b>Junlin Han</b>, Tong Zhang, Richard Hartley, Marc Pollefeys',
@@ -342,12 +352,6 @@ Representative papers (as leading author) are <font color="green">highlighted</f
                       author='Haoqin Tu*, Chenhang Cui*, Zijun Wang*, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie',
                       note='ECCV, 2024',
                       link=[["https://arxiv.org/abs/2311.16101","arXiv"], ["https://arxiv.org/pdf/2311.16101.pdf","pdf"], ["https://github.com/UCSC-VLAA/vllm-safety-benchmark","Code"],["./bibtex/paper14.txt","BibTex"]]
-                      );
-      add_publication(title='3D-GPT: Procedural 3D Modeling with Large Language Models',
-                      img='./paperimages/paper13.png',
-                      author='Chunyi Sun*, <b>Junlin Han*</b>, Weijian Deng, Xinlong Wang, Zishan Qin, Stephen Gould',
-                      note='Preprint',
-                      link=[["https://chuny1.github.io/3DGPT/3dgpt.html","Project page"],["https://arxiv.org/abs/2310.12945","arXiv"], ["https://arxiv.org/pdf/2310.12945.pdf","pdf"], ["https://github.com/Chuny1/3DGPT","Code"],["./bibtex/paper13.txt","BibTex"]]
                       );
       add_publication(title=' NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing',
                       img='./paperimages/paper10.png',
