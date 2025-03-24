@@ -1,0 +1,6 @@
+@article{zhao2025generalized,
+  title={Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model},
+  author={Zhaochong An, Guolei Sun, Yun Liu, Runjia Li, Junlin Han, Ender Konukoglu, Serge Belongie},
+  journal={Conference on Computer Vision and Pattern Recognition (CVPR},
+  year={2025}
+}
