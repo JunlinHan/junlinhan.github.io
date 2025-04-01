@@ -1,0 +1,6 @@
+@article{ren2025vgrp-bench,
+        title={VGRP-Bench: Visual Grid Reasoning Puzzle Benchmark for Large Vision-Language Models},
+        author={Yufan Ren and Konstantinos Tertikas and Shalini Maiti and Junlin Han and Tong Zhang and Sabine Süsstrunk and Filippos Kokkinos},
+        journal={arXiv preprint arXiv:2503.23064},
+        year={2025}
+    }
