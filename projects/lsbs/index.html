@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- For social media thumbnail preview -->
+    <meta property="og:image" content="[IMAGE_PLACEHOLDER_URL]" />
+    <title>Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito as Avenir Next alternative -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <link href="theme_neutral_light.css" rel="stylesheet">
+    <link href="mobile-styles.css" rel="stylesheet">
+    <link href="nav-pill-fix.css" rel="stylesheet">
+    <style>
+        .accordion-button strong {
+            white-space: nowrap;
+            margin-right: 0.5rem;
+        }
+
+        /* Custom styles for the new Settings section */
+        .settings-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Custom styles for the purple Hypotheses section */
+        .hypothesis-item {
+            --bs-accordion-border-color: #d6bcfa; 
+            --bs-accordion-bg: #faf7ff;           
+            --bs-accordion-btn-color: #3d2c56;    
+            --bs-accordion-btn-bg: #f3e8ff;        
+            --bs-accordion-active-color: #3d2c56; 
+            
+            --bs-accordion-active-bg: #e9d8fd; 
+            
+            --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25); 
+            border: 1px solid var(--bs-accordion-border-color);
+        }
+        
+        .hypothesis-item .accordion-button::after {
+             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233d2c56'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-section" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-11 mx-auto text-center">
+                    <h1 class="paper-title">Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training</h1>
+                    <div class="author-line">
+                         <span><a href="https://junlinhan.github.io/" class="author-link">Junlin Han<sup>1,2,†</sup></a></span>
+                         <span><a href="https://tsb0601.github.io/" class="author-link">Shengbang Tong<sup>1</sup></a></span>
+                         <span><a href="http://davidfan.io/" class="author-link">David Fan<sup>1</sup></a></span>
+                         <span><a href="https://yufan-ren.com/" class="author-link">Yufan Ren<sup>1</sup></a></span>
+                         <span><a href="https://koustuvsinha.com/" class="author-link">Koustuv Sinha<sup>1</sup></a></span>
+                         <span><a href="https://en.wikipedia.org/wiki/Philip_Torr" class="author-link">Philip Torr<sup>2</sup></a></span>
+                         <span><a href="https://www.fkokkinos.com/" class="author-link">Filippos Kokkinos<sup>1</sup></a></span>
+                    </div>
+                    <div class="author-line">
+                        <span><sup>†</sup> Project lead</span>
+                    </div>
+                    <div class="institution-logos mt-4">
+                        <div class="institution-logo-wrapper">
+                            <img src="assets/logos/meta.png" alt="Meta AI" class="institution-logo">
+                            <sup>1</sup>
+                        </div>
+                        <div class="institution-logo-wrapper">
+                            <img src="assets/logos/oxford.png" alt="University of Oxford" class="institution-logo">
+                            <sup>2</sup>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="btn primary-btn me-2"><i class="fas fa-file-alt me-2"></i>Paper</a>
+                        <a href="#" class="btn accent-btn"><i class="fas fa-weight-hanging me-2"></i>MLE-Becnh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- TLDR/Highlights Section -->
+        <section class="row" id="tldr">
+            <div class="col-lg-11 mx-auto">
+                <div class="tldr-box p-4 rounded mb-5 mt-4" style="background-color: rgba(239, 246, 255, 0.7); border: 1px solid rgba(59, 130, 246, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+                    <h2 class="mb-3 text-center" style="color: var(--primary-color); font-size: 2.2rem; font-weight: 700; text-transform: letter-spacing: 1px;"> Highlights</h2>
+                    <div class="p-4 mb-4 rounded" style="background-color: rgba(255, 255, 255, 0.9); border-left: 5px solid var(--primary-color);">
+                        <p class="lead fw-bold mb-0" style="color: var(--primary-color); font-size: 1.4rem; text-align: left;">
+                            How do LLMs, pre-trained only on language, develop rich visual abilities?
+                        </p>
+                    </div>
+                    <p class="lead" style="font-size: 1.2rem; font-weight: 400; text-align: left;">
+                        Our work systematically reveals that LLMs don't just accidentally learn about the visual world; they develop distinct <strong>visual priors</strong> from language pre-training. We show these priors are composed of two separable components: a <strong>reasoning prior</strong> and a <strong>perception prior</strong>, each with unique origins. This allows us to create a data-centric recipe to deliberately cultivate visual abilities in LLMs from the ground up.
+                    </p>
+                    <div class="key-findings mt-4">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--primary-color);">
+                                    <h5 style="color: var(--primary-color);"><i class="fas fa-brain me-2"></i>Reasoning from coding/math/academic</h5>
+                                    <p class="mb-0 small">An LLM's visual <strong>reasoning</strong> ability is primarily developed by pre-training on reasoning-centric data like code, math, and academic texts.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--secondary-color);">
+                                    <h5 style="color: var(--secondary-color);"><i class="fas fa-eye me-2"></i>Perception from diversity</h5>
+                                    <p class="mb-0 small">The visual <strong>perception</strong> ability emerges more diffusely from broad, diverse corpora (like web-crawl) rather than a specific data type.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--accent-color);">
+                                    <h5 style="color: var(--accent-color);"><i class="fas fa-cogs me-2"></i>A vision-aware pre-training recipe</h5>
+                                    <p class="mb-0 small">The optimal data mix for pre-training vision-aware LLMs is heavily skewed towards reasoning data (>50%) with a smaller, crucial portion of visual-world text (~15%).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+                <!-- What are Visual Priors? Section -->
+        <section id="visual-priors" class="mt-2 mb-5">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">What are "Visual Priors"?</h2>
+                    <div class="alert alert-info" role="alert">
+                        <p class="lead mb-0">
+                            <strong> We frame visual priors as implicit knowledge or prior vision capabilities encoded in LLMs, whose primary effect is to grant both enhanced capability for vision tasks and greater ease of transfer to vision.
+                        </p>
+                    </div>
+                    <h4 class="mt-4 mb-3">Evidence of Visual Priors</h4>
+                    <p>There are several compelling phenomena that demonstrate the existence of visual priors:</p>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--primary-color);">
+                                <h5 style="color: var(--primary-color);"><i class="fas fa-code me-2"></i>Programmatic Visual Knowledge</h5>
+                                <p class="mb-0 small">LLMs can generate executable code to render complex 2D and 3D scenes, demonstrating an understanding of visual concepts like object properties and spatial layouts purely from text.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--secondary-color);">
+                                <h5 style="color: var(--secondary-color);"><i class="fas fa-bolt me-2"></i>Data-Efficient Adaptation</h5>
+                                <p class="mb-0 small">When connected to a vision encoder, LLMs can be adapted for high-level visual reasoning tasks using a surprisingly small amount of image-text data, bypassing the need for massive multimodal pre-training.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="finding-card p-3 rounded shadow-sm h-100" style="border-top: 4px solid var(--accent-color);">
+                                <h5 style="color: var(--accent-color);"><i class="fas fa-layer-group me-2"></i>LLMs as Vision Encoders</h5>
+                                <p class="mb-0 small">The transformer layers from a text-trained LLM can be repurposed as powerful visual encoders for tasks like image classification and segmentation, often outperforming vision-specific models.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Experimental Settings Section -->
+        <section id="settings" class="mt-2 mb-5">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">Experimental Settings</h2>
+                    <div class="settings-card">
+                        <h5><i class="fas fa-robot me-2"></i>LLM Pre-training</h5>
+                        <p class="mb-0">We pre-train a suite of decoder-only Transformer models adhering to the Llama-3 architecture, spanning five scales: 340M, 1B, 3B, 7B, and 13B parameters. The default setting uses a 3B model trained on 30B tokens.</p>
+                    </div>
+                    <div class="settings-card" style="border-left-color: var(--secondary-color);">
+                        <h5><i class="fas fa-link me-2"></i>MLLM Adaptation</h5>
+                        <p class="mb-0">We adopt a two-stage adaptation strategy. First, a simple MLP projector aligns a frozen vision encoder (MetaCLIP-B/16 by default) with the frozen LLM using 1M vision-language data. Second, supervised fine-tuning uses 3.5M of language and vision-language instruction data for multimodal instruction-following abilities.</p>
+                    </div>
+                    <div class="settings-card" style="border-left-color: var(--accent-color);">
+                        <h5><i class="fas fa-chart-bar me-2"></i>Evaluation Protocol</h5>
+                        <p class="mb-0">MLLM evaluation covers 16 public benchmarks grouped into four key categories: <strong>General</strong> (e.g., GQA), <strong>Knowledge</strong> (e.g., MMMU), <strong>OCR & Chart</strong> (e.g., TextVQA), and <strong>Vision-Centric</strong> (e.g., RealWorldQA). LLM language evaluation is based on 10 benchmarks.  </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Findings Section -->
+        <section id="findings" class="mt-2">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">Demystifying LLM Visual Priors: Six Findings</h2>
+                    <div class="accordion" id="findingsAccordion">
+                        <!-- Finding 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding1" aria-expanded="true" aria-controls="collapseFinding1">
+                                    <strong>Finding&nbsp;1:</strong> VQA performance scales with model and data size, but this scaling is not uniform across all visual abilities.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding1" class="accordion-collapse collapse show" aria-labelledby="headingFinding1" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p>Increasing model size (340M to 13B) and data volume (0B to 100B tokens) generally leads to stronger multimodal performance. However, this scaling varies significantly across VQA categories. General and Knowledge VQA improve steadily, but OCR & Chart VQA is far more sensitive to model size than data volume. Meanwhile, Vision-Centric VQA shows a unique pattern where the largest models benefit disproportionately from more data, while smaller models plateau early. This divergence demonstrates that different visual abilities do not scale uniformly.</p>
+                                    <img src="./assets/figures/part1.png" alt="Figure 1" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finding 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding2" aria-expanded="false" aria-controls="collapseFinding2">
+                                    <strong>Finding&nbsp;2:</strong> Specific categories of language pre-training data can enhance certain visual capabilities.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding2" class="accordion-collapse collapse" aria-labelledby="headingFinding2" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p>By pre-training models on 16 distinct single-source datasets, we find that performance varies significantly. Notably, strong performance on Vision-Centric VQA tasks highly correlates with two types of data: reasoning-centric data (e.g., code, mathematics, academia) and corpora rich in visual world descriptions (e.g., arts, food). This suggests that different text categories contribute to distinct and non-uniform visual priors.</p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/part2.png" alt="Figure 2" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finding 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding3" aria-expanded="false" aria-controls="collapseFinding3">
+                                    <strong>Finding&nbsp;3:</strong> A small amount of visual world data is crucial but its contribution saturates quickly; in contrast, reasoning-centric data progressively enhances visual abilities.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding3" class="accordion-collapse collapse" aria-labelledby="headingFinding3" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p> The impact of reasoning-centric data is profound and progressive, with performance scaling steadily as its proportion in the mix increases up to 75%. In contrast, the contribution from data explicitly describing the visual world saturates quickly. A small initial amount is crucial to establish a baseline, but further increases yield diminishing returns.</p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/part3.png" alt="Figure 3" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Finding 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding4" aria-expanded="false" aria-controls="collapseFinding4">
+                                    <strong>Finding&nbsp;4:</strong> Maximizing MLLM VQA performance is best achieved by pre-training on a data mixture heavily skewed towards reasoning-centric content but with necessary vision world knowledge. The balance point between language and vision proficiency is reached via a calibrated data mixture.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding4" class="accordion-collapse collapse" aria-labelledby="headingFinding4" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p>Our goal is to derive a single, practical data mixture that excels on both language and vision tasks. Our approach proceeds in two main stages:</p>
+                                    <p>First, to maximize visual performance, we conduct a grid search and identify a <strong>vision-favorable mixture</strong>. The results show that the best performance on vision tasks comes from a blend of approximately <strong>60% reasoning content and 15% visual content</strong>.  </p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/tab1.png" alt="Tab 1" class="img-fluid"></div>
+                                    <p>Next, to create a mixture that also performs well on language tasks, we derive a <strong>balanced mixture</strong>. We interpolate between a strong language-favorable baseline and our vision-favorable target. This process identifies <strong>`mix6`</strong> as the optimal balanced recipe, which achieves the highest overall rank by significantly improving visual capabilities without a major drop in language proficiency.</p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/tab2.png" alt="Tab 2" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finding 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding5" aria-expanded="false" aria-controls="collapseFinding5">
+                                    <strong>Finding&nbsp;5:</strong> The learned visual prior is not a single entity but decomposes into at least a perception prior and a reasoning prior with different origins.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding5" class="accordion-collapse collapse" aria-labelledby="headingFinding5" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p>A correlation analysis across performance data from 105 models reveals two loosely-coupled skill clusters: one for perception (General/OCR) and another for reasoning (Knowledge/Vision-Centric). The very weak correlation between these two groups suggests they are largely independent abilities. The reasoning prior originates from reasoning-centric data, while the perception prior's origins are more diffuse, emerging as a general byproduct of large-scale, diverse language modeling (with web-crawl data being the best single source).</p>
+                                   <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/part5.png" alt="Figure 5" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finding 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFinding6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinding6" aria-expanded="false" aria-controls="collapseFinding6">
+                                    <strong>Finding&nbsp;6:</strong> Visual reasoning ability is primarily shaped by the reasoning prior from language pre-training; perception ability is more dependent on post-training visual instruction tuning.
+                                </button>
+                            </h2>
+                            <div id="collapseFinding6" class="accordion-collapse collapse" aria-labelledby="headingFinding6" data-bs-parent="#findingsAccordion">
+                                <div class="accordion-body">
+                                    <p>We verify the universality of the reasoning prior. Regardless of the vision encoder used (e.g., MetaCLIP, DINOv2), performance on reasoning-heavy tasks shows a nearly identical upward trend as the proportion of reasoning data in the LLM's pre-training increases. Conversely, perception is more sensitive to the specific vision encoder. </p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/part6_1.png" alt="Figure 6_1" class="img-fluid"></div>
+                                    <p>Ablation studies on removing specific visual instruction tuning data show that removing perception-tuning data causes a large performance drop on perception-heavy tasks, while removing reasoning-tuning data has only a modest impact. </p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/part6_2.png" alt="Figure 6_2" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hypotheses Section -->
+        <section id="hypotheses" class="mt-5">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">Three Hypotheses</h2>
+                    <div class="accordion" id="hypothesesAccordion">
+                        <!-- Hypothesis 1 -->
+                        <div class="accordion-item hypothesis-item">
+                            <h2 class="accordion-header" id="headingHypothesis1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHypothesis1" aria-expanded="true" aria-controls="collapseHypothesis1">
+                                    <strong>Hypothesis&nbsp;1:</strong> The perception prior is multi-level and scale-dependent, with benefits most pronounced for small and medium-sized objects.
+                                </button>
+                            </h2>
+                            <div id="collapseHypothesis1" class="accordion-collapse collapse show" aria-labelledby="headingHypothesis1" data-bs-parent="#hypothesesAccordion">
+                                <div class="accordion-body">
+                                    <p>We hypothesize that the perception prior from diverse data is not a uniform ability but has finer-grained, scale-dependent characteristics. To test this, we introduce the <strong>Multi-Level Existence Bench (MLE-Bench)</strong>, which evaluates a model's ability to identify objects of varying sizes (Small: 0-30% of pixels, Medium: 30-60%, Large: 60-100%).</p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/mle.png" alt="Figure mle" class="img-fluid"></div>
+                                    <p><strong>Experimental Result:</strong> Our evaluation on MLE-Bench shows that an LLM pre-trained on a broad web-crawl corpus is the top performer for perception. Its advantage is most pronounced for small-to-medium objects, where it establishes a clear lead over models trained on more specific data sources. This may suggest the diverse vocabulary in web-crawl forces the model to learn representations sensitive to fine-grained details.</p>
+                                    <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/mle_res.png" alt="Figure mle_res" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hypothesis 2 -->
+                        <div class="accordion-item hypothesis-item">
+                            <h2 class="accordion-header" id="headingHypothesis2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHypothesis2" aria-expanded="false" aria-controls="collapseHypothesis2">
+                                    <strong>Hypothesis&nbsp;2:</strong> The reasoning capabilities an LLM acquires from text are fundamentally modality-agnostic.
+                                </button>
+                            </h2>
+                            <div id="collapseHypothesis2" class="accordion-collapse collapse" aria-labelledby="headingHypothesis2" data-bs-parent="#hypothesesAccordion">
+                                <div class="accordion-body">
+                                    <p>We posit that by pre-training on reasoning-centric data, a model learns abstract, generalizable principles of logic and structure. This foundation is largely modality-agnostic, allowing the model to directly transfer this reasoning faculty to solve visual problems.</p>
+                                    <p><strong>Experimental Result:</strong> We observe a clear trend: as the proportion of reasoning-centric data (e.g., code) increases from 0% to 100%, the resulting MLLM generates visual reasoning that is both more logically sound (Logical Soundness boosts from 4.52% to 9.52%) and significantly more detailed (Reasoning Depth sextuples from 8.31 to 53.25). This shows that a general reasoning framework learned from text is being directly applied to the visual domain.</p>
+                                <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/reasoning.png" alt="Figure reasoning" class="img-fluid"></div>
+                                 <p>One qualitative example is shown below: </p>
+                                 <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/fig_h2.png" alt="Figure h2" class="img-fluid"></div>
+                                 <p>One qualitative example is shown below: </p>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Hypothesis 3 -->
+                        <div class="accordion-item hypothesis-item">
+                            <h2 class="accordion-header" id="headingHypothesis3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHypothesis3" aria-expanded="false" aria-controls="collapseHypothesis3">
+                                    <strong>Hypothesis&nbsp;3:</strong> The structural properties of language data can partially drive representational alignment with visual data.
+                                </button>
+                            </h2>
+                            <div id="collapseHypothesis3" class="accordion-collapse collapse" aria-labelledby="headingHypothesis3" data-bs-parent="#hypothesesAccordion">
+                                <div class="accordion-body">
+                                    <p>Data like code and math are highly structured, much like the visual world. We hypothesize this shared structure means that representations learned from structured text are intrinsically more similar to, and thus more transferable to, the visual domain.</p>
+                                    <p><strong>Experimental Result:</strong> Our analysis of the LLM-vision alignment score reveals a clear but non-monotonic trend. As we increase the proportion of structured reasoning data, the alignment score generally improves, suggesting learning from abstract structure fosters a more congruent latent space. The trend peaks at a 75% ratio before declining, which may be due to the model lacking the necessary general vocabulary at 100% to map abstract structures to diverse visual concepts.</p>
+                                     <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/alignment.png" alt="Figure alignment" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scaling Up and Benchmarks Section -->
+        <section id="scaling-and-benchmarks" class="mt-5">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">Scaling Up Experiments</h2>
+                    <div class="row">
+                        <!-- Scaling Up Experiments -->
+                        <div class="col-lg-12 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title">Scaling Up to 1T Tokens</h4>
+                                    <p>To validate our findings, we pre-train two 7B parameter LLMs, each on 1T tokens:</p>
+                                    <ul>
+                                        <li><strong>Language-Favorable Model:</strong> A model trained on a mix optimized for pure language tasks.</li>
+                                        <li><strong>Balanced Model:</strong> A model trained on our proposed balanced vision-aware recipe, designed to deliberately cultivate strong visual priors.</li>
+                                    </ul>
+                                    <p>The results confirm our findings: the <strong>Balanced Model</strong> consistently outperforms the Language-Favorable model on all visual tasks while remaining competitive on language proficiency. This demonstrates that our data-centric pre-training recipe successfully imbues the LLM with stronger visual priors at a large scale.</p>
+                                 <div class="text-center p-3" style="background-color: #f8f9fa; border-radius: 5px;"><img src="./assets/figures/tab3.png" alt="Tab 3" class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation Section -->
+        <section id="citation" class="mt-2">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">Citation</h2>
+                    <div class="bg-light p-4 rounded">
+                        <pre><code>@article{han2025learning,
+  title={Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training},
+  author={Han, Junlin and Tong, Shengbang and Fan, David and Ren, Yufan and Sinha, Koustuv and Torr, Philip and Kokkinos, Filippos},
+  journal={arXiv preprint},
+  year={2025}
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="mt-2">
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <h2 class="section-title">FAQ</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is the TL;DR summary of this project?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>We show how visual priors emerge from language-only LLM pre-training and, based on this understanding, demonstrate how we can deliberately leverage them to build more powerful MLLM capabilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What is the difference between the 'perception' and 'reasoning' priors?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Perception</strong> is the ability to 'see' the image—to process raw visual information like recognizing objects. In contrast, <strong>reasoning</strong> is the ability to think through and solve a visual problem, which requires logical inference. Our work shows that perception largely comes from broad, diverse text, while reasoning is primarily cultivated from structured, logic-centric text like code.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What are the implications of your findings for future MLLM development?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Building powerful MLLMs can start with strategically curating the language-only pre-training data. By creating a 'vision-aware' data mixture from the beginning, developers can build a stronger foundation for multimodal tasks, leading to more capable and potentially more efficient models.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What are the main limitations of this study?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Our investigation centers on adapter-style MLLM architectures, where a pre-trained vision encoder is connected to an LLM. The findings may not fully generalize to other approaches, such as models that are trained end-to-end on both vision and language data from the start. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="row">
+                <div class="col-lg-11 mx-auto text-center">
+                    <h2 class="section-title">Correspondence</h2>
+                    <p>Please reach out to Junlin Han with any questions.</p>
+                    <p>junlinhan [at] meta [dot] com</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your existing JS can go here if needed
+        });
+    </script>
+</body>
+</html>
