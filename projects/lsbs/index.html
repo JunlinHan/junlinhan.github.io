@@ -403,12 +403,13 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
+<!-- FAQ Section -->
         <section id="faq" class="mt-2">
             <div class="row">
                 <div class="col-lg-11 mx-auto">
                     <h2 class="section-title">FAQ</h2>
                     <div class="accordion" id="faqAccordion">
+                        <!-- Item 1: Open by default -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -421,18 +422,20 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Item 2: Collapsed by default -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="TRUE" aria-controls="collapseTwo">
                                     What is the difference between the 'perception' and 'reasoning' priors?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    <p><strong>Perception</strong> is the ability to 'see' the image—to process raw visual information like recognizing objects. In contrast, <strong>reasoning</strong> is the ability to think through and solve a visual problem, which requires logical inference. Our work shows that perception largely comes from broad, diverse text, while reasoning is primarily cultivated from structured, logic-centric text like code.</p>
+                                    <p>Perception is the ability to 'see' the image—to process raw visual information like recognizing objects. In contrast, reasoning is the ability to think through and solve a visual problem, which requires logical inference. Our work shows that perception largely comes from broad, diverse text, while reasoning is primarily cultivated from structured, logic-centric text like code.</p>
                                 </div>
                             </div>
                         </div>
+                        <!-- Item 3: Collapsed by default -->
                          <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -445,6 +448,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Item 4: Collapsed by default -->
                          <div class="accordion-item">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -454,6 +458,19 @@
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>Our investigation centers on common adapter-style MLLM architectures, where a pre-trained vision encoder is connected to an LLM. The findings may not fully generalize to other approaches, such as models that are trained end-to-end on both vision and language data from the start. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 5: Corrected and collapsed by default -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                   How to ensure results are consistent and meaningful?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>We use strict protocols including fixed random seeds, fixed training data order (if same data), and deterministic testing. For a comprehensive and fair assessment, we evaluate models on a diverse suite of 10 language modeling benchmarks and 16 VQA benchmarks and employ a robust parsing strategy to handle various answer formats for VQAs.</p>
                                 </div>
                             </div>
                         </div>
