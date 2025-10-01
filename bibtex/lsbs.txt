@@ -1,0 +1,6 @@
+@article{han2025lsbs,
+  title={Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training},
+  author={Han, Junlin and Tong, Shengbang and Fan, David and Ren, Yufan and Sinha, Koustuv and Torr, Philip and Kokkinos, Filippos},
+  journal={arXiv preprint arXiv:2509.26625},
+  year={2025}
+}
