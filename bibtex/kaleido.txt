@@ -1,0 +1,6 @@
+@article{liu2025kaleido,
+    title={Scaling Sequence-to-Sequence Generative Neural Rendering},
+    author={Liu, Shikun and Ng, Kam Woh and Jang, Wonbong and Guo, Jiadong and Han, Junlin and Liu, Haozhe and  Douratsos, Yiannis and Pérez, Juan C. and Zhoum Zijian and Phung, Chi and Xiang, Tao Xiang and Pérez-Rúa, Juan-Manuel},
+    journal={arXiv preprint 2510.04236},
+    year={2025}
+}
