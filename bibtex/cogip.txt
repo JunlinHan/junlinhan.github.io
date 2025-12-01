@@ -1,0 +1,6 @@
+@article{chen2025cogip,
+  title={From Pixels to Feelings: Aligning MLLMs with Human Cognitive Perception of Images},
+  author={Yiming Chen, Junlin Han, Tianyi Bai, Shengbang Tong, Filippos Kokkinos, Philip Torr},
+  journal={arXiv preprint arXiv:2511.22805},
+  year={2025}
+}
