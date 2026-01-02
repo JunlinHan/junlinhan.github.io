@@ -1,0 +1,6 @@
+@article{li2025egoedit,
+  title={EgoEdit: Dataset, Real-Time Streaming Model, and Benchmark for Egocentric Video Editing},
+  author={Li, Runjia and Haji-Ali, Moayed and Mirzaei, Ashkan and Wang, Chaoyang and Sahni, Arpit and Skorokhodov, Ivan and Siarohin, Aliaksandr and Jakab, Tomas and Han, Junlin and Tulyakov, Sergey and others},
+  journal={arXiv preprint arXiv:2512.06065},
+  year={2025}
+}
