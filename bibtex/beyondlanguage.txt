@@ -1,0 +1,5 @@
+@article{tong2026beyond,
+  title={Beyond Language Modeling: An Exploration of Multimodal Pretraining},
+  author={Tong, Shengbang and Fan, David and Nguyen, John and Brown, Ellis and Zhou, Gaoyue and Qian, Shengyi and Zheng, Boyang and Vallaeys, Th{\'e}ophane and Han, Junlin and Fergus, Rob and Murray, Naila and Ghazvininejad, Marjan and Lewis, Mike and Ballas, Nicolas and Bar, Amir and Rabbat, Michael and Verbeek, Jakob and Zettlemoyer, Luke and Sinha, Koustuv and LeCun, Yann and Xie, Saining},
+  year={2026}
+}
