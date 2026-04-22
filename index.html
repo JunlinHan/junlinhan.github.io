@@ -7,59 +7,72 @@
   <link rel="shortcut icon" href="./Files/favicon.ico" />
   <style>
     :root {
-      --text: #222;
-      --muted: #666;
-      --line: #ddd;
-      --accent: #1f4e79;
+      --text-dark: #0f172a;    
+      --text: #334155;        
+      --muted: #64748b;        
+      --line: #e2e8f0;         
+      --accent: #2563eb;      
+      --accent-hover: #1d4ed8; 
       --bg: #ffffff;
-      --soft: #f7f7f7;
-      --highlight: #1f7a1f;
+      --soft: #f8fafc;         
+      --highlight: #059669;  
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       color: var(--text);
       background: var(--bg);
       line-height: 1.65;
+      -webkit-font-smoothing: antialiased; 
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.2s ease-in-out;
     }
 
     a:hover {
+      color: var(--accent-hover);
       text-decoration: underline;
+      text-underline-offset: 3px; 
+    }
+
+    h1, h2, h3, strong, b {
+      color: var(--text-dark);
     }
 
     .container {
       max-width: 980px;
       margin: 0 auto;
-      padding: 32px 24px 64px;
+      padding: 40px 24px 80px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: 200px 1fr;
-      gap: 28px;
+      gap: 32px;
       align-items: start;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .hero img {
       width: 200px;
       height: 200px;
       object-fit: cover;
+      border-radius: 12px;
       border: 1px solid var(--line);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     }
 
     h1 {
       margin: 0 0 8px;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
+      letter-spacing: -0.02em; 
     }
 
     .affiliation,
@@ -70,31 +83,35 @@
     }
 
     .nav {
-      margin-top: 12px;
-      padding-top: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
       border-top: 1px solid var(--line);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .nav a {
-      margin-right: 10px;
+      margin-right: 14px;
       white-space: nowrap;
+      display: inline-block;
+      margin-bottom: 4px;
     }
 
     h2 {
-      font-size: 1.45rem;
-      margin: 34px 0 12px;
-      padding-bottom: 6px;
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--line);
+      font-weight: 600;
     }
 
-    p { margin: 10px 0; }
-    ul { margin: 10px 0 0 20px; padding: 0; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0 0 20px; padding: 0; }
     li { margin: 8px 0; }
 
     .section-note {
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
     .news-item-hidden {
@@ -103,58 +120,95 @@
 
     .toggle {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 12px;
       cursor: pointer;
       color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .toggle:hover {
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     details {
-      margin: 10px 0;
-      padding: 8px 10px;
+      margin: 12px 0;
+      padding: 12px 16px;
       background: var(--soft);
       border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    
+    details:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    }
+
+    details div {
+      margin-top: 8px;
+      padding-left: 18px; 
     }
 
     summary {
       cursor: pointer;
       font-weight: 600;
+      color: var(--text-dark);
+      outline: none;
     }
 
     .entry {
-      margin: 16px 0 20px;
+      margin: 20px 0;
     }
 
     .entry-title {
-      font-weight: 700;
+      font-weight: 600;
+      color: var(--text-dark);
     }
 
     .entry-sub {
       color: var(--muted);
       margin-top: 2px;
-    }
-
-    .pub-buttons {
-      margin: 12px 0 18px;
-    }
-
-    .pub-buttons button {
-      padding: 8px 14px;
-      margin-right: 8px;
-      border: 1px solid #bfc8d2;
-      background: #eef3f8;
-      color: #1f3550;
-      cursor: pointer;
-      font-family: inherit;
       font-size: 0.95rem;
     }
 
+    .pub-buttons {
+      margin: 16px 0 24px;
+    }
+
+    .pub-buttons button {
+      padding: 8px 16px;
+      margin-right: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--text);
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
     .pub-buttons button:hover {
-      background: #e4edf6;
+      background: var(--soft);
+      border-color: #cbd5e1;
+    }
+
+    .pub-buttons button.active {
+      background: #eff6ff;
+      border-color: #bfdbfe; 
+      color: var(--accent);  
     }
 
     .pub-content { display: none; }
-    .pub-content.active { display: block; }
+    .pub-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .pub-table {
       width: 100%;
@@ -163,26 +217,34 @@
 
     .pub-table td {
       vertical-align: top;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pub-table tr:last-child td {
+      border-bottom: none;
     }
 
     .pub-media {
-      width: 245px;
-      padding-right: 16px;
+      width: 260px;
+      padding-right: 20px;
     }
 
     .pub-media img, .pub-media video {
-          width: 230px;
-          height: 130px;
-          object-fit: contain; 
-          background: #fafafa;
-          border: 1px solid var(--line);
-        }
+      width: 240px;
+      height: 135px;
+      object-fit: cover; 
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px; 
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+    }
 
     .pub-title {
-      font-weight: 700;
-      margin: 0 0 4px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin: 0 0 6px;
+      color: var(--text-dark);
     }
 
     .pub-title.highlight {
@@ -192,27 +254,47 @@
     .pub-author,
     .pub-note,
     .pub-links {
-      margin: 4px 0;
+      margin: 6px 0;
+      font-size: 0.98rem;
     }
 
     .pub-note {
       color: var(--muted);
+      font-style: italic;
     }
 
+    .pub-links {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    
     .pub-links a {
-      margin-right: 8px;
+      margin-right: 12px;
+      display: inline-block;
     }
 
     .footer-box {
-      margin-top: 28px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
       text-align: center;
     }
 
     @media (max-width: 760px) {
       .hero {
         grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
       }
-
+      .hero img {
+        width: 160px;
+        height: 160px;
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
       .pub-table,
       .pub-table tbody,
       .pub-table tr,
@@ -220,10 +302,14 @@
         display: block;
         width: 100%;
       }
-
       .pub-media {
         padding-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+      }
+      .pub-media img, .pub-media video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
       }
     }
   </style>
@@ -286,7 +372,7 @@
         <li class="news-item-hidden">[11.2024] Two papers, <a href="https://chuny1.github.io/3DGPT/3dgpt.html">3D-GPT</a> and <a href="https://dreambeast3d.github.io/">DreamBeast</a>, were accepted to <a href="https://3dvconf.github.io/2025/">3DV 2025</a>.</li>
         <li class="news-item-hidden">[07.2024] <a href="https://junlinhan.github.io/projects/vfusion3d.html">VFusion3D</a> and <a href="https://arxiv.org/abs/2311.16101">Unicorns</a> were accepted to <a href="https://eccv.ecva.net/">ECCV 2024</a>.</li>
       </ul>
-      <span id="expand-news" class="toggle">Show more</span>
+      <span id="expand-news" class="toggle">Show more ▼</span>
     </section>
 
     <section id="interest">
@@ -359,7 +445,7 @@
       <p class="section-note">Recent representative papers are <span style="color: var(--highlight); font-weight: 700;">highlighted</span>.</p>
 
       <div class="pub-buttons">
-        <button data-target="selected">Selected Papers</button>
+        <button data-target="selected" class="active">Selected Papers</button>
         <button data-target="all">All Papers</button>
       </div>
 
