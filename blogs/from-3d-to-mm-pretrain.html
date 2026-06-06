@@ -195,13 +195,14 @@
 			These are truly great works, sending an unmistakable signal: learning-based, feed-forward models have firmly taken center stage. So, are we living in the golden era of 3D vision?</p>
 
         <div class="highlight-quote">
-            Yes, if we only care about 3D vision tasks; no, if our goal is intelligence.
+           Yes, if we view 3D as an end in itself; but no, if we care intelligence. WWe need to view 3D as an integrated foundation for unified models.
         </div>
 
         <h2>My Background and My Works in 3D</h2>
         <p>My own research focused on this wave, specifically on scalable 3D generation leveraging multimodal priors—through projects like <a href="https://chuny1.github.io/3DGPT/3dgpt.html" target="_blank">3D-GPT</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, and <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a>. With <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, we were among the first to scale 3D generative training by 10x by tapping into video diffusion models as a data source. In <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, we scaled this feed-forward paradigm across input and rendering constraints. Most recently, <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a> formulated 3D generation as a sequence-to-sequence model built directly on top of video diffusion to fully exploit its spatial-temporal priors.</p>
         
-        <p>Yet, in late 2024, when I was invited to join the <a href="https://vgg-t.github.io/" target="_blank">VGGT</a> project—I declined, leaving the stage to my close friends and happily cheering them on. Instead, I pivoted to MLLM vision post-training then multimodal pretraining. This post is an attempt to articulate the reasoning behind that fork in the road.</p>
+        <p>Yet, in late 2024, despite an exciting opportunity to collaborate on the VGGT project, I decided to pivot my focus toward MLLM. It has been incredibly rewarding to watch my peers take that work to such heights, and cheering them on from the sidelines.
+        This post is an attempt to articulate the reasoning behind that fork in the road.</p>
 
         <h2>The Walled Garden of Single-Modality 3D</h2>
         <p>Historically, different modalities—text, 2D images, video, and 3D—have been treated as isolated silos, each with its own specialized benchmarks and representations. While language, images, and videos have mature, internet-scale scaling templates, native 3D data remains scarce and notoriously difficult to acquire.</p>
@@ -218,7 +219,7 @@
             </li>
             <li>
                 <strong>Language to Vision</strong>
-                Our work on <a href="https://junlinhan.github.io/projects/lsbs/" target="_blank">LSBS</a> revealed that LLMs, despite being trained only on text, develop rich latent visual priors. Pre-training on non-visual related data like code and math provides structured reasoning priors that make learning visual tasks and perform visual learning significantly easier.
+                Our work on <a href="https://junlinhan.github.io/projects/lsbs/" target="_blank">LSBS</a> revealed that LLMs, despite being trained only on text, develop rich latent visual priors. Pre-training on non-visual related data like code and math provides structured reasoning priors that making visual task learning and representation alignment significantly easier.
             </li>
         </ul>
 
@@ -227,12 +228,12 @@
         <h2>The Co-Evolution of Multimodality</h2>
         <p>If our ultimate goal is to contribute to general intelligence (instead of a single vision task), we need a paradigm where vision and language co-evolve to foster mutual benefits. Building upon the success of language pretraining, I assume multimodal intelligence requires a co-evolving pretraining scheme where perceptual capabilities and symbolic reasoning are learned jointly from the ground up. Rather than training modalities separately and attempting to align them afterward as a patchwork, joint pretraining allows them to shape mutual latent representation space from the very beginning.</p>
         
-        <p>Consequently, the future of computer vision belongs to generalized yet scalable models. These foundation models must be capable of digesting diverse, multimodal streams—text, pixels, temporal sequences, and physical actions—without being bottlenecked by task-specific intermediate representations like explicit 3D geometry. We need unified architectures that can seamlessly "eat" internet-scale data, allowing spatial awareness, physical world dynamics, and semantic reasoning to emerge naturally and cohesively through multimodal pretraining.</p>
+        <p>Consequently, the future of computer vision should increasingly lie in generalized yet scalable models. These foundation models must be capable of digesting diverse, multimodal streams—text, pixels, temporal sequences, and physical actions—without being bottlenecked by task-specific intermediate representations like explicit 3D geometry. We need unified architectures that can seamlessly "eat" internet-scale data, allowing spatial awareness, physical world dynamics, and semantic reasoning to emerge naturally and cohesively through multimodal pretraining.</p>
 
         <h2>Beyond Language Modeling</h2>
         <p>In our recent work, <a href="https://beyond-llms.github.io/" target="_blank">Beyond Language Modeling</a>, we explored this by training unified objectives where modalities co-evolve. We built scalable foundations for multi-modal pre-training and found that world-modeling capabilities—like video navigation—emerge naturally without task-specific training. This shift, echoed by recent <a href="https://omni-model.com/" target="_blank">Omni models</a>, proves that natively pretraining a unified architecture across text, video, and 3D geometry unlocks downstream 3D tasks as a natural, emergent byproduct.</p>
         
-        <p>We are soon releasing a further study, Towards Physics of Multimodal Pretraining. This upcoming work systematically dissects how knowledge flows across modalities to derive pretraining recipes (where visual generation is almost a free add-on), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we must pretrain modalities jointly from the start to prevent "vision laziness" so that they may truly co-evolve.</p>
+        <p>We are soon releasing a further study, Towards Physics of Multimodal Pretraining. This upcoming work systematically dissects how knowledge flows across modalities to derive pretraining recipes (where visual generation emerges as a highly efficient natural byproduct), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we must pretrain modalities jointly from the start to prevent "vision laziness" so that they may truly co-evolve.</p>
         
         <p>While there are still many open questions, we believe that breaking down these silos is the necessary path forward. Intelligence will not be found by solving isolated tasks, but by letting our understanding of language, pixels, and physical reality co-evolve.</p>
     </article>
