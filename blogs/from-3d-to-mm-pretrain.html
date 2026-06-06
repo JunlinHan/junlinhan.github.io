@@ -256,20 +256,31 @@
             <li><a href="#interconnected-priors">The Interconnected Priors of Multimodality</a></li>
             <li><a href="#co-evolution">The Co-Evolution of Multimodality</a></li>
             <li><a href="#beyond-language">Beyond Language Modeling</a></li>
+            <li><a href="#about-author">About the Author</a></li>
         </ul>
     </aside>
 
     <!-- Main Content Column -->
-    <main class="main-content">
-        <header>
-            <div class="post-meta">Blog Post</div>
-            <h1>From 3D Vision to Multimodal Pre-training</h1>
-            <div class="author-info">
-                By <a href="https://junlinhan.github.io/">Junlin Han</a>
-            </div>
-        </header>
+<main class="main-content">
+    <header>
+        <div class="post-meta">Blog Post</div>
+        <h1 class="post-title">From 3D Vision to Multimodal Pre-training</h1>
+        <p class="post-subtitle"><p class="post-subtitle" style="color: #b91c1c; font-weight: 500;">
+    Why I Don't Work on 3D Alone Anymore
+</p></p>
+        <div class="author-info">
+            By <a href="https://junlinhan.github.io/" target="_blank" rel="noopener">Junlin Han</a>  
+            7 June 2026
+        </div>
+    </header>
+
 
         <article>
+            Inspired by recent discussions in the computer vision community, including 
+        <a href="https://www.vincentsitzmann.com/blog/bitter_lesson_of_cv/" target="_blank" rel="noopener noreferrer">Vincent Sitzmann's bitter lesson</a>, 
+        <a href="https://primecai.github.io/blog/why-i-dont-work-on-3d-anymore.html" target="_blank" rel="noopener noreferrer">Shengqu Cai's moving away from 3D</a>, 
+        and <a href="https://x.com/jon_barron/status/2061831893230973148" target="_blank" rel="noopener noreferrer">Jon Barron's talk on bitter lessions in 3D</a>. I 
+        am writing this blog post on why we should move from 3D alone into unified models.
             <h2 id="golden-era">The Golden Era of Learning-based 3D Vision</h2>
             <p>3D computer vision has advanced at an extraordinary pace. From <a href="https://www.matthewtancik.com/nerf" target="_blank" rel="noopener noreferrer">NeRF</a> to <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreferrer">3D Gaussian Splatting</a>, our field has fundamentally redefined how we represent the physical world. We also rapidly embraced learning-based architectures. This paradigm shift paved the way for feed-forward models, including large reconstruction models like <a href="https://arxiv.org/pdf/2311.04400" target="_blank" rel="noopener noreferrer">LRM</a> and geometry models like <a href="https://dust3r.europe.naverlabs.com/" target="_blank" rel="noopener noreferrer">Dust3R</a>.</p>
             <p>At CVPR 2025, 3D geometry dominated the stage: the Best Paper went to <a href="https://vgg-t.github.io/" target="_blank">VGGT</a>, while the <a href="https://mega-sam.github.io/" target="_blank">MegaSaM</a> received a Best Paper Honorable Mention. Fast forward to CVPR 2026, and the field has swept the board once again: the Best Paper was awarded to a feed-forward 4D geometry model (<a href="https://d4rt-paper.github.io/" target="_blank">D4RT</a>), the Best Student Paper went to a feed-forward 3D generation framework (<a href="https://microsoft.github.io/TRELLIS.2/" target="_blank">TRELLIS</a>), and <a href="https://ai.meta.com/research/sam3d/" target="_blank">SAM3D</a> secured another Honorable Mention in 3D reconstruction.</p>       
@@ -320,6 +331,11 @@
             <p>We are soon releasing a further study, which systematically dissects how knowledge flows across modalities to derive pre-training recipes (where visual generation emerges as a highly efficient natural byproduct), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we should pretrain modalities jointly from the early stages so that modalities may truly co-evolve.</p>
             
             <p>While there are still many open questions, we believe that breaking down these silos is the necessary path forward. Intelligence will not be found by solving isolated tasks, but by letting our understanding of language, pixels, 3D space, temporal dynamics, sound, and physical reality co-evolve.</p>
+    
+            <h2 id="about-author">About the Author</h2>
+             <a href="https://junlinhan.github.io/" target="_blank" rel="noopener">Junlin Han</a> is a researcher at Meta FAIR working on multimodal pre-training, and a final-year DPhil student in the Torr Vision Group (TVG) at the University of Oxford. Prior to his current focus, he worked on a wide range of computer vision and generative 3D vision problems.
+            </div>         
+
         </article>
 
     </main>
