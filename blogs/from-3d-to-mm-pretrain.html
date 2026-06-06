@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From 3D Vision to Multimodal Pretraining</title>
+    <!-- Modern academic web typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --bg-primary: #ffffff;
+            --bg-accent: #f5f5f7;
+            --border-color: #e5e5e7;
+            --link-color: #0066cc;
+            --link-hover: #0044b3;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: 'Lora', Georgia, serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .author-info {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+        }
+
+        .author-info a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .author-info a:hover {
+            color: var(--link-color);
+        }
+
+        article {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.6rem;
+            text-align: justify;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-weight: 600;
+            margin-top: 45px;
+            margin-bottom: 18px;
+            letter-spacing: -0.015em;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s ease, color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            border-bottom-color: var(--link-hover);
+        }
+
+        .highlight-quote {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 3px solid var(--text-primary);
+            padding-left: 20px;
+            margin: 35px 0;
+            line-height: 1.5;
+        }
+
+        /* Styling for list blocks in multimodality section */
+        .points-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+
+        .points-list li {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .points-list strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-secondary);
+        }
+
+        footer a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .container {
+                padding: 40px 16px;
+            }
+            .highlight-quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="post-meta">Blog Post</div>
+        <h1>From 3D Vision to Multimodal Pretraining</h1>
+        <div class="author-info">
+            By <a href="https://junlinhan.github.io/">Junlin Han</a>
+        </div>
+    </header>
+
+    <article>
+        <h2>The Golden Era of 3D Vision</h2>
+        <p>3D computer vision has advanced at an extraordinary pace. From NeRF to 3D Gaussian Splatting, our field has fundamentally redefined how we represent the physical world. We also rapidly embraced learning-based architectures. This paradigm shift paved the way for feed-forward models, including large reconstruction models like LRM and geometry models like Dust3R.</p>
+        
+        <p>At CVPR 2025, the Best Paper went to <a href="https://vgg-t.github.io/" target="_blank">VGGT</a>. Fast forward to CVPR 2026, and 3D geometry has swept the board once again: the Best Student Paper was awarded to a feed-forward 3D generation framework (<a href="https://microsoft.github.io/TRELLIS.2/" target="_blank">TRELLIS</a>), while the Best Paper went to a feed-forward 4D geometry model (<a href="https://d4rt-paper.github.io/" target="_blank">D4RT</a>). 
+			These are truly great works, sending an unmistakable signal: learning-based, feed-forward models have firmly taken center stage. So, are we living in the golden era of 3D vision?</p>
+
+        <div class="highlight-quote">
+            Yes, if we only care about 3D vision tasks; no, if our goal is intelligence.
+        </div>
+
+        <h2>My Background and My Works in 3D</h2>
+        <p>My own research focused on this wave, specifically on scalable 3D generation leveraging multimodal priors—through projects like <a href="https://chuny1.github.io/3DGPT/3dgpt.html" target="_blank">3D-GPT</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, and <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a>. With <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, we were among the first to scale 3D generative training by 10x by tapping into video diffusion models as a data source. In <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, we scaled this feed-forward paradigm across input and rendering constraints. Most recently, <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a> formulated 3D generation as a sequence-to-sequence model built directly on top of video diffusion to fully exploit its spatial-temporal priors.</p>
+        
+        <p>Yet, in late 2024, when I was invited to join the <a href="https://vgg-t.github.io/" target="_blank">VGGT</a> project—I declined, leaving the stage to my close friends and happily cheering them on. Instead, I pivoted to MLLM vision post-training then multimodal pretraining. This post is an attempt to articulate the reasoning behind that fork in the road.</p>
+
+        <h2>The Walled Garden of Single-Modality 3D</h2>
+        <p>Historically, different modalities—text, 2D images, video, and 3D—have been treated as isolated silos, each with its own specialized benchmarks and representations. While language, images, and videos have mature, internet-scale scaling templates, native 3D data remains scarce and notoriously difficult to acquire.</p>
+        
+        <p>However, my pivot was not purely motivated by data scarcity. It stemmed from a deeper realization: we do not live in an isolated 3D world, but a fundamentally multimodal one where all physical and cognitive interactions are inherently multi-sensory. This closely aligns with the <a href="https://phillipi.github.io/prh/" target="_blank">Platonic Representation Hypothesis</a>, which posits that networks trained on different modalities naturally converge toward a shared, universal representation of reality. Under this lens, language, pixels, and 3D structures are not distinct domains, but merely different projection planes of the same underlying world. There is no longer a compelling reason to stick solely to a single 3D domain.</p>
+
+        <h2>The Interconnected Priors of Multimodality</h2>
+        <p>Some of our work has started to show just how deeply these modalities are bridged:</p>
+        
+        <ul class="points-list">
+            <li>
+                <strong>Video/2D to 3D</strong>
+                Our experiences with <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, and <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a> demonstrated that multi-view and 3D consistency can effectively emerge by utilizing pre-trained video diffusion models. It suggests that we may not need to build massive, native 3D datasets; instead, our models can learn to lift implicit geometric priors directly from the vast ocean of 2D and video data.
+            </li>
+            <li>
+                <strong>Language to Vision</strong>
+                Our work on <a href="https://junlinhan.github.io/projects/lsbs/" target="_blank">LSBS</a> revealed that LLMs, despite being trained only on text, develop rich latent visual priors. Pre-training on non-visual related data like code and math provides structured reasoning priors that make learning visual tasks and perform visual learning significantly easier.
+            </li>
+        </ul>
+
+        <p>These findings suggest that trying to solve "3D" as an isolated mathematical or reconstruction task may be limiting. If language can seed visual concepts, and video models can dictate 3D structures, then the boundaries we have drawn between these modalities are largely historical artifacts.</p>
+
+        <h2>The Co-Evolution of Multimodality</h2>
+        <p>If our ultimate goal is to contribute to general intelligence (instead of a single vision task), we need a paradigm where vision and language co-evolve to foster mutual benefits. Building upon the success of language pretraining, I assume multimodal intelligence requires a co-evolving pretraining scheme where perceptual capabilities and symbolic reasoning are learned jointly from the ground up. Rather than training modalities separately and attempting to align them afterward as a patchwork, joint pretraining allows them to shape mutual latent representation space from the very beginning.</p>
+        
+        <p>Consequently, the future of computer vision belongs to generalized yet scalable models. These foundation models must be capable of digesting diverse, multimodal streams—text, pixels, temporal sequences, and physical actions—without being bottlenecked by task-specific intermediate representations like explicit 3D geometry. We need unified architectures that can seamlessly "eat" internet-scale data, allowing spatial awareness, physical world dynamics, and semantic reasoning to emerge naturally and cohesively through multimodal pretraining.</p>
+
+        <h2>Beyond Language Modeling</h2>
+        <p>In our recent work, <a href="https://beyond-llms.github.io/" target="_blank">Beyond Language Modeling</a>, we explored this by training unified objectives where modalities co-evolve. We built scalable foundations for multi-modal pre-training and found that world-modeling capabilities—like video navigation—emerge naturally without task-specific training. This shift, echoed by recent <a href="https://omni-model.com/" target="_blank">Omni models</a>, proves that natively pretraining a unified architecture across text, video, and 3D geometry unlocks downstream 3D tasks as a natural, emergent byproduct.</p>
+        
+        <p>We are soon releasing a further study, Towards Physics of Multimodal Pretraining. This upcoming work systematically dissects how knowledge flows across modalities to derive pretraining recipes (where visual generation is almost a free add-on), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we must pretrain modalities jointly from the start to prevent "vision laziness" so that they may truly co-evolve.</p>
+        
+        <p>While there are still many open questions, we believe that breaking down these silos is the necessary path forward. Intelligence will not be found by solving isolated tasks, but by letting our understanding of language, pixels, and physical reality co-evolve.</p>
+    </article>
+
+    <footer>
+        <p>Written by <a href="https://junlinhan.github.io/">Junlin Han</a> &copy; 2026</p>
+    </footer>
+</div>
+
+</body>
+</html>
