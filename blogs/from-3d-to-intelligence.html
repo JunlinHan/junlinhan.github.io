@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From 3D Vision to Multimodal pre-training</title>
+    <title>From 3D Vision to Multimodal Intelligence</title>
     <!-- Modern academic web typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
@@ -185,6 +185,31 @@
             line-height: 1.5;
         }
 
+        /* Post Image Container */
+        .post-image-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .post-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Blockquote Styling */
+        blockquote.pull-quote {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 3px solid var(--text-secondary);
+            padding-left: 20px;
+            margin: 35px 0;
+            line-height: 1.6;
+        }
+
         /* List styling from screenshot */
         .image-bullet-list {
             list-style-type: square;
@@ -264,10 +289,10 @@
 <main class="main-content">
     <header>
         <div class="post-meta">Blog Post</div>
-        <h1 class="post-title">From 3D Vision to Multimodal Pre-training</h1>
-        <p class="post-subtitle"><p class="post-subtitle" style="color: #b91c1c; font-weight: 500;">
-    Why I Don't Work on 3D Alone Anymore
-</p></p>
+        <h1 class="post-title">From 3D Vision to Multimodal Intelligence</h1>
+        <p class="post-subtitle" style="color: #b91c1c; font-weight: 500; margin-top: 5px; margin-bottom: 20px;">
+            Why I Don't Work on 3D Alone Anymore
+        </p>
         <div class="author-info">
             By <a href="https://junlinhan.github.io/" target="_blank" rel="noopener">Junlin Han</a>  
             7 June 2026
@@ -276,24 +301,31 @@
 
 
         <article>
-            Inspired by recent discussions in the computer vision community, including 
+            <p>Inspired by recent discussions in the computer vision community, including 
         <a href="https://www.vincentsitzmann.com/blog/bitter_lesson_of_cv/" target="_blank" rel="noopener noreferrer">Vincent Sitzmann's bitter lesson</a>, 
         <a href="https://primecai.github.io/blog/why-i-dont-work-on-3d-anymore.html" target="_blank" rel="noopener noreferrer">Shengqu Cai's moving away from 3D</a>, 
-        and <a href="https://x.com/jon_barron/status/2061831893230973148" target="_blank" rel="noopener noreferrer">Jon Barron's talk on bitter lession in 3D</a>. I 
-        am writing this blog post on why we should move from 3D alone into unified models.
+        and <a href="https://x.com/jon_barron/status/2061831893230973148" target="_blank" rel="noopener noreferrer">Jon Barron's talk on bitter lesson in 3D</a>. I 
+        am writing this blog post on my views in 3D and computer vision.</p>
+
+        <div class="highlight-quote"> <p>TLDR: 3D is not intelligence. If we aim for intelligence, 3D research should move beyond single modality and embrace unified models. </p></div>
+
+        <!-- Added local image container -->
+        <div class="post-image-container">
+            <img src="3Dalone.png" alt="3D Alone" class="post-image">
+        </div>
+
             <h2 id="golden-era">The Golden Era of Learning-based 3D Vision</h2>
             <p>3D computer vision has advanced at an extraordinary pace. From <a href="https://www.matthewtancik.com/nerf" target="_blank" rel="noopener noreferrer">NeRF</a> to <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreferrer">3D Gaussian Splatting</a>, our field has fundamentally redefined how we represent the physical world. We also rapidly embraced learning-based architectures. This paradigm shift paved the way for feed-forward models, including large reconstruction models like <a href="https://arxiv.org/pdf/2311.04400" target="_blank" rel="noopener noreferrer">LRM</a> and geometry models like <a href="https://dust3r.europe.naverlabs.com/" target="_blank" rel="noopener noreferrer">Dust3R</a>.</p>
             <p>At <strong>CVPR 2025</strong>, 3D geometry dominated the stage: the Best Paper went to <a href="https://vgg-t.github.io/" target="_blank">VGGT</a>, while the <a href="https://mega-sam.github.io/" target="_blank">MegaSaM</a> received a Best Paper Honorable Mention. In <strong>CVPR 2026</strong>, the field has swept the board once again: the Best Paper was awarded to a feed-forward 4D geometry model (<a href="https://d4rt-paper.github.io/" target="_blank">D4RT</a>), the Best Student Paper went to a feed-forward 3D generation framework (<a href="https://microsoft.github.io/TRELLIS.2/" target="_blank">TRELLIS</a>), and <a href="https://ai.meta.com/research/sam3d/" target="_blank">SAM3D</a> secured another Honorable Mention in 3D reconstruction.</p>       
             <p>These are truly great works, sending an unmistakable signal: learning-based, feed-forward 3D/4D models have firmly taken center stage.
-            <strong>So, is this what 3D vision is meant to be? Is this the final destination of 3D vision?</strong> </p>
+            <strong>So what is wrong with 3D when it is developing so well and keep winning awards?</strong> </p>
 
-            <div class="highlight-quote">
-               Probably yes, if we view 3D as an end in itself; but no, if we care about intelligence. For the latter, we need to view 3D as an integrated foundation for unified models.
-            </div>
-
+<blockquote class="pull-quote">
+  <strong>Nothing is wrong if our goal is simply better 3D generation or pose estimation. But if our goal is intelligence, we must stop treating 3D as a standalone destination.</strong>
+</blockquote> 
             <h2 id="my-journey">My Journey and the Fork in the Road</h2>
             <p>In 2023 and 2024, my research focused primarily on scalable 3D generation, including projects like <a href="https://chuny1.github.io/3DGPT/3dgpt.html" target="_blank">3D-GPT</a>, <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, and <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a>. 
-            In late 2024, I decided to pivot my focus toward MLLMs, focusing first on post-training and later on multimodal pre-training. This post is an attempt to articulate the reasoning behind that transition.</p>
+            In late 2024, I decided to pivot my focus toward MLLMs, working first on post-training and later on multimodal pre-training. This post is an attempt to articulate the reasoning behind that transition.</p>
 
             <h2 id="walled-garden">The Walled Garden of Single-Modality</h2>
             <p>Historically, different modalities like text, 2D images, video, and 3D have been treated as isolated silos, each with its own specialized benchmarks and representations. While language, images, and videos have mature, internet-scale scaling templates, native 3D data remains scarce and notoriously difficult to acquire.</p>
@@ -310,14 +342,14 @@
                     <strong>Video/2D to 3D</strong> Our experiences with <a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">VFusion3D</a>, <a href="https://junlinhan.github.io/projects/flex3d/" target="_blank">Flex3D</a>, and <a href="https://shikun.io/projects/kaleido" target="_blank">Kaleido</a> demonstrated that multi-view and 3D consistency can effectively emerge by utilizing pre-trained video diffusion models. Models can learn to lift implicit geometric priors directly from the vast ocean of 2D and video data.
                 </li>
                 <li>
-                    <strong>Language to Vision</strong> Our work on <a href="https://junlinhan.github.io/projects/lsbs/" target="_blank">LSBS</a> revealed that LLMs, despite being trained only on text, develop rich latent visual priors. Pre-training on non-visual related data like code and math provides visual reasoning priors that make visual task learning and representation alignment significantly easier.
+                    <strong>Language to Vision</strong> Our work on <a href="https://junlinhan.github.io/projects/lsbs/" target="_blank">LSBS</a> revealed that LLMs, despite being trained only on text, develop rich latent visual priors. Pre-training on language data like code and math provides visual reasoning priors that make visual task learning and representation alignment significantly easier.
                 </li>
                 <li>
                     <strong>Video/Language to Action</strong> Efforts in robotics, such as  <a href="https://www.pi.website/blog/pi07" target="_blank">π0.7</a>, <a href="https://dreamzero0.github.io/" target="_blank">DreamZero</a>, and <a href="https://research.nvidia.com/labs/cosmos-lab/cosmos3/" target="_blank">Cosmos 3</a>, demonstrated that physical action and causal priors can effectively emerge from multi-modal representations. Models can learn to transfer and lift implicit action and physical priors directly from passive, web-scale visual and textual data.
                 </li>
             </ul>
 
-            <p>These findings suggest that trying to solve 3D as an isolated task may be limiting. The boundaries we have drawn between these modalities are largely historical artifacts.</p>
+            <p>These findings suggest that trying to solve 3D as an isolated task may be limiting. The boundaries we have drawn between these modalities are largely historical artifacts, not how nature structured intelligence.</p>
 
             <h2 id="co-evolution">The Co-Evolution of Multimodality</h2>
             <p>If our ultimate goal is to contribute to intelligence (instead of a single vision task), we need a paradigm where vision and language co-evolve to foster mutual benefits. Building upon the success of language pre-training, I assume multimodal intelligence requires a co-evolving pre-training scheme where perceptual capabilities and symbolic reasoning are learned jointly from the ground up. Rather than training modalities separately and attempting to align them afterward as a patchwork, joint pre-training allows them to shape mutual latent representation space from the very beginning.</p>
@@ -328,7 +360,7 @@
             <h2 id="beyond-language">Beyond Language Modeling</h2>
             <p>In our recent work, <a href="https://beyond-llms.github.io/" target="_blank">Beyond Language Modeling</a>, we explored this by training unified objectives where modalities co-evolve. We built scalable foundations for multi-modal pre-training and found that world-modeling capabilities—like video navigation—emerge naturally without task-specific training. This shift, echoed by recent <a href="https://omni-model.com/" target="_blank">Omni models</a> and <a href="https://research.nvidia.com/labs/cosmos-lab/cosmos3/" target="_blank">Cosmos 3</a>, suggests that natively pre-training a unified architecture across text, video, along with a modest amount of 3D, unlocks downstream 3D tasks as a natural, emergent ability.</p>
             
-            <p><strong>We are soon releasing a further study</strong>, which systematically dissects how knowledge flows across modalities to derive pre-training recipes (where visual generation emerges as a highly efficient natural byproduct), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we should pretrain modalities jointly from the early stages so that modalities may truly co-evolve.</p>
+            <p><strong>We are soon releasing a further study</strong>, which systematically dissects how knowledge flows across modalities to derive pre-training recipes (where visual generation emerges as a highly efficient natural byproduct), how task complexity and architectures govern the competition and synergy that dictate design choices, and why we should pre-train modalities jointly from the early stages so that modalities may truly co-evolve.</p>
             
             <p>While there are still many open questions, we believe that breaking down these silos is the necessary path forward. Intelligence will not be found by solving isolated tasks, but by letting our understanding of language, pixels, 3D space, temporal dynamics, sound, and physical reality co-evolve.</p>
     
