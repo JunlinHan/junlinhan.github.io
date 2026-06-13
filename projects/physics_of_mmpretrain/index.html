@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes" />
+    <meta property="og:description" content="A systematic, bottom-up exploration of unified pretraining dynamics, cross-modal synergy, and scale-optimized recipes." />
+    <meta property="og:image" content="assets/figures/part123_overview.png" />
+    <meta name="description" content="A systematic, bottom-up exploration of unified pretraining dynamics, cross-modal synergy, and scale-optimized recipes.">
+    <title>Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1320px !important;
+            }
+        }
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1480px !important;
+            }
+        }
+        body {
+            font-size: 1.15rem !important;
+            line-height: 1.8 !important;
+            letter-spacing: -0.01em;
+        }
+        h1, .title, .paper-title, .main-title {
+            font-size: 3.5rem !important;
+            line-height: 1.2 !important;
+            font-weight: 700 !important;
+            margin-bottom: 1rem !important;
+        }
+        .paper-subtitle {
+            font-size: 1.75rem !important;
+            margin-bottom: 2.5rem !important;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        .header-section {
+            padding-top: 5rem !important;
+            padding-bottom: 3rem !important;
+            margin-bottom: 2rem !important;
+        }
+        .body-text, p {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+        }
+        ul, ol {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        li {
+            margin-bottom: 0.75rem;
+        }
+        .tldr-box {
+            max-width: 1140px;
+            margin: 0 auto 3rem auto !important;
+            padding: 3rem 4rem !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .tldr-headline {
+            font-size: 1.4rem !important;
+            line-height: 1.6 !important;
+        }
+        .tldr-abstract {
+            font-size: 1.15rem !important;
+            line-height: 1.75 !important;
+        }
+        .section-nav {
+            max-width: 1140px !important;
+            margin: 2rem auto !important;
+            padding: 1rem 2rem !important;
+        }
+        .section-figure {
+            max-width: 1140px !important;
+            margin: 4rem auto !important;
+            width: 100%;
+        }
+        .section-figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+        }
+        .section-caption {
+            max-width: 960px;
+            margin: 1.5rem auto 3rem auto !important;
+            font-size: 1.05rem !important;
+            line-height: 1.6 !important;
+            text-align: center;
+        }
+        .callout {
+            max-width: 960px;
+            margin: 3rem auto !important;
+            padding: 2.5rem !important;
+            border-radius: 12px;
+        }
+        .arch-card {
+            max-width: 960px;
+            margin: 1.5rem auto !important;
+            border-radius: 10px;
+        }
+        .citation-block {
+            max-width: 960px;
+            margin: 2.5rem auto !important;
+            padding: 2rem !important;
+        }
+        .section-title {
+            font-size: 2.4rem !important;
+            font-weight: 700 !important;
+            margin-top: 3.5rem !important;
+            margin-bottom: 2.5rem !important;
+            text-align: center;
+        }
+        .section-divider {
+            margin: 5rem 0 !important;
+            opacity: 0.15;
+        }
+        .tldr-keyword[data-color="primary"] {
+            color: #2563eb !important;
+            border-bottom: 1px dashed rgba(37, 99, 235, 0.4) !important;
+        }
+        .tldr-keyword[data-color="secondary"] {
+            color: #059669 !important;
+            border-bottom: 1px dashed rgba(5, 150, 105, 0.4) !important;
+        }
+        .tldr-keyword[data-color="accent"] {
+            color: #d97706 !important;
+            border-bottom: 1px dashed rgba(217, 119, 6, 0.4) !important;
+        }
+        [data-theme="dark"] .tldr-keyword[data-color="primary"] {
+            color: #60a5fa !important;
+            border-bottom: 1px dashed rgba(96, 165, 250, 0.4) !important;
+        }
+        [data-theme="dark"] .tldr-keyword[data-color="secondary"] {
+            color: #34d399 !important;
+            border-bottom: 1px dashed rgba(52, 211, 153, 0.4) !important;
+        }
+        [data-theme="dark"] .tldr-keyword[data-color="accent"] {
+            color: #fbbf24 !important;
+            border-bottom: 1px dashed rgba(251, 191, 36, 0.4) !important;
+        }
+        @media (max-width: 768px) {
+            h1, .title, .paper-title, .main-title {
+                font-size: 2.4rem !important;
+            }
+            .paper-subtitle {
+                font-size: 1.3rem !important;
+            }
+            .tldr-box {
+                padding: 2rem !important;
+            }
+        }
+    </style>
+    <script>
+    (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+        if (initialTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+    </script>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
+    <header class="header-section" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="paper-title">Towards Physics of Multimodal Pretraining</h1>
+                    <p class="paper-subtitle">Knowledge Flow, Modality Synergy, Early Unification, and Recipes</p>
+                    
+                    <div class="author-line d-flex flex-wrap justify-content-center gap-4" style="font-size: 1.2rem; margin-bottom: 1.2rem;">
+                        <span><a href="https://junlinhan.github.io/" class="author-link" target="_blank">Junlin Han<sup>1,2</sup></a></span>
+                        <span><a href="https://tsb0601.github.io/" class="author-link" target="_blank">Shengbang Tong<sup>1</sup></a></span>
+                        <span><a href="http://davidfan.io/" class="author-link" target="_blank">David Fan<sup>1</sup></a></span>
+                        <span><a href="https://scholar.google.com/citations?user=kPxa2w0AAAAJ&hl=en" class="author-link" target="_blank">Philip Torr<sup>2</sup></a></span>
+                        <span><a href="https://www.fkokkinos.com/" class="author-link" target="_blank">Filippos Kokkinos<sup>1</sup></a></span>
+                        <span><a href="https://scholar.google.com/citations?user=SnQnQicAAAAJ&hl=en" class="author-link" target="_blank">Mike Lewis<sup>1</sup></a></span>
+                    </div>
+
+                    <div class="institution-list d-flex flex-wrap justify-content-center align-items-center gap-4" style="margin-bottom: 1rem;">
+                        <span class="institution-logo" style="display: inline-flex; align-items: flex-start;">
+                            <img src="assets/logos/meta.png" alt="Meta" style="height: 2rem; display: block;">
+                            <sup style="font-size: 0.8rem; margin-left: 2px;">1</sup>
+                        </span>
+                        <span class="institution-logo" style="display: inline-flex; align-items: flex-start;">
+                            <img src="assets/logos/oxford.png" alt="University of Oxford" style="height: 2rem; display: block;">
+                            <sup style="font-size: 0.8rem; margin-left: 2px;">2</sup>
+                        </span>
+                    </div>
+                </div> 
+            </div> 
+        </div> 
+    </header>
+
+
+    
+    <section class="row sec-teal" id="tldr">
+        <div class="col-lg-12">
+            <div class="tldr-box rounded">
+                <div class="row mb-3">
+                    <div class="col-lg-12">
+                        <h2 style="font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.7; margin-bottom: 0; text-align: center;">Highlights</h2>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <p class="tldr-headline mb-0">
+                            We study the fundamental mechanisms of multimodal pretraining through 
+                            <span class="tldr-keyword" data-color="primary">Knowledge Flow<span class="keyword-tooltip">Disentangling transfer across language, understanding, and generation to show how capability transfer is highly asymmetric and concept-dependent.</span></span>, 
+                            <span class="tldr-keyword" data-color="secondary">Modality Synergy<span class="keyword-tooltip">Understanding how task complexity dictates synergy vs. competition, and which architectural configurations promote cooperative representation learning.</span></span>, and 
+                            <span class="tldr-keyword" data-color="accent">Early Unification<span class="keyword-tooltip">Exposing how delayed visual integration limits representation development and leads to "vision laziness".</span></span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="tldr-abstract mb-0">We provide a systematic, bottom-up exploration of unified multimodal pretraining. Utilizing controlled environments across both synthetic and real-world datasets, we investigate how modalities interact, compete, and co-evolve. We apply these insights to build efficient data-mixing recipes, and validate our findings at scale by training 13.5B Mixture-of-Experts (MoE) models on 2T tokens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav id="section-nav" class="section-nav">
+        <div class="nav-mobile-header">
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <span class="nav-mobile-title">Physics of Multimodal Pretraining</span>
+        </div>
+        <div class="section-nav-inner">
+            <a class="section-nav-link nav-top-link" data-section="overview"><i class="fas fa-arrow-up" style="font-size: 0.7em;"></i> Top</a>
+            <span class="section-nav-sep">·</span>
+            <a class="section-nav-link nav-color-gold" data-section="sec-knowledge-flow">Knowledge Flow</a>
+            <span class="section-nav-sep">·</span>
+            <a class="section-nav-link nav-color-teal" data-section="sec-synergy">Synergy & Competition</a>
+            <span class="section-nav-sep">·</span>
+            <a class="section-nav-link nav-color-blue" data-section="sec-unification">Early Unification</a>
+            <span class="section-nav-sep">·</span>
+            <a class="section-nav-link nav-color-blue" data-section="sec-recipes">Recipes & Scale</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="sidebar-content-area">
+            <section id="sec-knowledge-flow" class="sec-gold">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="section-title">1. Demystifying Modality Knowledge Flow</h2>
+
+                        <p class="body-text">
+                            How does knowledge move between language, visual understanding, and visual generation in a unified network? By executing controlled mixture experiments, we demonstrate that modality knowledge transfer is fundamentally <strong>asymmetric</strong> and <strong>concept-dependent</strong>. 
+                        </p>
+
+                        <p class="body-text">
+                            Our real-world data sweeps reveal that language serves as a universal booster: increasing language data consistently improves all visual understanding and generation metrics. Visual understanding also acts as a powerful prior that significantly boosts generation performance. However, the reverse path is neutral—scaling visual generation data yields minimal backward transfer to language or understanding tasks.
+                        </p>
+
+                        <div class="section-figure">
+                                <div class="col-md-4">
+                                    <img src="assets/figures/part123_supp_rae.png" alt="Impact of scaling modality-specific data" class="img-fluid" loading="lazy">
+                                </div>
+                        </div>
+                        <p class="section-caption">
+                            <strong>Asymmetry in real-world modality transfer.</strong> Scaling language data (top) or visual understanding data (center) provides cross-task boosts to visual generation, whereas scaling visual generation data (bot) offers a highly stable, neutral effect on other tasks.
+                        </p>
+
+                        <p class="body-text">
+                            To isolate these dynamics from data confounders, we developed a controlled concept-removal study using synthetic CLEVR environments. This study demonstrates that transfer dynamics are concept-dependent:
+                        </p>
+                        <ul>
+                            <li><strong>Low-level attributes (Color, Shape):</strong> Zero-shot transfer fails entirely in both directions. These visual vocabularies must be explicitly learned within each task. However, generative training establishes fine-grained visual priors that significantly accelerate subsequent understanding recovery during fine-tuning.</li>
+                            <li><strong>High-level structural concepts (Relation, Size, Count):</strong> High-level spatial and compositional structures transfer effectively from understanding to guide the zero-shot generative process.</li>
+                        </ul>
+
+                        <div class="section-figure">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <img src="assets/figures/clevr_schematic.png" alt="Synthetic CLEVR testbed" class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/figures/clevr_ablation.png" alt="Zero-shot concept transfer results on CLEVR" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="row mt-3 g-3">
+                                <div class="col-12">
+                                    <img src="assets/figures/priors_curves_color_shape.png" alt="Concept recovery via fine-tuning" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-caption">
+                            <strong>Concept-dependent transfer on CLEVR.</strong> The pipeline (top-left) filters target concepts from training streams. Zero-shot evaluations (top-right) reveal asymmetric transfer of structural concepts. Prior curves (bottom) show generative training accelerates subsequent concept recovery.
+                        </p>
+
+                        <div class="callout callout--gold">
+                            <p style="margin-bottom: 0;">
+                                <strong>Takeaway 1:</strong> Modality transfer is asymmetric. Visual understanding acts as a strong prior for generation, but generative training primarily contributes to understanding by accelerating low-level concept acquisition during fine-tuning, rather than through direct zero-shot transfer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="sec-synergy" class="sec-teal">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="section-title">2. Modality Synergy vs. Competition</h2>
+
+                        <p class="body-text">
+                            Whether modalities cooperate or compete during unified training depends heavily on two critical factors: <strong>task complexity</strong> and <strong>parameter-sharing strategies</strong> within the network.
+                        </p>
+
+                        <p class="body-text">
+                            We systematically evaluated how varying the complexity of one modality impacts the performance of another. We discovered that simple, low-entropy tasks act as cross-modal boosters (e.g., pairing language with solid color backgrounds or noise actually lowers language perplexity compared to text-only training). However, as visual tasks scale up in semantic complexity and entropy, capacity competition dominates, causing performance tradeoffs in dense shared parameters.
+                        </p>
+
+                        <div class="section-figure">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <img src="assets/figures/part12_data_samples.png" alt="Overview of data complexity progressions" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="row mt-3 g-3">
+                                <div class="col-md-6">
+                                    <img src="assets/figures/part12_data.png" alt="Task complexity impact" class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/figures/part12_arch.png" alt="Parameter sharing configurations" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-caption">
+                            <strong>Complexity and Architecture.</strong> Data progressions (top) range from solid colors to natural images. Simple visual tasks act as boosters, whereas complex distributions lead to capacity competition (bottom-left). Modality-specific FFN layers mitigate this competition (bottom-right).
+                        </p>
+
+                        <p class="body-text">
+                            To preserve cross-modal synergy while eliminating parameter competition, we evaluated five parameter-sharing configurations in standard transformer blocks. The optimal design relies on:
+                        </p>
+                        <ul>
+                            <li><strong>Shared Attention and Normalization:</strong> Acts as a representational bridge, allowing different modalities to contextualize and align their feature scales in a shared space.</li>
+                            <li><strong>Decoupled Feed-Forward Networks (split_ffn):</strong> Mitigates capacity competition by giving each modality specialized parameter capacity to process its distinct computational demands.</li>
+                        </ul>
+
+                        <div class="callout callout--teal">
+                            <p style="margin-bottom: 0;">
+                                <strong>Takeaway 2:</strong> Architecture dictates modality synergy. To prevent capacity competition while leveraging shared representations, use shared attention mechanisms paired with decoupled, modality-specific feed-forward layers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="sec-unification" class="sec-blue">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="section-title">3. The Necessity of Early Unification</h2>
+
+                        <p class="body-text">
+                            We challenge common late-fusion heuristics that pretrain language models first and align visual capabilities post-hoc. Our temporal and sequential scheduling experiments show that simultaneous joint training from the very early stages of pretraining is essential to prevent a phenomenon we call <strong>vision laziness</strong>.
+                        </p>
+
+                        <p class="body-text">
+                            When the language trunk is allowed to harden before vision is introduced, the model learns to rely heavily on pre-existing language priors rather than fully engaging its visual pathway. This "laziness" leaves visual representations under-developed and disconnected from the language manifold.
+                        </p>
+
+                        <div class="section-figure">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <img src="assets/figures/part6_overview.png" alt="Impact of delayed visual integration" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="row mt-3 g-3">
+                                <div class="col-md-6">
+                                    <img src="assets/figures/part5_overview.png" alt="Sequential vs joint pretraining" class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/figures/laziness.png" alt="Vision laziness measurements" class="img-fluid" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-caption">
+                            <strong>Unification Timing and Dynamics.</strong> Delaying visual unification degrades both visual understanding and generation (top). Simultaneous joint pretraining dominates sequential configurations (bottom-left). Delaying integration causes "vision laziness" characterized by inactive vision-branch computations (bottom-right).
+                        </p>
+
+                        <p class="body-text">
+                            We analyzed the mechanics of vision laziness across four independent axes, demonstrating how late alignment fundamentally alters the internal representations of the model:
+                        </p>
+
+                        <details class="arch-card">
+                            <summary class="arch-card__header">
+                                <span class="arch-card__step">Axis 1</span>
+                                <span class="arch-card__title">Training-time Activation L2 of img_ffn</span>
+                                <span class="arch-card__toggle"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="arch-card__body">
+                                <p class="body-text">
+                                    The L2 norm of the image-side feed-forward branch outputs consistently decreases as the language warm-up is prolonged. This indicates that the vision-specific feed-forward layers become progressively "quieter" and contribute less to the representations.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="arch-card">
+                            <summary class="arch-card__header">
+                                <span class="arch-card__step">Axis 2</span>
+                                <span class="arch-card__title">Embedding L2 Norm of Special Image-Wrapper Tokens</span>
+                                <span class="arch-card__toggle"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="arch-card__body">
+                                <p class="body-text">
+                                    The embedding magnitudes of special segment tokens (such as <code>begin_of_img</code> and <code>end_of_img</code>) shrink in late-aligned models. This demonstrates weaker integration into the dominant language vocabulary space.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="arch-card">
+                            <summary class="arch-card__header">
+                                <span class="arch-card__step">Axis 3</span>
+                                <span class="arch-card__title">Inference-time Per-Element Activation of img_ffn</span>
+                                <span class="arch-card__toggle"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="arch-card__body">
+                                <p class="body-text">
+                                    Measuring the output magnitude during live visual tasks reveals a drastic drop in active computation within the visual branches for models trained with a longer language-only phase.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="arch-card">
+                            <summary class="arch-card__header">
+                                <span class="arch-card__step">Axis 4</span>
+                                <span class="arch-card__title">Inference-time Attention on Image Tokens</span>
+                                <span class="arch-card__toggle"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="arch-card__body">
+                                <p class="body-text">
+                                    The share of attention heads focused on image-patch queries drops sharply during generation and understanding in late-aligned models, showing an over-reliance on surrounding text context over visual tokens.
+                                </p>
+                            </div>
+                        </details>
+
+                        <div class="callout callout--blue" style="margin-top: 3rem;">
+                            <p style="margin-bottom: 0;">
+                                <strong>Takeaway 3:</strong> Modalities must actively co-evolve. Sequential pretraining schedules fail to prevent representation shortcutting. Early joint pretraining is a structural necessity to ensure visual pathways are fully integrated.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="sec-recipes" class="sec-blue">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="section-title">4. Designing Unified Pretraining Recipes</h2>
+
+                        <p class="body-text">
+                            Integrating our insights on knowledge flow, modality synergy, and early unification, we construct efficient pretraining recipes. Since visual generation data has minimal backward transfer to understanding or language, a highly asymmetric, generation-light data budget is optimal. 
+                        </p>
+
+                        <p class="body-text">
+                            Our grid search identifies a highly efficient recipe allocating <strong>70% language, 25% visual understanding, and only 5% visual generation</strong> (L70/U25/G5). This mixture maximizes language preservation and visual understanding performance, while achieving high-quality generative capabilities.
+                        </p>
+
+                        <div class="section-figure">
+                            <img src="assets/figures/ratio.png" alt="Pretraining data ratio grid search results" loading="lazy">
+                        </div>
+                        <p class="section-caption">
+                            <strong>Visual generation is highly data efficient.</strong> Restricting visual generation to just 5% of the token mixture boosts downstream VQA capabilities while simultaneously reaching optimal visual generation evaluation scores.
+                        </p>
+
+                        <p class="body-text">
+                            Furthermore, we propose a <strong>dynamic curriculum</strong>: models should first consolidate core language and visual understanding priors under a generation-light mixture, then progressively increase the generation share over training to translate these foundational priors into strong generation skills.
+                        </p>
+
+                        <p class="body-text">
+                            We validated these design choices at scale by training a <strong>13.5B Mixture-of-Experts (MoE) model on 2T tokens</strong>. The optimized, highly asymmetric recipe significantly outperforms balanced baselines, demonstrating a highly efficient path to unified multimodal modeling.
+                        </p>
+
+                        <div class="section-figure">
+                            <img src="assets/figures/scale.png" alt="Scaling results comparing optimized asymmetric MoE model with dense and balanced baselines" loading="lazy">
+                        </div>
+                        <p class="section-caption">
+                            <strong>Validation at 2T tokens.</strong> The 13.5B MoE model trained with our optimized asymmetric recipe achieves simultaneous gains across language reasoning, VQA (visual understanding), and image generation (CLIP similarity and GenEval).
+                        </p>
+
+                        <div class="callout callout--blue">
+                            <p style="margin-bottom: 0;">
+                                <strong>Takeaway 4:</strong> Efficient unified multimodal pretraining relies on asymmetric data allocation. Skewing the budget toward language and understanding (e.g., L70/U25/G5) paired with MoE scaling minimizes capacity waste while maximizing cross-modal transfer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="citation" class="mt-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="section-title">Citation</h2>
+                        <div class="citation-block">
+                            <button class="copy-citation-btn" onclick="copyCitation(this)" title="Copy to clipboard">
+                                <i class="fas fa-copy"></i><span>Copy</span>
+                            </button>
+                            <pre><code>@article{han2026towards,
+  title={Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes},
+  author={Han, Junlin and Tong, Shengbang and Fan, David and Torr, Philip and Kokkinos, Filippos and Lewis, Mike},
+  year={2026}
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Questions? Contact <a href="https://junlinhan.github.io/">Junlin Han</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+    (function() {
+        const sectionNav = document.getElementById('section-nav');
+        const navLinks = document.querySelectorAll('.section-nav-link');
+        const sections = [];
+
+        navLinks.forEach(link => {
+            const id = link.getAttribute('data-section');
+            const el = document.getElementById(id);
+            if (el) sections.push({ id, el, link });
+        });
+
+        function updateNavVisibility() {
+            const tldr = document.getElementById('tldr');
+            if (!tldr || !sectionNav) return;
+            const tldrBottom = tldr.offsetTop + tldr.offsetHeight;
+            sectionNav.classList.toggle('visible', window.scrollY > tldrBottom - 100);
+        }
+
+        function updateActiveSection() {
+            const scrollY = window.scrollY + 200;
+            let current = sections[0];
+            for (const section of sections) {
+                if (section.el.offsetTop <= scrollY) current = section;
+            }
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (current) current.link.classList.add('active');
+        }
+
+        window.addEventListener('scroll', () => {
+            updateNavVisibility();
+            updateActiveSection();
+        });
+        updateNavVisibility();
+        updateActiveSection();
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = this.getAttribute('data-section');
+                const target = document.getElementById(id);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                sectionNav.classList.remove('menu-open');
+                const hamburger = document.getElementById('nav-hamburger');
+                if (hamburger) hamburger.classList.remove('open');
+            });
+        });
+
+        const hamburger = document.getElementById('nav-hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('open');
+                sectionNav.classList.toggle('menu-open');
+            });
+        }
+
+        // Touch-friendly tooltips
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.tldr-keyword').forEach(kw => {
+                kw.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const wasActive = this.classList.contains('tooltip-active');
+                    document.querySelectorAll('.tldr-keyword').forEach(k => k.classList.remove('tooltip-active'));
+                    if (!wasActive) this.classList.add('tooltip-active');
+                });
+            });
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.tldr-keyword')) {
+                    document.querySelectorAll('.tldr-keyword').forEach(k => k.classList.remove('tooltip-active'));
+                }
+            });
+        }
+    })();
+
+    (function() {
+        const toggleButton = document.getElementById('theme-toggle');
+        if (!toggleButton) return;
+
+        function getCurrentTheme() {
+            return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggleButton.setAttribute('aria-label', 'Switch to light mode');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                toggleButton.setAttribute('aria-label', 'Switch to dark mode');
+            }
+        }
+
+        applyTheme(getCurrentTheme());
+
+        toggleButton.addEventListener('click', function() {
+            const nextTheme = getCurrentTheme() === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    })();
+
+    // Lightbox for figures
+    document.querySelectorAll('.section-figure img, .section-figure-col img, .section-figure--tall img').forEach(img => {
+        img.addEventListener('click', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.alt;
+            lightbox.classList.add('open');
+        });
+    });
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+    });
+
+    function copyCitation(btn) {
+        const pre = btn.closest('.citation-block').querySelector('code');
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            const icon = btn.querySelector('i');
+            const label = btn.querySelector('span');
+            icon.className = 'fas fa-check';
+            label.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                icon.className = 'fas fa-copy';
+                label.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>
