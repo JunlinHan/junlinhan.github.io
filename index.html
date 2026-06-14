@@ -341,6 +341,7 @@
           <a href="#education">Education</a>
           <a href="#experience">Experience</a>
           <a href="#publications">Publications</a>
+          <a href="#blogs">Blogs</a>
           <a href="#services">Services</a>
           <a href="#awards">Awards</a>
         </nav>
@@ -458,6 +459,16 @@
       <div id="all" class="pub-content">
         <table class="pub-table" id="all-table"></table>
       </div>
+    </section>
+
+    <section id="blogs">
+      <h2>Blogs</h2>
+      <ul>
+        <li>
+          <a href="./blogs/from-3d-to-intelligence.html">From 3D Vision to Multimodal Intelligence</a>
+          <div class="entry-sub">June 2026 — If we aim for intelligence, 3D research should move beyond single modality and embrace unified models.</div>
+        </li>
+      </ul>
     </section>
 
     <section id="services">
@@ -871,6 +882,11 @@
     document.querySelectorAll('.pub-buttons button').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-target');
+
+        document.querySelectorAll('.pub-buttons button').forEach(b => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
 
         document.querySelectorAll('.pub-content').forEach(div => {
           div.classList.remove('active');
