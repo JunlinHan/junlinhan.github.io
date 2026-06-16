@@ -1585,6 +1585,7 @@ a { color: var(--link-color); }
 }
 
 .contents-card em {
+    margin-bottom: 14px;
     color: var(--text-color);
     font-size: 0.86rem;
     font-style: normal;
@@ -1593,7 +1594,7 @@ a { color: var(--link-color); }
 
 .contents-card small {
     display: block;
-    margin-top: 14px;
+    margin-top: auto;
     padding-top: 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     color: var(--text-color);
@@ -1796,6 +1797,38 @@ a { color: var(--link-color); }
 
 .study-card__body .section-figure {
     margin-top: 24px;
+}
+
+.figure-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.figure-toggle__btn {
+    font-family: var(--font-family);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(55, 123, 228, 0.35);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.figure-toggle__btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.figure-toggle__btn.is-active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
 }
 
 .study-card__body .arch-card {

@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="tldr-abstract mb-0">We provide a systematic, bottom-up exploration of unified multimodal pretraining. Utilizing controlled environments across both synthetic and real-world datasets, we investigate how modalities interact, compete, and co-evolve. We apply these insights to build efficient data-mixing recipes, and validate our findings at scale by training 13.5B Mixture-of-Experts (MoE) models on 2T tokens.</p>
+                        <p class="tldr-abstract mb-0">We provide a systematic, bottom-up exploration of unified multimodal pretraining. Utilizing controlled environments across both synthetic and real-world datasets, we investigate how modalities interact, compete, and co-evolve. We apply these insights to build efficient pretraining recipes, and validate our findings at scale by training 13.5B Mixture-of-Experts (MoE) models on 2T tokens.</p>
                     </div>
                 </div>
             </div>
@@ -116,8 +116,8 @@
             <a href="#sec-synergy" class="contents-card contents-card--teal">
                 <span>02</span>
                 <strong>Synergy &amp; Compete</strong>
-                <em>How task complexity and parameter sharing decide whether modalities help or compete.</em>
-                <small>2A Data complexity<br>2B Architecture sharing</small>
+                <em>Task complexity and parameter sharing decide whether modalities help or compete.</em>
+                <small>2A Task complexity<br>2B Architecture sharing<br>2C Vision encoders</small>
             </a>
             <a href="#sec-unification" class="contents-card contents-card--blue">
                 <span>03</span>
@@ -173,10 +173,15 @@
                             </summary>
                             <div class="study-card__body">
                                 <p class="body-text">
-                                    The real-world study trains unified models from scratch, adding more of one modality's data on top of a fixed counterpart allocation and reading off the effect on the other capabilities.
+                                    The real-world study trains unified models from scratch, adding more of one modality's data on top of a fixed counterpart allocation and reading off the effect on the other capabilities. The same trends hold across visual tokenizers.
                                 </p>
+                                <div class="figure-toggle" role="group" aria-label="Select vision encoder">
+                                    <button type="button" class="figure-toggle__btn is-active" data-fig="assets/figures/part123_supp_rae.png" data-label="RAE">RAE</button>
+                                    <button type="button" class="figure-toggle__btn" data-fig="assets/figures/part123_supp_rawp.png" data-label="Raw Pixels">Raw Pixels</button>
+                                    <button type="button" class="figure-toggle__btn" data-fig="assets/figures/part123_supp_vae.png" data-label="CLIP + VAE">CLIP + VAE</button>
+                                </div>
                                 <div class="section-figure section-figure--wide section-figure--framed">
-                                    <img src="assets/figures/part123_supp_rae.png" alt="Impact of scaling modality-specific data" class="img-fluid" loading="lazy">
+                                    <img src="assets/figures/part123_supp_rae.png" alt="Modality transfer results with the RAE tokenizer" class="img-fluid" loading="lazy" id="part1a-figure">
                                 </div>
                                 <p class="section-caption">
                                     Effect of adding more of each modality's data on the other capabilities, spanning language axes, understanding metrics, and generation results.
@@ -273,7 +278,7 @@
                                     Cross-modal interference as one stream climbs the complexity ladder, measured against unimodal baselines.
                                 </p>
                                 <p class="body-text">
-                                    Simple counterparts (solid backgrounds, patterns, repeated-letter text) push the partner below its unimodal baseline (synergy), while complex data (OCR, video, natural images) pushes it above (competition), and the effect is symmetric across both modalities. So task complexity largely determines whether modalities help or compete.
+                                    Simple counterparts (solid backgrounds, patterns, repeated-letter text) push the partner below its unimodal baseline (synergy), while complex data (video, natural images) pushes it above (competition), and the effect is symmetric across both modalities. So task complexity largely determines whether modalities help or compete.
                                 </p>
                             </div>
                         </details>
@@ -300,9 +305,31 @@
                             </div>
                         </details>
 
+                        <details class="study-card study-card--green">
+                            <summary class="study-card__header">
+                                <span class="study-card__step">Part 2C</span>
+                                <span class="study-card__title">Generalization across vision encoder designs</span>
+                                <span class="study-card__hint">Expand</span>
+                            </summary>
+                            <div class="study-card__body">
+                                <p class="body-text">
+                                    Are these synergies tied to a specific visual representation? Reusing the Part 2B split-training protocol with synergy-maximizing probes, we repeat the study across three tokenization designs: the default <strong>RAE</strong> (based on SigLIP-2), <strong>Raw Pixels</strong> (encoder free), and the decoupled <strong>CLIP + VAE</strong>.
+                                </p>
+                                <div class="section-figure section-figure--wide section-figure--framed section-figure--medium">
+                                    <img src="assets/figures/part12_arch_encoders.png" alt="Impact of vision encoder designs on modality synergy" class="img-fluid" loading="lazy">
+                                </div>
+                                <p class="section-caption">
+                                    Effect of each encoder design on language perplexity (&Delta;PPL) and on relative image loss (%) for conditional and unconditional generation.
+                                </p>
+                                <p class="body-text">
+                                    Synergy holds across all three designs. Even Raw Pixels, with no semantic prior, gives the largest language gain (&Delta;PPL &minus;0.266 vs. RAE &minus;0.211), and decoupled CLIP + VAE still boosts generation despite separate latent spaces. So a pre-aligned or shared vision space is not required for synergy, which is a fundamental property of joint pretraining driven by task objectives and parameter sharing.
+                                </p>
+                            </div>
+                        </details>
+
                         <div class="callout callout--green">
                             <p>
-                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition.
+                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition. These effects hold across multiple vision tokenizers.
                             </p>
                         </div>
                     </div>
@@ -589,7 +616,7 @@
                         <div class="faq-list">
                             <details class="faq-item">
                                 <summary>What is vision laziness?</summary>
-                                <p>Vision laziness happens when late visual integration lets the model lean on language priors instead of actively using vision components. Internally, visual FFNs, image-wrapper tokens, and attention to image tokens all become weaker.</p>
+                                <p>Vision laziness happens when late visual integration lets the model lean on language priors instead of actively learning vision components. Internally, visual FFNs, image-wrapper tokens, and attention to image tokens all become weaker.</p>
                             </details>
 
                             <details class="faq-item">
@@ -738,6 +765,26 @@
             });
 
             setTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.figure-toggle').forEach(function(group) {
+                const figure = group.parentElement.querySelector('.section-figure img');
+                const label = group.parentElement.querySelector('#part1a-encoder-label');
+                group.querySelectorAll('.figure-toggle__btn').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        group.querySelectorAll('.figure-toggle__btn').forEach(function(b) {
+                            b.classList.remove('is-active');
+                        });
+                        btn.classList.add('is-active');
+                        if (figure) {
+                            figure.src = btn.dataset.fig;
+                            figure.alt = 'Modality transfer results with the ' + btn.dataset.label + ' tokenizer';
+                        }
+                        if (label) label.textContent = btn.dataset.label;
+                    });
+                });
+            });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
