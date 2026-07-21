@@ -51,6 +51,7 @@
                         <span><a href="https://junlinhan.github.io/" class="author-link" target="_blank">Junlin Han<sup>1,2</sup></a></span>
                         <span><a href="https://tsb0601.github.io/" class="author-link" target="_blank">Shengbang Tong<sup>1</sup></a></span>
                         <span><a href="http://davidfan.io/" class="author-link" target="_blank">David Fan<sup>1</sup></a></span>
+                        <span><a href="https://silent-chen.github.io/" class="author-link" target="_blank">Minghao Chen<sup>1,2</sup></a></span>
                         <span><a href="https://scholar.google.com/citations?user=kPxa2w0AAAAJ&hl=en" class="author-link" target="_blank">Philip Torr<sup>2</sup></a></span>
                         <span><a href="https://www.fkokkinos.com/" class="author-link" target="_blank">Filippos Kokkinos<sup>1</sup></a></span>
                         <span><a href="https://scholar.google.com/citations?user=SnQnQicAAAAJ&hl=en" class="author-link" target="_blank">Mike Lewis<sup>1</sup></a></span>
@@ -62,19 +63,19 @@
                             <sup style="font-size: 0.8rem; margin-left: 2px;">1</sup>
                         </span>
                         <span class="institution-logo" style="display: inline-flex; align-items: flex-start;">
-                            <img src="assets/logos/oxford.png" alt="University of Oxford" style="height: 2rem; display: block;">
+                            <img src="assets/logos/oxford.png" alt="University of Oxford" class="logo-oxford" style="display: block;">
                             <sup style="font-size: 0.8rem; margin-left: 2px;">2</sup>
                         </span>
                     </div>
 
-                    <!-- <div class="paper-links d-flex flex-wrap justify-content-center gap-3">
+                    <div class="paper-links d-flex flex-wrap justify-content-center gap-3">
                         <a href="Towards_Physics_of_Multimodal_Pretraining_.pdf" class="resource-btn" target="_blank" rel="noopener">
-                            <i class="fas fa-file-pdf"></i> Paper 
+                            <i class="fas fa-file-pdf"></i> Paper
                         </a>
                         <a href="https://arxiv.org/abs/2606.00000" class="resource-btn" target="_blank" rel="noopener">
                             <i class="fas fa-file-lines"></i> arXiv
                         </a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -97,7 +98,8 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="tldr-abstract mb-0">We provide a systematic, bottom-up exploration of unified multimodal pretraining. Utilizing controlled environments across both synthetic and real-world datasets, we investigate how modalities interact, compete, and co-evolve. These insights are applied to build efficient pretraining recipes and are validated at scale by training 13.5B Mixture-of-Experts (MoE) models on 2T tokens.</p>
+                        <p class="tldr-abstract mb-0">We provide a systematic, bottom-up exploration of unified multimodal pretraining. Utilizing controlled environments across both synthetic and real-world datasets, we investigate how modalities interact, compete, and co-evolve.
+                            These insights are applied to build efficient pretraining recipes and are validated at scale by training 13.5B Mixture-of-Experts (MoE) models on 2T tokens.</p>
                     </div>
                 </div>
             </div>
@@ -173,18 +175,19 @@
                             </summary>
                             <div class="study-card__body">
                                 <p class="body-text">
-                                    The real-world study trains unified models from scratch, adding more of one modality's data on top of a fixed counterpart allocation and reading off the effect on the other capabilities. The same trends hold across visual tokenizers.
+                                    The real-world study trains unified models from scratch, adding more of one modality's data on top of a fixed amount of data from the other modality and reading off the effect on the other capabilities. We test continuous visual representations with RAE, Raw Pixels, and CLIP + VAE, as well as autoregressive (AR) modeling over discrete UniTok tokens. The same transfer trends hold across these visual representations and generation objectives.
                                 </p>
                                 <div class="figure-toggle" role="group" aria-label="Select vision encoder">
                                     <button type="button" class="figure-toggle__btn is-active" data-fig="assets/figures/part123_supp_rae.png" data-label="RAE">RAE</button>
                                     <button type="button" class="figure-toggle__btn" data-fig="assets/figures/part123_supp_rawp.png" data-label="Raw Pixels">Raw Pixels</button>
                                     <button type="button" class="figure-toggle__btn" data-fig="assets/figures/part123_supp_vae.png" data-label="CLIP + VAE">CLIP + VAE</button>
+                                    <button type="button" class="figure-toggle__btn" data-fig="assets/figures/part123_supp_ar.png" data-label="AR (UniTok)">AR (UniTok)</button>
                                 </div>
                                 <div class="section-figure section-figure--wide section-figure--framed">
                                     <img src="assets/figures/part123_supp_rae.png" alt="Modality transfer results with the RAE tokenizer" class="img-fluid" loading="lazy" id="part1a-figure">
                                 </div>
                                 <p class="section-caption">
-                                    Effect of adding more of each modality's data on the other capabilities, spanning language axes, understanding metrics, and generation results.
+                                    Effect of adding more of each modality's data on the other capabilities, spanning language, understanding, and generation. Results can be viewed for continuous-token generation settings and autoregressive modeling with UniTok.
                                 </p>
                                 <p class="body-text">
                                     Scaling language lifts every understanding axis and generation metric; scaling understanding strongly boosts generation but mildly trades off pure language; scaling generation is roughly neutral. In short, knowledge flow is directional, language&rarr;vision and understanding&rarr;generation, rather than symmetric.
@@ -263,7 +266,7 @@
                             </summary>
                             <div class="study-card__body">
                                 <p class="body-text">
-                                    A fixed 100B-token budget is split evenly between language and image generation; one stream is held fixed while the other climbs a complexity ladder, with interference read as text perplexity (vision&rarr;language) and diffusion loss (language&rarr;vision) against unimodal baselines.
+                                    A fixed 100B-token budget is split evenly between language and image generation; one stream is held fixed while the other moves through increasing levels of task complexity, with interference read as text perplexity (vision&rarr;language) and generation loss (language&rarr;vision) against unimodal baselines.
                                 </p>
                                 <div class="section-figure section-figure--wide section-figure--framed section-figure--compact">
                                     <img src="assets/figures/part12_data_samples.png" alt="Data complexity progression from simple visuals to natural images" class="img-fluid" loading="lazy">
@@ -275,7 +278,7 @@
                                     <img src="assets/figures/part12_data.png" alt="Task complexity impact on multimodal training" class="img-fluid" loading="lazy">
                                 </div>
                                 <p class="section-caption">
-                                    Cross-modal interference as one stream climbs the complexity ladder, measured against unimodal baselines.
+                                    Cross-modal interference as one stream moves through increasing levels of task complexity, measured against unimodal baselines.
                                 </p>
                                 <p class="body-text">
                                     Simple counterparts (solid backgrounds, patterns, repeated-letter text) push the partner below its unimodal baseline (synergy), while complex data (video, natural images) pushes it above (competition), and the effect is symmetric across both modalities. So task complexity largely determines whether modalities help or compete.
@@ -313,23 +316,23 @@
                             </summary>
                             <div class="study-card__body">
                                 <p class="body-text">
-                                    Are these synergies tied to a specific visual representation? Reusing the Part 2B split-training protocol with synergy-maximizing probes, we repeat the study across three tokenization designs: the default <strong>RAE</strong> (based on SigLIP-2), <strong>Raw Pixels</strong> (encoder free), and the decoupled <strong>CLIP + VAE</strong>.
+                                    Are these synergies tied to a specific visual representation or generation objective? Reusing the Part 2B split-training protocol with synergy-maximizing probes, we compare four designs: the default <strong>RAE</strong> (based on SigLIP-2), encoder-free <strong>Raw Pixels</strong>, decoupled <strong>CLIP + VAE</strong>, and autoregressive <strong>AR (UniTok)</strong> modeling over discrete visual tokens.
                                 </p>
                                 <div class="section-figure section-figure--wide section-figure--framed section-figure--medium">
                                     <img src="assets/figures/part12_arch_encoders.png" alt="Impact of vision encoder designs on modality synergy" class="img-fluid" loading="lazy">
                                 </div>
                                 <p class="section-caption">
-                                    Effect of each encoder design on language perplexity (&Delta;PPL) and on relative image loss (%) for conditional and unconditional generation.
+                                    Effect of each visual representation and generation setting on language perplexity (&Delta;PPL) and relative visual-generation loss (%) for conditional and unconditional generation.
                                 </p>
                                 <p class="body-text">
-                                    Synergy holds across all three designs. Even Raw Pixels, with no semantic prior, gives the largest language gain (&Delta;PPL &minus;0.266 vs. RAE &minus;0.211), and decoupled CLIP + VAE still boosts generation despite separate latent spaces. So a pre-aligned or shared vision space is not required for synergy, which is a fundamental property of joint pretraining driven by task objectives and parameter sharing.
+                                    Synergy holds across all four designs and both continuous and autoregressive generation objectives. Raw Pixels, with no semantic prior, gives the largest language gain (&Delta;PPL &minus;0.266 vs. RAE &minus;0.211); decoupled CLIP + VAE still boosts generation despite separate latent spaces; and AR (UniTok) improves both language (&Delta;PPL &minus;0.065) and conditional/unconditional generation loss (&minus;0.62%/&minus;0.53%). A pre-aligned or shared vision space, or a particular generation objective, is therefore not a must for multimodal synergy.
                                 </p>
                             </div>
                         </details>
 
                         <div class="callout callout--green">
                             <p>
-                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition. These effects hold across multiple vision tokenizers.
+                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition.
                             </p>
                         </div>
                     </div>
@@ -348,7 +351,7 @@
                         </p>
 
                         <p class="body-text">
-                            The results challenge late-alignment heuristics: early, simultaneous unification is better for native visual understanding and generation. We then inspect the model internals to explain why late visual integration leaves the visual pathway under-active.
+                            The results challenge common late-alignment practices: early, simultaneous unification is better for native visual understanding and generation. We then inspect the model internals to explain why late visual integration leaves the visual pathway under-active.
                         </p>
 
                         <details class="study-card study-card--orange" open>
@@ -390,7 +393,7 @@
                                     Joint training versus all six sequential modality orderings, with and without a 12.5% replay buffer.
                                 </p>
                                 <p class="body-text">
-                                    Joint training dominates all six sequential orderings across nearly every metric, and replay only slightly mitigates forgetting without recovering the lost cross-modal synergy. Sequential curricula thus cannot substitute for simultaneous joint training.
+                                    Joint training dominates all six sequential orderings across nearly every metric, and replay only slightly mitigates forgetting without recovering the lost cross-modal synergy. Sequential training schedules thus cannot substitute for simultaneous joint training.
                                 </p>
                             </div>
                         </details>
@@ -403,7 +406,7 @@
                             </summary>
                             <div class="study-card__body">
                                 <p class="body-text">
-                                    We show <strong>vision laziness</strong>, where a strong language backbone is allowed to harden before vision enters, so the model can lean on language priors instead of committing capacity to vision. We study this through four diagnostic axes. All runs share the same data mix, recipe, and 200B-token late-alignment continuation, and the vision pathway is always randomly initialized from scratch, only the starting language checkpoint changes from 0B to 800B. Any change in the vision branch is therefore a clean measure of how much vision the model actually commits to learning.
+                                    We show <strong>vision laziness</strong>, where a strong language backbone is trained longer and becomes more established before vision enters, allowing the model to lean on language priors instead of committing capacity to vision. We study this through four diagnostic measures. All runs share the same data mix, recipe, and 200B-token late-alignment continuation, and the vision pathway is always randomly initialized from scratch. Only the starting language checkpoint changes, from 0B to 800B. Any change in the vision branch is therefore a clean measure of how much vision the model actually commits to learning.
                                 </p>
 
                         <details class="arch-card">
@@ -473,7 +476,7 @@
 
                         <div class="callout callout--orange" style="margin-top: 3rem;">
                             <p>
-                                <strong>Takeaway 3:</strong> Early and simultaneous unification is highly beneficial. Delaying visual integration weakens visual capabilities, sequential curricula are prone to forgetting and fail to recover joint-training synergy, and late alignment encourages vision laziness rather than fully engaged visual pathways.
+                                <strong>Takeaway 3:</strong> Early and simultaneous unification is highly beneficial. Delaying visual integration weakens visual capabilities, sequential training schedules are prone to forgetting and fail to recover joint-training synergy, and late alignment encourages vision laziness rather than fully engaged visual pathways.
                             </p>
                         </div>
                     </div>
@@ -649,7 +652,7 @@
                             </button>
                             <pre><code id="citation-text">@article{han2026towards,
   title={Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes},
-  author={Han, Junlin and Tong, Shengbang and Fan, David and Torr, Philip and Kokkinos, Filippos and Lewis, Mike},
+  author={Han, Junlin and Tong, Shengbang and Fan, David and Chen, Minghao and Torr, Philip and Kokkinos, Filippos and Lewis, Mike},
   journal={arXiv preprint},
   year={2026}
 }</code></pre>
