@@ -163,6 +163,12 @@
                     <div class="col-lg-12">
                         <h2 class="section-title">1. Demystifying Modality Knowledge Flow</h2>
 
+                        <div class="callout callout--blue callout--takeaway">
+                            <p>
+                                <strong>Takeaway 1:</strong> Modality knowledge flow is asymmetric and concept-dependent: language acts as a universal booster for all visual tasks, visual understanding is a strong prior for generation, and visual generation has largely neutral effects, mainly helping understanding indirectly by accelerating low-level concept acquisition.
+                            </p>
+                        </div>
+
                         <p class="body-text">
                             How does knowledge move between language, visual understanding, and visual generation in a unified network? We organize the study in two stages: first on large-scale real-world data to identify broad transfer patterns, then on controlled CLEVR data to isolate concept-level mechanisms.
                         </p>
@@ -238,11 +244,6 @@
                             </div>
                         </details>
 
-                        <div class="callout callout--blue">
-                            <p>
-                                <strong>Takeaway 1:</strong> Modality knowledge flow is asymmetric and concept-dependent: language acts as a universal booster for all visual tasks, visual understanding is a strong prior for generation, and visual generation has largely neutral effects, mainly helping understanding indirectly by accelerating low-level concept acquisition.
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -253,6 +254,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="section-title">2. Modality Synergy vs. Competition</h2>
+
+                        <div class="callout callout--green callout--takeaway">
+                            <p>
+                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition.
+                            </p>
+                        </div>
 
                         <p class="body-text">
                             Joint multimodal training is not automatically synergistic. We dissect synergy and competition along two axes: data/task complexity, and the exact Transformer components that are shared or decoupled across modalities.
@@ -330,11 +337,6 @@
                             </div>
                         </details>
 
-                        <div class="callout callout--green">
-                            <p>
-                                <strong>Takeaway 2:</strong> Modality interaction is governed by task complexity and parameter sharing: simple tasks act as cross-modal boosters while complex tasks trigger capacity competition that outweighs synergy, and architecturally, sharing attention and normalization fosters synergy while decoupling feed-forward networks mitigates competition.
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -345,6 +347,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="section-title">3. The Necessity of Early Unification</h2>
+
+                        <div class="callout callout--orange callout--takeaway">
+                            <p>
+                                <strong>Takeaway 3:</strong> Early and simultaneous unification is highly beneficial. Delaying visual integration weakens visual capabilities, sequential training schedules are prone to forgetting and fail to recover joint-training synergy, and late alignment encourages vision laziness rather than fully engaged visual pathways.
+                            </p>
+                        </div>
 
                         <p class="body-text">
                             A common recipe is to pretrain a language model first and align visual capabilities later. We test this temporal question in two steps: when vision should enter pretraining, and whether modalities can be learned as separate sequential stages.
@@ -474,11 +482,6 @@
                             </div>
                         </details>
 
-                        <div class="callout callout--orange" style="margin-top: 3rem;">
-                            <p>
-                                <strong>Takeaway 3:</strong> Early and simultaneous unification is highly beneficial. Delaying visual integration weakens visual capabilities, sequential training schedules are prone to forgetting and fail to recover joint-training synergy, and late alignment encourages vision laziness rather than fully engaged visual pathways.
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -489,6 +492,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="section-title">4. Designing Unified Pretraining Recipes</h2>
+
+                        <div class="callout callout--violet callout--takeaway">
+                            <p>
+                                <strong>Takeaway 4:</strong> We validate main findings at scale and obtain a practical recipe: spend most of the budget on language and understanding (L70/U25/G5), give each modality-specific FFNs while sharing attention and normalizations, and train all modalities in a unified manner from beginning. This composition scales reliably and makes generation nearly free.
+                            </p>
+                        </div>
 
                         <p class="body-text">
                             We turn the preceding findings into concrete recipes. Since knowledge flow is asymmetric, generation gives little back, an optimal mix spends most of the budget on language and understanding to drive generation. We first search for the best mixing ratios, then validate at scale.
@@ -602,11 +611,6 @@
                             </div>
                         </details>
 
-                        <div class="callout callout--violet">
-                            <p>
-                                <strong>Takeaway 4:</strong> We validate main findings at scale and obtain a practical recipe: spend most of the budget on language and understanding (L70/U25/G5), give each modality-specific FFNs while sharing attention and normalizations, and train all modalities in a unified manner from beginning. This composition scales reliably and makes generation nearly free.
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -634,7 +638,7 @@
 
                             <details class="faq-item">
                                 <summary>Why can visual generation use only a small data share?</summary>
-                                <p>When pretraining from scratch, language and visual understanding first build semantic and visual foundations, and those foundations transfer strongly to boost generation. Generation itself transfers back much less, so it does not need a large early data share.</p>
+                                <p>When pretraining from scratch, language and visual understanding first build semantic and visual foundations, and those foundations transfer strongly to boost generation. Generation itself transfers back much less, so it does not need a large early data share. Increasing the generation ratio in the later stages of training remains beneficial for achieving higher generative quality.</p>
                             </details>
                         </div>
                     </div>

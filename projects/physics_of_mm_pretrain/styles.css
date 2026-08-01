@@ -284,13 +284,20 @@ a { color: var(--link-color); }
 
 .institution-logo {
     height: auto;
-    width: 130px;
-    max-height: 38px;
-    object-fit: contain;
+    width: auto;
     vertical-align: middle;
     transition: opacity 0.2s ease;
     margin: 0 8px;
     opacity: 0.85;
+}
+
+.institution-logo img {
+    width: auto;
+    max-width: none;
+}
+
+.institution-logo img.logo-oxford {
+    height: 3.25rem;
 }
 
 .institution-logo:hover { opacity: 1; }
@@ -649,6 +656,10 @@ a { color: var(--link-color); }
     margin: 0;
     font-size: 1.05rem;
     line-height: 1.75;
+}
+
+.callout--takeaway + .body-text {
+    margin-top: 1.5rem;
 }
 
 .callout strong {
@@ -1235,8 +1246,15 @@ a { color: var(--link-color); }
     }
 
     .institution-logo {
-        width: 110px;
-        max-height: 34px;
+        width: auto;
+    }
+
+    .institution-logo img {
+        height: 1.75rem;
+    }
+
+    .institution-logo img.logo-oxford {
+        height: 2.85rem;
     }
 
     .paper-btn {
@@ -1409,8 +1427,15 @@ a { color: var(--link-color); }
     }
 
     .institution-logo {
-        width: 90px;
-        max-height: 28px;
+        width: auto;
+    }
+
+    .institution-logo img {
+        height: 1.5rem;
+    }
+
+    .institution-logo img.logo-oxford {
+        height: 2.45rem;
     }
 
     .section-title {
