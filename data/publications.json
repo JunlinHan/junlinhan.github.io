@@ -1,0 +1,785 @@
+[
+  {
+    "title": "Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes",
+    "img": "./paperimages/physics_mm_pretrain.png",
+    "author": "<b>Junlin Han</b>, Shengbang Tong, David Fan, Minghao Chen, Philip Torr, Filippos Kokkinos, Mike Lewis",
+    "note": "Preprint, 2026",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/physics_of_mm_pretrain/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2608.05000",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2608.05000",
+        "PDF"
+      ]
+    ],
+    "highlight": true
+  },
+  {
+    "title": "PartiCam: Camera Controlled Video Generation with Reward Guidance",
+    "img": "./paperimages/particam.png",
+    "author": "Amine Ouasfi, Runjia Li, <b>Junlin Han</b>, Eric Marchand, Philip Torr, Adnane Boukhayma",
+    "note": "Preprint, 2026",
+    "link": [
+      [
+        "https://arxiv.org/abs/2609.39504",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2609.39504",
+        "PDF"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "AnimalLift: Reconstructing Animatable 3D Animals from a Single Image by Learning Canonical Shape, Texture, and Fur Maps",
+    "img": "./paperimages/animallift.jpg",
+    "author": "Chunyi Sun, Ruyi Zha, Weijian Deng, <b>Junlin Han</b>, Dylan Campbell, Stephen Gould",
+    "note": "SIGGRAPH Asia, 2026",
+    "link": [
+      [
+        "https://arxiv.org/abs/2609.09513",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2609.09513",
+        "PDF"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models",
+    "img": "./paperimages/redteam_t2i.png",
+    "author": "Chang Ma, <b>Junlin Han</b>, Shuo Chen, Runjia Li, Philip Torr, Jindong Gu",
+    "note": "ECCV, 2026",
+    "link": [
+      [
+        "https://arxiv.org/abs/2609.06094",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2609.06094",
+        "PDF"
+      ],
+      [
+        "https://link.springer.com/chapter/10.1007/978-3-032-37029-7_9",
+        "Springer"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Small Vision-Language Models are Smart Compressors for Long Video Understanding",
+    "img": "./paperimages/smallvlvideo.png",
+    "author": "Junjie Fei, Jun Chen, Zechun Liu, Yunyang Xiong, Chong Zhou, Wei Wen, <b>Junlin Han</b>, Mingchen Zhu, Saksham Suri, Qi Qian, Shuming Liu, Lemeng Wu, Raghuraman Krishnamoorthi, Vikas Chandra, Mohamed Elhoseiny, Chenchen Zhu",
+    "note": "ECCV, 2026",
+    "link": [
+      [
+        "https://feielysia.github.io/tempo-page/",
+        "Project page"
+      ],
+      [
+        "https://github.com/FeiElysia/Tempo",
+        "Code"
+      ],
+      [
+        "https://arxiv.org/abs/2604.08120",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2604.08120",
+        "PDF"
+      ],
+      [
+        "https://huggingface.co/spaces/Vision-CAIR/Tempo",
+        "Demo"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Beyond Language Modeling: An Exploration of Multimodal Pretraining",
+    "img": "./paperimages/beyondlanguage.png",
+    "author": "Shengbang Tong, David Fan, John Nguyen, Ellis Brown, Gaoyue Zhou, Shengyi Qian, Boyang Zheng, Théophane Vallaeys, <b>Junlin Han</b>, Rob Fergus, Naila Murray, Marjan Ghazvininejad, Mike Lewis, Nicolas Ballas, Amir Bar, Michael Rabbat, Jakob Verbeek, Luke Zettlemoyer, Koustuv Sinha, Yann LeCun, Saining Xie",
+    "note": "ICML (spotlight, top 2.2%), 2026",
+    "link": [
+      [
+        "https://beyond-llms.github.io/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2603.03276",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2603.03276",
+        "PDF"
+      ]
+    ],
+    "highlight": true
+  },
+  {
+    "title": "EgoEdit: Dataset, Real-Time Streaming Model, and Benchmark for Egocentric Video Editing",
+    "img": "./paperimages/egoedit.png",
+    "author": "Runjia Li, Moayed Haji-Ali, Ashkan Mirzaei, Chaoyang Wang, Arpit Sahni, Ivan Skorokhodov, Aliaksandr Siarohin, Tomas Jakab, <b>Junlin Han</b>, Sergey Tulyakov, Philip Torr, Willi Menapace",
+    "note": "CVPR, 2026",
+    "link": [
+      [
+        "https://snap-research.github.io/EgoEdit/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2512.06065",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2512.06065",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "From Pixels to Feelings: Aligning MLLMs with Human Cognitive Perception of Images",
+    "img": "./paperimages/cogip.png",
+    "author": "Yiming Chen*, <b>Junlin Han*</b>, Tianyi Bai, Shengbang Tong, Filippos Kokkinos, Philip Torr",
+    "note": "Preprint, 2025",
+    "link": [
+      [
+        "https://follen-cry.github.io/MLLM-Cognition-project-page/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2511.22805",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2511.22805",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training",
+    "img": "./paperimages/lsbs.png",
+    "author": "<b>Junlin Han</b>, Shengbang Tong, David Fan, Yufan Ren, Koustuv Sinha, Philip Torr, Filippos Kokkinos",
+    "note": "ICLR (oral, top 1.18%), 2026",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/lsbs",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2509.26625",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2509.26625.pdf",
+        "PDF"
+      ]
+    ],
+    "highlight": true
+  },
+  {
+    "title": "VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models",
+    "img": "./paperimages/paper16.png",
+    "author": "<b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr",
+    "note": "ECCV, 2024",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/vfusion3d.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2403.12034",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2403.12034.pdf",
+        "PDF"
+      ],
+      [
+        "https://github.com/facebookresearch/vfusion3d",
+        "Code"
+      ]
+    ],
+    "highlight": true
+  },
+  {
+    "title": "What Images are More Memorable to Machines?",
+    "img": "./paperimages/paper9.png",
+    "author": "<b>Junlin Han</b>, Huangying Zhan, Jie Hong, Pengfei Fang, Hongdong Li, Lars Petersson, Ian Reid",
+    "note": "Preprint, 2023",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/machinemem.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2211.07625",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2211.07625.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JunlinHan/MachineMem",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "You Only Cut Once: Boosting Data Augmentation with a Single Cut",
+    "img": "./paperimages/paper7.jpg",
+    "author": "<b>Junlin Han</b>, Pengfei Fang, Weihao Li, Jie Hong, Ali Armin, Ian Reid, Lars Petersson, Hongdong Li",
+    "note": "ICML, 2022",
+    "link": [
+      [
+        "https://arxiv.org/abs/2201.12078",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2201.12078.pdf",
+        "pdf"
+      ],
+      [
+        "https://proceedings.mlr.press/v162/han22a.html",
+        "PMLR"
+      ],
+      [
+        "https://github.com/JunlinHan/YOCO",
+        "Code"
+      ],
+      [
+        "./Files/YOCO_slide.pptx",
+        "Slide"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Blind Image Decomposition",
+    "img": "./projects/resources/paper5/BID.mp4",
+    "author": "<b>Junlin Han</b>, Weihao Li, Pengfei Fang, Chunyi Sun, Jie Hong, Ali Armin, Lars Petersson, Hongdong Li",
+    "note": "ECCV, 2022",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/BID.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2108.11364",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2108.11364.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JunlinHan/BID",
+        "Code"
+      ],
+      [
+        "https://github.com/JunlinHan/BID",
+        "Dataset"
+      ],
+      [
+        "https://youtu.be/wkyJDjUPCkg",
+        "Video"
+      ],
+      [
+        "./Files/BID_slide.pptx",
+        "Slide"
+      ],
+      [
+        "./Files/BID_poster.pdf",
+        "Poster"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Scaling Sequence-to-Sequence Generative Neural Rendering",
+    "img": "./paperimages/monet.mp4",
+    "author": "Shikun Liu, Kam Woh Ng, Wonbong Jang, Jiadong Guo, <b>Junlin Han</b>, Haozhe Liu, Yiannis Douratsos, Juan C. Pérez, Zijian Zhou, Chi Phung, Tao Xiang, Juan-Manuel Pérez-Rúa",
+    "note": "ICLR, 2026",
+    "link": [
+      [
+        "https://shikun.io/projects/kaleido",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2510.04236",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2510.04236.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Unsupervised Decomposition of 3D Shapes into Expressive and Editable Extruded Profile Primitives",
+    "img": "./paperimages/3D2EP.png",
+    "author": "Chunyi Sun, <b>Junlin Han</b>, Runjia Li, Weijian Deng, Dylan Campbell, Stephen Gould",
+    "note": "SIGGRAPH, 2025",
+    "link": [
+      [
+        "https://dl.acm.org/doi/full/10.1145/3721238.3730704",
+        "paper"
+      ],
+      [
+        "https://dl.acm.org/doi/pdf/10.1145/3721238.3730704",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Hallucination at a Glance: Controlled Visual Edits and Fine-Grained Multimodal Learning",
+    "img": "./paperimages/HallucinationataGlance.png",
+    "author": "Tianyi Bai, Yuxuan Fan, Jiantao Qiu, Fupeng Sun, Jiayi Song, <b>Junlin Han</b>, Zichen Liu, Conghui He, Wentao Zhang, Binhang Yuan",
+    "note": "NeurIPS, 2025",
+    "link": [
+      [
+        "https://github.com/beccabai/hallu_med",
+        "Dataset"
+      ],
+      [
+        "https://arxiv.org/abs/2506.07227",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2506.07227.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "AuralSAM2: Enabling SAM2 Hear Through Pyramid Audio-Visual Feature Prompting",
+    "img": "./paperimages/AuralSAM2.png",
+    "author": "Yuyuan Liu, Yuanhong Chen, Chong Wang, <b>Junlin Han</b>, Junde Wu, Can Peng, Jingkun Chen, Yu Tian, Gustavo Carneiro",
+    "note": "CVPR findings, 2026",
+    "link": [
+      [
+        "https://arxiv.org/abs/2506.01015",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2506.01015.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Flex3D: Feed-Forward 3D Generation with Flexible Reconstruction Model and Input View Curation",
+    "img": "./projects/flex3d/videos/teaser/splash_video.mp4",
+    "author": "<b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos",
+    "note": "ICML, 2025",
+    "link": [
+      [
+        "https://junlinhan.github.io/projects/flex3d",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2410.00890",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2410.00890.pdf",
+        "PDF"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation",
+    "img": "./paperimages/llama4.png",
+    "author": "Llama4 team",
+    "note": "Models, 2025",
+    "link": [
+      [
+        "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "project page"
+      ],
+      [
+        "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
+        "Models"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "VGRP-Bench: Visual Grid Reasoning Puzzle Benchmark for Large Vision-Language Models",
+    "img": "./paperimages/vgrp.png",
+    "author": "Yufan Ren, Konstantinos Tertikas, Shalini Maiti, <b>Junlin Han</b>, Tong Zhang, Sabine Süsstrunk, Filippos Kokkinos",
+    "note": "Preprint, 2025",
+    "link": [
+      [
+        "https://yufan-ren.com/subpage/VGRP-Bench/index.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2503.23064",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2503.23064",
+        "pdf"
+      ],
+      [
+        "https://github.com/ryf1123/VGRP-Bench",
+        "Code"
+      ],
+      [
+        "https://huggingface.co/datasets/VGRP-Bench/VGRP-Bench",
+        "Dataset"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model",
+    "img": "./paperimages/paper21.png",
+    "author": "Zhaochong An, Guolei Sun, Yun Liu, Runjia Li, <b>Junlin Han</b>, Ender Konukoglu, Serge Belongie",
+    "note": "CVPR, 2025",
+    "link": [
+      [
+        "https://arxiv.org/abs/2503.16282",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2503.16282",
+        "pdf"
+      ],
+      [
+        "https://github.com/ZhaochongAn/GFS-VL",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "3D-GPT: Procedural 3D Modeling with Large Language Models",
+    "img": "./paperimages/paper13.png",
+    "author": "Chunyi Sun*, <b>Junlin Han*</b>, Weijian Deng, Xinlong Wang, Zishan Qin, Stephen Gould",
+    "note": "3DV, 2025",
+    "link": [
+      [
+        "https://chuny1.github.io/3DGPT/3dgpt.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2310.12945",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2310.12945.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/Chuny1/3DGPT",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer",
+    "img": "./paperimages/paper18.jpg",
+    "author": "Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab",
+    "note": "3DV, 2025",
+    "link": [
+      [
+        "https://dreambeast3d.github.io/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2409.08271",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2409.08271.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/runjiali-rl/threestudio-dreambeast",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Semantic Score Distillation Sampling for Compositional Text-to-3D Generation",
+    "img": "./paperimages/paper20.jpg",
+    "author": "Ling Yang, Zixiang Zhang, <b>Junlin Han</b>, Bohan Zeng, Runjia Li, Philip Torr, Wentao Zhang",
+    "note": "Preprint, 2024",
+    "link": [
+      [
+        "https://arxiv.org/abs/2410.09009",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2410.09009.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Learning-based Multi-View Stereo: A Survey",
+    "img": "./paperimages/paper17.jpg",
+    "author": "Fangjinhua Wang*, Qingtian Zhu*, Di Chang*, Quankai Gao, <b>Junlin Han</b>, Tong Zhang, Richard Hartley, Marc Pollefeys",
+    "note": "TPAMI, 2026",
+    "link": [
+      [
+        "https://arxiv.org/abs/2408.15235",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2408.15235.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Strong and Controllable Blind Image Decomposition",
+    "img": "./paperimages/paper15.png",
+    "author": "Zeyu Zhang*, <b>Junlin Han*</b>, Chenhui Gou*, Hongdong Li, Liang Zheng",
+    "note": "Preprint, 2024",
+    "link": [
+      [
+        "https://arxiv.org/abs/2403.10520",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2403.10520.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "How Many Unicorns Are in This Image? A Safety Evaluation Benchmark for Vision LLMs",
+    "img": "./paperimages/paper14.png",
+    "author": "Haoqin Tu*, Chenhang Cui*, Zijun Wang*, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie",
+    "note": "ECCV, 2024",
+    "link": [
+      [
+        "https://arxiv.org/abs/2311.16101",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2311.16101.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/UCSC-VLAA/vllm-safety-benchmark",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing",
+    "img": "./paperimages/paper10.png",
+    "author": "Chunyi Sun, Yanbin Liu, <b>Junlin Han</b>, Stephen Gould",
+    "note": "WACV, 2024",
+    "link": [
+      [
+        "https://chuny1.github.io/NeRFEditor/nerfeditor.html",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2212.03848",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2212.03848.pdf",
+        "pdf"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Hyperbolic Audio-visual Zero-shot Learning",
+    "img": "./paperimages/paper11.jpg",
+    "author": "Jie Hong, Zeeshan Hayder, <b>Junlin Han</b>, Pengfei Fang, Mehrtash Harandi, Lars Petersson",
+    "note": "ICCV, 2023",
+    "link": [
+      [
+        "https://arxiv.org/abs/2308.12558",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2308.12558.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JHome1/Hyper-AVZSL",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Curved Geometric Networks for Visual Anomaly Recognition",
+    "img": "./paperimages/paper6.JPG",
+    "author": "Jie Hong, Pengfei Fang, Weihao Li, <b>Junlin Han</b>, Lars Petersson, Mehrtash Harandi",
+    "note": "TNNLS, 2023",
+    "link": [
+      [
+        "https://ieeexplore.ieee.org/abstract/document/10244211",
+        "Paper"
+      ],
+      [
+        "https://arxiv.org/abs/2208.01188",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2208.01188.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JHome1/GiO-GiT",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "GOSS: Towards Generalized Open-set Semantic Segmentation",
+    "img": "./paperimages/paper3.png",
+    "author": "Jie Hong, Weihao Li, <b>Junlin Han</b>, Jiyang Zheng, Pengfei Fang, Mehrtash Harandi, Lars Petersson",
+    "note": "The Visual Computer, 2023",
+    "link": [
+      [
+        "https://link.springer.com/article/10.1007/s00371-023-02925-8",
+        "Paper"
+      ],
+      [
+        "https://arxiv.org/abs/2203.12116",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2203.12116.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JHome1/GOSS_Segmentor",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "CropMix: Sampling a Rich Input Distribution via Multi-Scale Cropping",
+    "img": "./paperimages/paper8.png",
+    "author": "<b>Junlin Han</b>, Lars Petersson, Hongdong Li, Ian Reid",
+    "note": "Preprint, 2022",
+    "link": [
+      [
+        "https://arxiv.org/abs/2205.15955",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2205.15955.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JunlinHan/cropmix",
+        "Code"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Underwater Image Restoration via Contrastive Learning and a Real-world Dataset",
+    "img": "./paperimages/paper4.JPG",
+    "author": "<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Ali Armin, Hongdong Li, Lars Petersson",
+    "note": "Remote Sensing (best paper award, top 0.1%), 2022",
+    "link": [
+      [
+        "https://www.mdpi.com/2072-4292/14/17/4297",
+        "Paper"
+      ],
+      [
+        "https://github.com/JunlinHan/CWR",
+        "Code"
+      ],
+      [
+        "https://github.com/JunlinHan/CWR",
+        "Dataset"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Single Underwater Image Restoration by Contrastive Learning",
+    "img": "./paperimages/paper2.JPG",
+    "author": "<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Ali Armin",
+    "note": "IGARSS (oral), 2021",
+    "link": [
+      [
+        "https://arxiv.org/abs/2103.09697",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2103.09697.pdf",
+        "pdf"
+      ],
+      [
+        "https://github.com/JunlinHan/CWR",
+        "Code"
+      ],
+      [
+        "https://github.com/JunlinHan/CWR",
+        "Dataset"
+      ]
+    ],
+    "highlight": false
+  },
+  {
+    "title": "Dual Contrastive Learning for Unsupervised Image-to-Image Translation",
+    "img": "./paperimages/paper1.PNG",
+    "author": "<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Ali Armin",
+    "note": "NTIRE, CVPRW (oral), 2021",
+    "link": [
+      [
+        "https://arxiv.org/abs/2104.07689",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2104.07689.pdf",
+        "pdf"
+      ],
+      [
+        "https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.pdf",
+        "CVF"
+      ],
+      [
+        "https://github.com/JunlinHan/DCLGAN",
+        "Code"
+      ],
+      [
+        "https://youtu.be/w0oltXvLgmI",
+        "Video"
+      ]
+    ],
+    "highlight": false
+  }
+]

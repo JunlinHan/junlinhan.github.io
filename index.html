@@ -5,28 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junlin Han</title>
   <link rel="shortcut icon" href="./Files/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    // Apply a saved theme before first paint to avoid a flash.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
   <style>
     :root {
-      --text-dark: #0f172a;    
-      --text: #334155;        
-      --muted: #64748b;        
-      --line: #e2e8f0;         
-      --accent: #2563eb;      
-      --accent-hover: #1d4ed8; 
+      --text-dark: #0f172a;
+      --text: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --line-strong: #cbd5e1;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --accent-line: #bfdbfe;
       --bg: #ffffff;
-      --soft: #f8fafc;         
-      --highlight: #059669;  
+      --soft: #f8fafc;
+      --highlight: #059669;
+      --thumb-bg: #ffffff;
+      --shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 10px rgb(15 23 42 / 0.06);
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text-dark: #f1f5f9;
+        --text: #cbd5e1;
+        --muted: #94a3b8;
+        --line: #1f2937;
+        --line-strong: #334155;
+        --accent: #93c5fd;
+        --accent-hover: #bfdbfe;
+        --accent-soft: #172554;
+        --accent-line: #1e40af;
+        --bg: #0b0f17;
+        --soft: #121826;
+        --highlight: #34d399;
+        --thumb-bg: #e8ecf2;
+        --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 10px rgb(0 0 0 / 0.3);
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --text-dark: #f1f5f9;
+      --text: #cbd5e1;
+      --muted: #94a3b8;
+      --line: #1f2937;
+      --line-strong: #334155;
+      --accent: #93c5fd;
+      --accent-hover: #bfdbfe;
+      --accent-soft: #172554;
+      --accent-line: #1e40af;
+      --bg: #0b0f17;
+      --soft: #121826;
+      --highlight: #34d399;
+      --thumb-bg: #e8ecf2;
+      --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 10px rgb(0 0 0 / 0.3);
+      color-scheme: dark;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       color: var(--text);
       background: var(--bg);
       line-height: 1.65;
-      -webkit-font-smoothing: antialiased; 
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     a {
@@ -48,15 +101,15 @@
     .container {
       max-width: 980px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 64px 24px 80px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: 200px 1fr;
-      gap: 32px;
+      gap: 44px;
       align-items: start;
-      margin-bottom: 32px;
+      margin-bottom: 48px;
     }
 
     .hero img {
@@ -69,8 +122,8 @@
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 2.2rem;
+      margin: 0 0 10px;
+      font-size: 2.4rem;
       font-weight: 700;
       letter-spacing: -0.02em; 
     }
@@ -80,6 +133,70 @@
     .links,
     .contact {
       margin: 6px 0;
+    }
+
+    .role {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .role a { color: var(--accent); }
+
+    .contact {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    }
+    .links a:hover {
+      text-decoration: none;
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .links svg { width: 15px; height: 15px; flex: none; }
+
+    .theme-toggle {
+      float: right;
+      margin-left: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .theme-toggle svg { width: 15px; height: 15px; }
+    .theme-toggle .icon-sun { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
     }
 
     .nav {
@@ -141,7 +258,7 @@
     }
     
     details:hover {
-      border-color: #cbd5e1;
+      border-color: var(--line-strong);
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
     }
 
@@ -192,12 +309,12 @@
 
     .pub-buttons button:hover {
       background: var(--soft);
-      border-color: #cbd5e1;
+      border-color: var(--line-strong);
     }
 
     .pub-buttons button.active {
-      background: #eff6ff;
-      border-color: #bfdbfe; 
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
       color: var(--accent);  
     }
 
@@ -229,15 +346,25 @@
       width: 260px;
       padding-right: 20px;
     }
-    .pub-media img, .pub-media video {
+    .pub-thumb {
       width: 230px;
-      height: 130px;
-      object-fit: contain;
-      background: #fafafa;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--thumb-bg);
       border: 1px solid var(--line);
-      
-      border-radius: 8px; 
-      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    .pub-thumb img, .pub-thumb video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .pub-table tr:hover .pub-thumb img,
+    .pub-table tr:hover .pub-thumb video {
+      transform: scale(1.05);
     }
 
     .pub-title {
@@ -295,6 +422,9 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      .theme-toggle {
+        order: 99;
+      }
       .pub-table,
       .pub-table tbody,
       .pub-table tr,
@@ -306,10 +436,11 @@
         padding-right: 0;
         margin-bottom: 12px;
       }
-      .pub-media img, .pub-media video {
+      .pub-thumb {
         width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
+      }
+      .links {
+        justify-content: center;
       }
     }
   </style>
@@ -322,17 +453,27 @@
       </div>
       <div>
         <h1>Junlin Han</h1>
-        <div class="affiliation">
-          <a href="https://amilabs.xyz/">AMI Labs</a>
-        </div>
+        <p class="role">Member of Technical Staff, <a href="https://amilabs.xyz/">AMI Labs</a></p>
         <div class="contact">Email: junlinhcv@gmail.com · junlin@amilabs.xyz · junlin.han@eng.ox.ac.uk</div>
         <div class="links">
-          [<a href="https://github.com/junlinhan" target="_blank">GitHub</a>]
-          [<a href="./Files/CV.pdf">CV</a>]
-          [<a href="https://scholar.google.com/citations?user=5L0Uj_IAAAAJ&hl=en&authuser=1&oi=ao" target="_blank">Google Scholar</a>]
-          [<a href="https://x.com/han_junlin" target="_blank">Twitter/X</a>]
+          <a href="https://github.com/junlinhan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub
+          </a>
+          <a href="./Files/CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>CV
+          </a>
+          <a href="https://scholar.google.com/citations?user=5L0Uj_IAAAAJ&hl=en&authuser=1&oi=ao" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>Google Scholar
+          </a>
+          <a href="https://x.com/han_junlin" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter/X
+          </a>
         </div>
         <nav class="nav">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
           <a href="#profile">Profile</a>
           <a href="#news">News</a>
           <a href="#interest">Research Interests</a>
@@ -351,7 +492,7 @@
       <p><strong>Welcome to my website.</strong></p>
       <ul>
         <li>I am a Member of Technical Staff at <a href="https://amilabs.xyz/">AMI Labs</a>, where I work on pre-training and the capabilities of world models.</li>
-        <li>I did my PhD in the <a href="https://torrvision.com/index.html">Torr Vision Group</a> at the <a href="https://www.ox.ac.uk/">University of Oxford</a>, advised by <a href="https://en.wikipedia.org/wiki/Philip_Torr">Prof. Philip Torr</a>. During my PhD, I spent three years at Meta (FAIR and GenAI) as a joint PhD student working on multimodal pre-training, MLLMs, and 3D/video generation with <a href="https://scholar.google.com/citations?user=SnQnQicAAAAJ&hl=en">Dr. Mike Lewis</a> and <a href="https://fkokkinos.github.io/">Dr. Filippos Kokkinos</a>.</li>
+        <li>I did my PhD in the <a href="https://torrvision.com/index.html">Torr Vision Group</a> at the <a href="https://www.ox.ac.uk/">University of Oxford</a>, advised by <a href="https://en.wikipedia.org/wiki/Philip_Torr">Prof. Philip Torr</a>. During my PhD, I spent three years at <a href="https://ai.meta.com/">Meta</a> (FAIR and GenAI) as a joint PhD student working on multimodal pre-training, MLLMs, and 3D/video generation with <a href="https://scholar.google.com/citations?user=SnQnQicAAAAJ&hl=en">Dr. Mike Lewis</a> and <a href="https://fkokkinos.github.io/">Dr. Filippos Kokkinos</a>.</li>
         <li>I received my BSc from the <a href="https://www.anu.edu.au/">Australian National University</a>, where I was fortunate to be supervised by <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a>, <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a>, and <a href="https://mbzuai.ac.ae/study/faculty/ian-reid/">Prof. Ian Reid</a>.</li>
       </ul>
     </section>
@@ -359,12 +500,12 @@
     <section id="news">
       <h2>News</h2>
       <ul>
-        <li>[10.2026] Joined <a href="https://amilabs.xyz/">AMI Labs</a> as a Member of Technical Staff, working on pre-training and the capabilities of world models.</li>
-        <li>[06.2026] Two papers were accepted to ECCV 2026: <a href="https://feielysia.github.io/tempo-page/">Tempo Long video understanding</a> and <a href="https://arxiv.org/abs/2609.06094">Image generation vulnerabilities</a>.</li>
+        <li>[10.2026] Joined <a href="https://amilabs.xyz/">AMI Labs</a> as a Member of Technical Staff.</li>
+        <li>[06.2026] Two papers were accepted to ECCV 2026: <a href="https://feielysia.github.io/tempo-page/">Tempo</a> (long video understanding) and <a href="https://arxiv.org/abs/2609.06094">automatic red teaming of text-to-image models</a>.</li>
         <li>[06.2026] Blog post: <a href ="https://junlinhan.github.io/blogs/from-3d-to-intelligence">3D is not intelligence</a>. If we aim for intelligence, 3D research should move beyond single modality and embrace unified models. </li>
-        <li>[02.2026] Two papers were accepted to CVPR 2026: <a href="https://snap-research.github.io/EgoEdit/">EgoEdit</a> and AuralSAM.</li>
         <li>[03.2026] Released <a href="https://beyond-llms.github.io/">a large-scale exploration</a> of unified multimodal pre-training, with practical insights into the next stage of pre-training.</li>
-        <li>[01.2026] Two papers were accepted to ICLR 2026: <a href="https://junlinhan.github.io/projects/lsbs/">Learning to See Before Seeing</a> and Kaleido.</li>
+        <li>[02.2026] Two papers were accepted to CVPR 2026: <a href="https://snap-research.github.io/EgoEdit/">EgoEdit</a> and <a href="https://arxiv.org/abs/2506.01015">AuralSAM2</a>.</li>
+        <li>[01.2026] Two papers were accepted to ICLR 2026: <a href="https://junlinhan.github.io/projects/lsbs/">Learning to See Before Seeing</a> (oral) and <a href="https://shikun.io/projects/kaleido">Kaleido</a>.</li>
         <li class="news-item-hidden">[11.2025] Joined FAIR to work with <a href="https://scholar.google.com/citations?user=SnQnQicAAAAJ&hl=en">Mike Lewis</a> on unified MLLM pre-training.</li>
         <li class="news-item-hidden" >[09.2025] <a href="https://arxiv.org/abs/2506.07227">Hallucination at a Glance</a> was accepted to NeurIPS 2025.</li>
         <li class="news-item-hidden">[07.2025] <a href="https://dl.acm.org/doi/full/10.1145/3721238.3730704">3D2EP</a> was accepted to SIGGRAPH 2025.</li>
@@ -416,7 +557,7 @@
     </section>
 
     <section id="experience">
-      <h2>Research Experience</h2>
+      <h2>Experience</h2>
       <div class="entry">
         <div class="entry-title">Member of Technical Staff, AMI Labs</div>
         <div class="entry-sub">October 2026 – Present</div>
@@ -431,23 +572,6 @@
           <li><strong>GenAI RepliGen</strong> (October 2023 – July 2024), hosted by <a href="https://fkokkinos.github.io/">Dr. Filippos Kokkinos</a> — 3D and video generation</li>
         </ul>
       </div>
-      <div class="entry">
-        <div class="entry-title">Lead Research Scientist, Cybever</div>
-        <div class="entry-sub">May 2023 – September 2023</div>
-        <div>Generative models for 3D world modeling</div>
-      </div>
-      <div class="entry">
-        <div class="entry-title">Visiting Researcher, AIML, University of Adelaide</div>
-        <div class="entry-sub">December 2021 – May 2023</div>
-        <div>Advisor: <a href="https://mbzuai.ac.ae/study/faculty/ian-reid/">Prof. Ian Reid</a></div>
-        <div>Data-centric AI, memorability</div>
-      </div>
-      <div class="entry">
-        <div class="entry-title">Research Student, Data61-CSIRO & Australian National University</div>
-        <div class="entry-sub">August 2020 – May 2023</div>
-        <div>Advisors: <a href="https://people.csiro.au/P/L/Lars-Petersson">Dr. Lars Petersson</a> and <a href="http://users.cecs.anu.edu.au/~hongdong/">Prof. Hongdong Li</a></div>
-        <div>Generative models, self-supervised learning</div>
-      </div>
     </section>
 
     <section id="publications">
@@ -459,13 +583,368 @@
         <button data-target="all">All Papers</button>
       </div>
 
+      <!-- PUBS:START (generated by tools/build.py from data/publications.json) -->
       <div id="selected" class="pub-content active">
-        <table class="pub-table" id="selected-table"></table>
+        <table class="pub-table" id="selected-table">
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/physics_mm_pretrain.png" alt="Teaser for Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</p>
+              <p class="pub-author"><b>Junlin Han</b>, Shengbang Tong, David Fan, Minghao Chen, Philip Torr, Filippos Kokkinos, Mike Lewis</p>
+              <p class="pub-note">Preprint, 2026</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/physics_of_mm_pretrain/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2608.05000" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2608.05000" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/beyondlanguage.png" alt="Teaser for Beyond Language Modeling: An Exploration of Multimodal Pretraining" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Beyond Language Modeling: An Exploration of Multimodal Pretraining</p>
+              <p class="pub-author">Shengbang Tong, David Fan, John Nguyen, Ellis Brown, Gaoyue Zhou, Shengyi Qian, Boyang Zheng, Théophane Vallaeys, <b>Junlin Han</b>, Rob Fergus, Naila Murray, Marjan Ghazvininejad, Mike Lewis, Nicolas Ballas, Amir Bar, Michael Rabbat, Jakob Verbeek, Luke Zettlemoyer, Koustuv Sinha, Yann LeCun, Saining Xie</p>
+              <p class="pub-note">ICML (spotlight, top 2.2%), 2026</p>
+              <p class="pub-links"><a href="https://beyond-llms.github.io/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2603.03276" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2603.03276" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/lsbs.png" alt="Teaser for Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training</p>
+              <p class="pub-author"><b>Junlin Han</b>, Shengbang Tong, David Fan, Yufan Ren, Koustuv Sinha, Philip Torr, Filippos Kokkinos</p>
+              <p class="pub-note">ICLR (oral, top 1.18%), 2026</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/lsbs" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2509.26625" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2509.26625.pdf" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper16.png" alt="Teaser for VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models</p>
+              <p class="pub-author"><b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr</p>
+              <p class="pub-note">ECCV, 2024</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2403.12034" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2403.12034.pdf" target="_blank">[PDF]</a> <a href="https://github.com/facebookresearch/vfusion3d" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+        </table>
       </div>
 
       <div id="all" class="pub-content">
-        <table class="pub-table" id="all-table"></table>
+        <table class="pub-table" id="all-table">
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/physics_mm_pretrain.png" alt="Teaser for Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</p>
+              <p class="pub-author"><b>Junlin Han</b>, Shengbang Tong, David Fan, Minghao Chen, Philip Torr, Filippos Kokkinos, Mike Lewis</p>
+              <p class="pub-note">Preprint, 2026</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/physics_of_mm_pretrain/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2608.05000" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2608.05000" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/particam.png" alt="Teaser for PartiCam: Camera Controlled Video Generation with Reward Guidance" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">PartiCam: Camera Controlled Video Generation with Reward Guidance</p>
+              <p class="pub-author">Amine Ouasfi, Runjia Li, <b>Junlin Han</b>, Eric Marchand, Philip Torr, Adnane Boukhayma</p>
+              <p class="pub-note">Preprint, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2609.39504" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2609.39504" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/animallift.jpg" alt="Teaser for AnimalLift: Reconstructing Animatable 3D Animals from a Single Image by Learning Canonical Shape, Texture, and Fur Maps" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">AnimalLift: Reconstructing Animatable 3D Animals from a Single Image by Learning Canonical Shape, Texture, and Fur Maps</p>
+              <p class="pub-author">Chunyi Sun, Ruyi Zha, Weijian Deng, <b>Junlin Han</b>, Dylan Campbell, Stephen Gould</p>
+              <p class="pub-note">SIGGRAPH Asia, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2609.09513" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2609.09513" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/redteam_t2i.png" alt="Teaser for Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models</p>
+              <p class="pub-author">Chang Ma, <b>Junlin Han</b>, Shuo Chen, Runjia Li, Philip Torr, Jindong Gu</p>
+              <p class="pub-note">ECCV, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2609.06094" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2609.06094" target="_blank">[PDF]</a> <a href="https://link.springer.com/chapter/10.1007/978-3-032-37029-7_9" target="_blank">[Springer]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/smallvlvideo.png" alt="Teaser for Small Vision-Language Models are Smart Compressors for Long Video Understanding" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Small Vision-Language Models are Smart Compressors for Long Video Understanding</p>
+              <p class="pub-author">Junjie Fei, Jun Chen, Zechun Liu, Yunyang Xiong, Chong Zhou, Wei Wen, <b>Junlin Han</b>, Mingchen Zhu, Saksham Suri, Qi Qian, Shuming Liu, Lemeng Wu, Raghuraman Krishnamoorthi, Vikas Chandra, Mohamed Elhoseiny, Chenchen Zhu</p>
+              <p class="pub-note">ECCV, 2026</p>
+              <p class="pub-links"><a href="https://feielysia.github.io/tempo-page/" target="_blank">[Project page]</a> <a href="https://github.com/FeiElysia/Tempo" target="_blank">[Code]</a> <a href="https://arxiv.org/abs/2604.08120" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2604.08120" target="_blank">[PDF]</a> <a href="https://huggingface.co/spaces/Vision-CAIR/Tempo" target="_blank">[Demo]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/beyondlanguage.png" alt="Teaser for Beyond Language Modeling: An Exploration of Multimodal Pretraining" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Beyond Language Modeling: An Exploration of Multimodal Pretraining</p>
+              <p class="pub-author">Shengbang Tong, David Fan, John Nguyen, Ellis Brown, Gaoyue Zhou, Shengyi Qian, Boyang Zheng, Théophane Vallaeys, <b>Junlin Han</b>, Rob Fergus, Naila Murray, Marjan Ghazvininejad, Mike Lewis, Nicolas Ballas, Amir Bar, Michael Rabbat, Jakob Verbeek, Luke Zettlemoyer, Koustuv Sinha, Yann LeCun, Saining Xie</p>
+              <p class="pub-note">ICML (spotlight, top 2.2%), 2026</p>
+              <p class="pub-links"><a href="https://beyond-llms.github.io/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2603.03276" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2603.03276" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/egoedit.png" alt="Teaser for EgoEdit: Dataset, Real-Time Streaming Model, and Benchmark for Egocentric Video Editing" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">EgoEdit: Dataset, Real-Time Streaming Model, and Benchmark for Egocentric Video Editing</p>
+              <p class="pub-author">Runjia Li, Moayed Haji-Ali, Ashkan Mirzaei, Chaoyang Wang, Arpit Sahni, Ivan Skorokhodov, Aliaksandr Siarohin, Tomas Jakab, <b>Junlin Han</b>, Sergey Tulyakov, Philip Torr, Willi Menapace</p>
+              <p class="pub-note">CVPR, 2026</p>
+              <p class="pub-links"><a href="https://snap-research.github.io/EgoEdit/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2512.06065" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2512.06065" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/lsbs.png" alt="Teaser for Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training</p>
+              <p class="pub-author"><b>Junlin Han</b>, Shengbang Tong, David Fan, Yufan Ren, Koustuv Sinha, Philip Torr, Filippos Kokkinos</p>
+              <p class="pub-note">ICLR (oral, top 1.18%), 2026</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/lsbs" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2509.26625" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2509.26625.pdf" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><video autoplay loop muted playsinline><source src="./paperimages/monet.mp4" type="video/mp4"></video></div></td>
+            <td>
+              <p class="pub-title">Scaling Sequence-to-Sequence Generative Neural Rendering</p>
+              <p class="pub-author">Shikun Liu, Kam Woh Ng, Wonbong Jang, Jiadong Guo, <b>Junlin Han</b>, Haozhe Liu, Yiannis Douratsos, Juan C. Pérez, Zijian Zhou, Chi Phung, Tao Xiang, Juan-Manuel Pérez-Rúa</p>
+              <p class="pub-note">ICLR, 2026</p>
+              <p class="pub-links"><a href="https://shikun.io/projects/kaleido" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2510.04236" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2510.04236.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/AuralSAM2.png" alt="Teaser for AuralSAM2: Enabling SAM2 Hear Through Pyramid Audio-Visual Feature Prompting" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">AuralSAM2: Enabling SAM2 Hear Through Pyramid Audio-Visual Feature Prompting</p>
+              <p class="pub-author">Yuyuan Liu, Yuanhong Chen, Chong Wang, <b>Junlin Han</b>, Junde Wu, Can Peng, Jingkun Chen, Yu Tian, Gustavo Carneiro</p>
+              <p class="pub-note">CVPR findings, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2506.01015" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2506.01015.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper17.jpg" alt="Teaser for Learning-based Multi-View Stereo: A Survey" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Learning-based Multi-View Stereo: A Survey</p>
+              <p class="pub-author">Fangjinhua Wang*, Qingtian Zhu*, Di Chang*, Quankai Gao, <b>Junlin Han</b>, Tong Zhang, Richard Hartley, Marc Pollefeys</p>
+              <p class="pub-note">TPAMI, 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2408.15235" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2408.15235.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/cogip.png" alt="Teaser for From Pixels to Feelings: Aligning MLLMs with Human Cognitive Perception of Images" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">From Pixels to Feelings: Aligning MLLMs with Human Cognitive Perception of Images</p>
+              <p class="pub-author">Yiming Chen*, <b>Junlin Han*</b>, Tianyi Bai, Shengbang Tong, Filippos Kokkinos, Philip Torr</p>
+              <p class="pub-note">Preprint, 2025</p>
+              <p class="pub-links"><a href="https://follen-cry.github.io/MLLM-Cognition-project-page/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2511.22805" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2511.22805" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/3D2EP.png" alt="Teaser for Unsupervised Decomposition of 3D Shapes into Expressive and Editable Extruded Profile Primitives" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Unsupervised Decomposition of 3D Shapes into Expressive and Editable Extruded Profile Primitives</p>
+              <p class="pub-author">Chunyi Sun, <b>Junlin Han</b>, Runjia Li, Weijian Deng, Dylan Campbell, Stephen Gould</p>
+              <p class="pub-note">SIGGRAPH, 2025</p>
+              <p class="pub-links"><a href="https://dl.acm.org/doi/full/10.1145/3721238.3730704" target="_blank">[paper]</a> <a href="https://dl.acm.org/doi/pdf/10.1145/3721238.3730704" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/HallucinationataGlance.png" alt="Teaser for Hallucination at a Glance: Controlled Visual Edits and Fine-Grained Multimodal Learning" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Hallucination at a Glance: Controlled Visual Edits and Fine-Grained Multimodal Learning</p>
+              <p class="pub-author">Tianyi Bai, Yuxuan Fan, Jiantao Qiu, Fupeng Sun, Jiayi Song, <b>Junlin Han</b>, Zichen Liu, Conghui He, Wentao Zhang, Binhang Yuan</p>
+              <p class="pub-note">NeurIPS, 2025</p>
+              <p class="pub-links"><a href="https://github.com/beccabai/hallu_med" target="_blank">[Dataset]</a> <a href="https://arxiv.org/abs/2506.07227" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2506.07227.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><video autoplay loop muted playsinline><source src="./projects/flex3d/videos/teaser/splash_video.mp4" type="video/mp4"></video></div></td>
+            <td>
+              <p class="pub-title">Flex3D: Feed-Forward 3D Generation with Flexible Reconstruction Model and Input View Curation</p>
+              <p class="pub-author"><b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos</p>
+              <p class="pub-note">ICML, 2025</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/flex3d" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2410.00890" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2410.00890.pdf" target="_blank">[PDF]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/llama4.png" alt="Teaser for The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation</p>
+              <p class="pub-author">Llama4 team</p>
+              <p class="pub-note">Models, 2025</p>
+              <p class="pub-links"><a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank">[project page]</a> <a href="https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164" target="_blank">[Models]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/vgrp.png" alt="Teaser for VGRP-Bench: Visual Grid Reasoning Puzzle Benchmark for Large Vision-Language Models" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">VGRP-Bench: Visual Grid Reasoning Puzzle Benchmark for Large Vision-Language Models</p>
+              <p class="pub-author">Yufan Ren, Konstantinos Tertikas, Shalini Maiti, <b>Junlin Han</b>, Tong Zhang, Sabine Süsstrunk, Filippos Kokkinos</p>
+              <p class="pub-note">Preprint, 2025</p>
+              <p class="pub-links"><a href="https://yufan-ren.com/subpage/VGRP-Bench/index.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2503.23064" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2503.23064" target="_blank">[pdf]</a> <a href="https://github.com/ryf1123/VGRP-Bench" target="_blank">[Code]</a> <a href="https://huggingface.co/datasets/VGRP-Bench/VGRP-Bench" target="_blank">[Dataset]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper21.png" alt="Teaser for Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model</p>
+              <p class="pub-author">Zhaochong An, Guolei Sun, Yun Liu, Runjia Li, <b>Junlin Han</b>, Ender Konukoglu, Serge Belongie</p>
+              <p class="pub-note">CVPR, 2025</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2503.16282" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2503.16282" target="_blank">[pdf]</a> <a href="https://github.com/ZhaochongAn/GFS-VL" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper13.png" alt="Teaser for 3D-GPT: Procedural 3D Modeling with Large Language Models" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">3D-GPT: Procedural 3D Modeling with Large Language Models</p>
+              <p class="pub-author">Chunyi Sun*, <b>Junlin Han*</b>, Weijian Deng, Xinlong Wang, Zishan Qin, Stephen Gould</p>
+              <p class="pub-note">3DV, 2025</p>
+              <p class="pub-links"><a href="https://chuny1.github.io/3DGPT/3dgpt.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2310.12945" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2310.12945.pdf" target="_blank">[pdf]</a> <a href="https://github.com/Chuny1/3DGPT" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper18.jpg" alt="Teaser for DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer</p>
+              <p class="pub-author">Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab</p>
+              <p class="pub-note">3DV, 2025</p>
+              <p class="pub-links"><a href="https://dreambeast3d.github.io/" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2409.08271" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2409.08271.pdf" target="_blank">[pdf]</a> <a href="https://github.com/runjiali-rl/threestudio-dreambeast" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper16.png" alt="Teaser for VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title highlight">VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models</p>
+              <p class="pub-author"><b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr</p>
+              <p class="pub-note">ECCV, 2024</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/vfusion3d.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2403.12034" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2403.12034.pdf" target="_blank">[PDF]</a> <a href="https://github.com/facebookresearch/vfusion3d" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper20.jpg" alt="Teaser for Semantic Score Distillation Sampling for Compositional Text-to-3D Generation" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Semantic Score Distillation Sampling for Compositional Text-to-3D Generation</p>
+              <p class="pub-author">Ling Yang, Zixiang Zhang, <b>Junlin Han</b>, Bohan Zeng, Runjia Li, Philip Torr, Wentao Zhang</p>
+              <p class="pub-note">Preprint, 2024</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2410.09009" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2410.09009.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper15.png" alt="Teaser for Strong and Controllable Blind Image Decomposition" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Strong and Controllable Blind Image Decomposition</p>
+              <p class="pub-author">Zeyu Zhang*, <b>Junlin Han*</b>, Chenhui Gou*, Hongdong Li, Liang Zheng</p>
+              <p class="pub-note">Preprint, 2024</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2403.10520" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2403.10520.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper14.png" alt="Teaser for How Many Unicorns Are in This Image? A Safety Evaluation Benchmark for Vision LLMs" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">How Many Unicorns Are in This Image? A Safety Evaluation Benchmark for Vision LLMs</p>
+              <p class="pub-author">Haoqin Tu*, Chenhang Cui*, Zijun Wang*, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie</p>
+              <p class="pub-note">ECCV, 2024</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2311.16101" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2311.16101.pdf" target="_blank">[pdf]</a> <a href="https://github.com/UCSC-VLAA/vllm-safety-benchmark" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper10.png" alt="Teaser for NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing</p>
+              <p class="pub-author">Chunyi Sun, Yanbin Liu, <b>Junlin Han</b>, Stephen Gould</p>
+              <p class="pub-note">WACV, 2024</p>
+              <p class="pub-links"><a href="https://chuny1.github.io/NeRFEditor/nerfeditor.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2212.03848" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2212.03848.pdf" target="_blank">[pdf]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper9.png" alt="Teaser for What Images are More Memorable to Machines?" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">What Images are More Memorable to Machines?</p>
+              <p class="pub-author"><b>Junlin Han</b>, Huangying Zhan, Jie Hong, Pengfei Fang, Hongdong Li, Lars Petersson, Ian Reid</p>
+              <p class="pub-note">Preprint, 2023</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/machinemem.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2211.07625" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2211.07625.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JunlinHan/MachineMem" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper11.jpg" alt="Teaser for Hyperbolic Audio-visual Zero-shot Learning" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Hyperbolic Audio-visual Zero-shot Learning</p>
+              <p class="pub-author">Jie Hong, Zeeshan Hayder, <b>Junlin Han</b>, Pengfei Fang, Mehrtash Harandi, Lars Petersson</p>
+              <p class="pub-note">ICCV, 2023</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2308.12558" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2308.12558.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JHome1/Hyper-AVZSL" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper6.JPG" alt="Teaser for Curved Geometric Networks for Visual Anomaly Recognition" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Curved Geometric Networks for Visual Anomaly Recognition</p>
+              <p class="pub-author">Jie Hong, Pengfei Fang, Weihao Li, <b>Junlin Han</b>, Lars Petersson, Mehrtash Harandi</p>
+              <p class="pub-note">TNNLS, 2023</p>
+              <p class="pub-links"><a href="https://ieeexplore.ieee.org/abstract/document/10244211" target="_blank">[Paper]</a> <a href="https://arxiv.org/abs/2208.01188" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2208.01188.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JHome1/GiO-GiT" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper3.png" alt="Teaser for GOSS: Towards Generalized Open-set Semantic Segmentation" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">GOSS: Towards Generalized Open-set Semantic Segmentation</p>
+              <p class="pub-author">Jie Hong, Weihao Li, <b>Junlin Han</b>, Jiyang Zheng, Pengfei Fang, Mehrtash Harandi, Lars Petersson</p>
+              <p class="pub-note">The Visual Computer, 2023</p>
+              <p class="pub-links"><a href="https://link.springer.com/article/10.1007/s00371-023-02925-8" target="_blank">[Paper]</a> <a href="https://arxiv.org/abs/2203.12116" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2203.12116.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JHome1/GOSS_Segmentor" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper7.jpg" alt="Teaser for You Only Cut Once: Boosting Data Augmentation with a Single Cut" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">You Only Cut Once: Boosting Data Augmentation with a Single Cut</p>
+              <p class="pub-author"><b>Junlin Han</b>, Pengfei Fang, Weihao Li, Jie Hong, Ali Armin, Ian Reid, Lars Petersson, Hongdong Li</p>
+              <p class="pub-note">ICML, 2022</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2201.12078" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2201.12078.pdf" target="_blank">[pdf]</a> <a href="https://proceedings.mlr.press/v162/han22a.html" target="_blank">[PMLR]</a> <a href="https://github.com/JunlinHan/YOCO" target="_blank">[Code]</a> <a href="./Files/YOCO_slide.pptx" target="_blank">[Slide]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><video autoplay loop muted playsinline><source src="./projects/resources/paper5/BID.mp4" type="video/mp4"></video></div></td>
+            <td>
+              <p class="pub-title">Blind Image Decomposition</p>
+              <p class="pub-author"><b>Junlin Han</b>, Weihao Li, Pengfei Fang, Chunyi Sun, Jie Hong, Ali Armin, Lars Petersson, Hongdong Li</p>
+              <p class="pub-note">ECCV, 2022</p>
+              <p class="pub-links"><a href="https://junlinhan.github.io/projects/BID.html" target="_blank">[Project page]</a> <a href="https://arxiv.org/abs/2108.11364" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2108.11364.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JunlinHan/BID" target="_blank">[Code]</a> <a href="https://github.com/JunlinHan/BID" target="_blank">[Dataset]</a> <a href="https://youtu.be/wkyJDjUPCkg" target="_blank">[Video]</a> <a href="./Files/BID_slide.pptx" target="_blank">[Slide]</a> <a href="./Files/BID_poster.pdf" target="_blank">[Poster]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper8.png" alt="Teaser for CropMix: Sampling a Rich Input Distribution via Multi-Scale Cropping" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">CropMix: Sampling a Rich Input Distribution via Multi-Scale Cropping</p>
+              <p class="pub-author"><b>Junlin Han</b>, Lars Petersson, Hongdong Li, Ian Reid</p>
+              <p class="pub-note">Preprint, 2022</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2205.15955" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2205.15955.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JunlinHan/cropmix" target="_blank">[Code]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper4.JPG" alt="Teaser for Underwater Image Restoration via Contrastive Learning and a Real-world Dataset" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Underwater Image Restoration via Contrastive Learning and a Real-world Dataset</p>
+              <p class="pub-author"><b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Ali Armin, Hongdong Li, Lars Petersson</p>
+              <p class="pub-note">Remote Sensing (best paper award, top 0.1%), 2022</p>
+              <p class="pub-links"><a href="https://www.mdpi.com/2072-4292/14/17/4297" target="_blank">[Paper]</a> <a href="https://github.com/JunlinHan/CWR" target="_blank">[Code]</a> <a href="https://github.com/JunlinHan/CWR" target="_blank">[Dataset]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper2.JPG" alt="Teaser for Single Underwater Image Restoration by Contrastive Learning" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Single Underwater Image Restoration by Contrastive Learning</p>
+              <p class="pub-author"><b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Ali Armin</p>
+              <p class="pub-note">IGARSS (oral), 2021</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2103.09697" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2103.09697.pdf" target="_blank">[pdf]</a> <a href="https://github.com/JunlinHan/CWR" target="_blank">[Code]</a> <a href="https://github.com/JunlinHan/CWR" target="_blank">[Dataset]</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="pub-media"><div class="pub-thumb"><img src="./paperimages/paper1.PNG" alt="Teaser for Dual Contrastive Learning for Unsupervised Image-to-Image Translation" loading="lazy"></div></td>
+            <td>
+              <p class="pub-title">Dual Contrastive Learning for Unsupervised Image-to-Image Translation</p>
+              <p class="pub-author"><b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Ali Armin</p>
+              <p class="pub-note">NTIRE, CVPRW (oral), 2021</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2104.07689" target="_blank">[arXiv]</a> <a href="https://arxiv.org/pdf/2104.07689.pdf" target="_blank">[pdf]</a> <a href="https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.pdf" target="_blank">[CVF]</a> <a href="https://github.com/JunlinHan/DCLGAN" target="_blank">[Code]</a> <a href="https://youtu.be/w0oltXvLgmI" target="_blank">[Video]</a></p>
+            </td>
+          </tr>
+        </table>
       </div>
+      <!-- PUBS:END -->
     </section>
 
     <section id="blogs">
@@ -512,424 +991,14 @@
     <div class="footer-box">
       <table style="margin: 0 auto; width: 200px; height: 100px;">
         <tr><td>
-          <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=A_M689vS_rmlsTbtLHxcdi_-Ti8JbhM0uQ_c6itmJb8&cl=ffffff&w=a"></script>
+          <script type="text/javascript" id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=A_M689vS_rmlsTbtLHxcdi_-Ti8JbhM0uQ_c6itmJb8&cl=ffffff&w=a"></script>
         </td></tr>
       </table>
     </div>
   </div>
 
   <script>
-    const publicationsData = [
-      {
-        title: 'Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes',
-        img: './paperimages/physics_mm_pretrain.png',
-        author: '<b>Junlin Han</b>, Shengbang Tong, David Fan, Minghao Chen, Philip Torr, Filippos Kokkinos, Mike Lewis',
-        note: 'Preprint, 2026',
-        link: [
-          ['https://junlinhan.github.io/projects/physics_of_mm_pretrain/', 'Project page'],
-          ['https://arxiv.org/abs/2608.05000', 'arXiv'],
-          ['https://arxiv.org/pdf/2608.05000', 'PDF']
-        ],
-        highlight: true
-      },
-      {
-        title: 'PartiCam: Camera Controlled Video Generation with Reward Guidance',
-        img: './paperimages/particam.png',
-        author: 'Amine Ouasfi, Runjia Li, <b>Junlin Han</b>, Eric Marchand, Philip Torr, Adnane Boukhayma',
-        note: 'Preprint, 2026',
-        link: [
-          ['https://arxiv.org/abs/2609.39504', 'arXiv'],
-          ['https://arxiv.org/pdf/2609.39504', 'PDF']
-        ],
-        highlight: false
-      },
-      {
-        title: 'AnimalLift: Reconstructing Animatable 3D Animals from a Single Image by Learning Canonical Shape, Texture, and Fur Maps',
-        img: './paperimages/animallift.jpg',
-        author: 'Chunyi Sun, Ruyi Zha, Weijian Deng, <b>Junlin Han</b>, Dylan Campbell, Stephen Gould',
-        note: 'SIGGRAPH Asia, 2026',
-        link: [
-          ['https://arxiv.org/abs/2609.09513', 'arXiv'],
-          ['https://arxiv.org/pdf/2609.09513', 'PDF']
-        ],
-        highlight: false
-      },
-      {
-        title: 'Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models',
-        img: './paperimages/redteam_t2i.png',
-        author: 'Chang Ma, <b>Junlin Han</b>, Shuo Chen, Runjia Li, Philip Torr, Jindong Gu',
-        note: 'ECCV, 2026',
-        link: [
-          ['https://arxiv.org/abs/2609.06094', 'arXiv'],
-          ['https://arxiv.org/pdf/2609.06094', 'PDF'],
-          ['https://link.springer.com/chapter/10.1007/978-3-032-37029-7_9', 'Springer']
-        ],
-        highlight: false
-      },
-      {
-        title: 'Small Vision-Language Models are Smart Compressors for Long Video Understanding',
-        img: './paperimages/smallvlvideo.png',
-        author: 'Junjie Fei, Jun Chen, Zechun Liu, Yunyang Xiong, Chong Zhou, Wei Wen, <b>Junlin Han</b>, Mingchen Zhu, Saksham Suri, Qi Qian, Shuming Liu, Lemeng Wu, Raghuraman Krishnamoorthi, Vikas Chandra, Mohamed Elhoseiny, Chenchen Zhu',
-        note: 'ECCV, 2026',
-        link: [
-          ['https://feielysia.github.io/tempo-page/', 'Project page'],
-          ['https://github.com/FeiElysia/Tempo', 'Code'],
-          ['https://arxiv.org/abs/2604.08120', 'arXiv'],
-          ['https://arxiv.org/pdf/2604.08120', 'PDF'],
-          ['https://huggingface.co/spaces/Vision-CAIR/Tempo', 'Demo']
-        ],
-        highlight: false
-      },
-      {
-        title: 'Beyond Language Modeling: An Exploration of Multimodal Pretraining',
-        img: './paperimages/beyondlanguage.png',
-        author: 'Shengbang Tong, David Fan, John Nguyen, Ellis Brown, Gaoyue Zhou, Shengyi Qian, Boyang Zheng, Théophane Vallaeys, <b>Junlin Han</b>, Rob Fergus, Naila Murray, Marjan Ghazvininejad, Mike Lewis, Nicolas Ballas, Amir Bar, Michael Rabbat, Jakob Verbeek, Luke Zettlemoyer, Koustuv Sinha, Yann LeCun, Saining Xie',
-        note: 'ICML (spotlight, top 2.2%), 2026',
-        link: [
-          ['https://beyond-llms.github.io/', 'Project page'],
-          ['https://arxiv.org/abs/2603.03276', 'arXiv'],
-          ['https://arxiv.org/pdf/2603.03276', 'PDF']
-        ],
-        highlight: true
-      },
-      {
-        title: 'EgoEdit: Dataset, Real-Time Streaming Model, and Benchmark for Egocentric Video Editing',
-        img: './paperimages/egoedit.png',
-        author: 'Runjia Li, Moayed Haji-Ali, Ashkan Mirzaei, Chaoyang Wang, Arpit Sahni, Ivan Skorokhodov, Aliaksandr Siarohin, Tomas Jakab, <b>Junlin Han</b>, Sergey Tulyakov, Philip Torr, Willi Menapace',
-        note: 'CVPR, 2026',
-        link: [
-          ["https://snap-research.github.io/EgoEdit/","Project page"], ["https://arxiv.org/abs/2512.06065","arXiv"], ["https://arxiv.org/pdf/2512.06065","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'From Pixels to Feelings: Aligning MLLMs with Human Cognitive Perception of Images',
-        img: './paperimages/cogip.png',
-        author: 'Yiming Chen*, <b>Junlin Han*</b>, Tianyi Bai, Shengbang Tong, Filippos Kokkinos, Philip Torr',
-        note: 'Preprint, 2025',
-        link: [
-          ["https://follen-cry.github.io/MLLM-Cognition-project-page/","Project page"], ["https://arxiv.org/abs/2511.22805","arXiv"], ["https://arxiv.org/pdf/2511.22805","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Learning to See Before Seeing: Demystifying LLM Visual Priors from Language Pre-training',
-        img: './paperimages/lsbs.png',
-        author: '<b>Junlin Han</b>, Shengbang Tong, David Fan, Yufan Ren, Koustuv Sinha, Philip Torr, Filippos Kokkinos',
-        note: 'ICLR (oral, top 1.18%), 2026',
-        link: [
-          ['https://junlinhan.github.io/projects/lsbs', 'Project page'],
-          ['https://arxiv.org/abs/2509.26625', 'arXiv'],
-          ['https://arxiv.org/pdf/2509.26625.pdf', 'PDF']
-        ],
-        highlight: true
-      },
-      {
-        title: 'VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models',
-        img: './paperimages/paper16.png',
-        author: '<b>Junlin Han*</b>, Filippos Kokkinos*, Philip Torr',
-        note: 'ECCV, 2024',
-        link: [
-          ['https://junlinhan.github.io/projects/vfusion3d.html', 'Project page'],
-          ['https://arxiv.org/abs/2403.12034', 'arXiv'],
-          ['https://arxiv.org/pdf/2403.12034.pdf', 'PDF'],
-          ['https://github.com/facebookresearch/vfusion3d', 'Code']
-        ],
-        highlight: true
-      },
-      {
-        title: 'What Images are More Memorable to Machines?',
-        img: './paperimages/paper9.png',
-        author: '<b>Junlin Han</b>, Huangying Zhan, Jie Hong, Pengfei Fang, Hongdong Li, Lars Petersson, Ian Reid',
-        note: 'Preprint, 2023',
-        link: [
-          ["https://junlinhan.github.io/projects/machinemem.html","Project page"], ["https://arxiv.org/abs/2211.07625","arXiv"], ["https://arxiv.org/pdf/2211.07625.pdf","pdf"], ["https://github.com/JunlinHan/MachineMem","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'You Only Cut Once: Boosting Data Augmentation with a Single Cut',
-        img: './paperimages/paper7.jpg',
-        author: '<b>Junlin Han</b>, Pengfei Fang, Weihao Li, Jie Hong, Ali Armin, Ian Reid, Lars Petersson, Hongdong Li',
-        note: 'ICML, 2022',
-        link: [
-          ["https://arxiv.org/abs/2201.12078","arXiv"], ["https://arxiv.org/pdf/2201.12078.pdf","pdf"], ["https://proceedings.mlr.press/v162/han22a.html","PMLR"], ["https://github.com/JunlinHan/YOCO","Code"], ["./Files/YOCO_slide.pptx","Slide"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Blind Image Decomposition',
-        img: './projects/resources/paper5/BID.gif',
-        author: '<b>Junlin Han</b>, Weihao Li, Pengfei Fang, Chunyi Sun, Jie Hong, Ali Armin, Lars Petersson, Hongdong Li',
-        note: 'ECCV, 2022',
-        link: [
-          ["https://junlinhan.github.io/projects/BID.html","Project page"], ["https://arxiv.org/abs/2108.11364","arXiv"], ["https://arxiv.org/pdf/2108.11364.pdf","pdf"], ["https://github.com/JunlinHan/BID","Code"], ["https://github.com/JunlinHan/BID","Dataset"], ["https://youtu.be/wkyJDjUPCkg","Video"], ["./Files/BID_slide.pptx","Slide"], ["./Files/BID_poster.pdf","Poster"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Scaling Sequence-to-Sequence Generative Neural Rendering',
-        img: './paperimages/monet.gif',
-        author: 'Shikun Liu, Kam Woh Ng, Wonbong Jang, Jiadong Guo, <b>Junlin Han</b>, Haozhe Liu, Yiannis Douratsos, Juan C. Pérez, Zijian Zhou, Chi Phung, Tao Xiang, Juan-Manuel Pérez-Rúa',
-        note: 'ICLR, 2026',
-        link: [
-          ["https://shikun.io/projects/kaleido","Project page"], ["https://arxiv.org/abs/2510.04236","arXiv"], ["https://arxiv.org/pdf/2510.04236.pdf","pdf"]
-        ],
-        highlight: false
-      },    
-      {
-        title: 'Unsupervised Decomposition of 3D Shapes into Expressive and Editable Extruded Profile Primitives',
-        img: './paperimages/3D2EP.png',
-        author: 'Chunyi Sun, <b>Junlin Han</b>, Runjia Li, Weijian Deng, Dylan Campbell, Stephen Gould',
-        note: 'SIGGRAPH, 2025',
-        link: [
-           ["https://dl.acm.org/doi/full/10.1145/3721238.3730704","paper"], ["https://dl.acm.org/doi/pdf/10.1145/3721238.3730704","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Hallucination at a Glance: Controlled Visual Edits and Fine-Grained Multimodal Learning',
-        img: './paperimages/HallucinationataGlance.png',
-        author: 'Tianyi Bai, Yuxuan Fan, Jiantao Qiu, Fupeng Sun, Jiayi Song, <b>Junlin Han</b>, Zichen Liu, Conghui He, Wentao Zhang, Binhang Yuan',
-        note: 'NeurIPS, 2025',
-        link: [
-          ["https://github.com/beccabai/hallu_med","Dataset"], ["https://arxiv.org/abs/2506.07227","arXiv"], ["https://arxiv.org/pdf/2506.07227.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'AuralSAM2: Enabling SAM2 Hear Through Pyramid Audio-Visual Feature Prompting',
-        img: './paperimages/AuralSAM2.png',
-        author: 'Yuyuan Liu, Yuanhong Chen, Chong Wang, <b>Junlin Han</b>, Junde Wu, Can Peng, Jingkun Chen, Yu Tian, Gustavo Carneiro',
-        note: 'CVPR findings, 2026',
-        link: [
-          ["https://arxiv.org/abs/2506.01015","arXiv"], ["https://arxiv.org/pdf/2506.01015.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Flex3D: Feed-Forward 3D Generation with Flexible Reconstruction Model and Input View Curation',
-        img: './projects/flex3d/videos/teaser/splash_video.mp4',
-        author: '<b>Junlin Han</b>, Jianyuan Wang, Andrea Vedaldi, Philip Torr, Filippos Kokkinos',
-        note: 'ICML, 2025',
-        link: [
-          ['https://junlinhan.github.io/projects/flex3d', 'Project page'],
-          ['https://arxiv.org/abs/2410.00890', 'arXiv'],
-          ['https://arxiv.org/pdf/2410.00890.pdf', 'PDF']
-        ],
-        highlight: false
-      },
-      {
-        title: 'The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation',
-        img: './paperimages/llama4.png',
-        author: 'Llama4 team',
-        note: 'Models, 2025',
-        link: [
-          ["https://ai.meta.com/blog/llama-4-multimodal-intelligence/","project page"], ["https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164","Models"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'VGRP-Bench: Visual Grid Reasoning Puzzle Benchmark for Large Vision-Language Models',
-        img: './paperimages/vgrp.png',
-        author: 'Yufan Ren, Konstantinos Tertikas, Shalini Maiti, <b>Junlin Han</b>, Tong Zhang, Sabine Süsstrunk, Filippos Kokkinos',
-        note: 'Preprint, 2025',
-        link: [
-          ["https://yufan-ren.com/subpage/VGRP-Bench/index.html","Project page"], ["https://arxiv.org/abs/2503.23064","arXiv"], ["https://arxiv.org/pdf/2503.23064","pdf"], ["https://github.com/ryf1123/VGRP-Bench","Code"], ["https://huggingface.co/datasets/VGRP-Bench/VGRP-Bench","Dataset"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model',
-        img: './paperimages/paper21.png',
-        author: 'Zhaochong An, Guolei Sun, Yun Liu, Runjia Li, <b>Junlin Han</b>, Ender Konukoglu, Serge Belongie',
-        note: 'CVPR, 2025',
-        link: [
-          ["https://arxiv.org/abs/2503.16282","arXiv"], ["https://arxiv.org/pdf/2503.16282","pdf"], ["https://github.com/ZhaochongAn/GFS-VL","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: '3D-GPT: Procedural 3D Modeling with Large Language Models',
-        img: './paperimages/paper13.png',
-        author: 'Chunyi Sun*, <b>Junlin Han*</b>, Weijian Deng, Xinlong Wang, Zishan Qin, Stephen Gould',
-        note: '3DV, 2025',
-        link: [
-          ["https://chuny1.github.io/3DGPT/3dgpt.html","Project page"], ["https://arxiv.org/abs/2310.12945","arXiv"], ["https://arxiv.org/pdf/2310.12945.pdf","pdf"], ["https://github.com/Chuny1/3DGPT","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer',
-        img: './paperimages/paper18.jpg',
-        author: 'Runjia Li, <b>Junlin Han</b>, Luke Melas-Kyriazi, Chunyi Sun, Zhaochong An, Zhongrui Gui, Shuyang Sun, Philip Torr, Tomas Jakab',
-        note: '3DV, 2025',
-        link: [
-          ["https://dreambeast3d.github.io/","Project page"], ["https://arxiv.org/abs/2409.08271","arXiv"], ["https://arxiv.org/pdf/2409.08271.pdf","pdf"], ["https://github.com/runjiali-rl/threestudio-dreambeast","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Semantic Score Distillation Sampling for Compositional Text-to-3D Generation',
-        img: './paperimages/paper20.jpg',
-        author: 'Ling Yang, Zixiang Zhang, <b>Junlin Han</b>, Bohan Zeng, Runjia Li, Philip Torr, Wentao Zhang',
-        note: 'Preprint, 2024',
-        link: [
-          ["https://arxiv.org/abs/2410.09009","arXiv"], ["https://arxiv.org/pdf/2410.09009.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Learning-based Multi-View Stereo: A Survey',
-        img: './paperimages/paper17.jpg',
-        author: 'Fangjinhua Wang*, Qingtian Zhu*, Di Chang*, Quankai Gao, <b>Junlin Han</b>, Tong Zhang, Richard Hartley, Marc Pollefeys',
-        note: 'TPAMI, 2026',
-        link: [
-          ["https://arxiv.org/abs/2408.15235","arXiv"], ["https://arxiv.org/pdf/2408.15235.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Strong and Controllable Blind Image Decomposition',
-        img: './paperimages/paper15.png',
-        author: 'Zeyu Zhang*, <b>Junlin Han*</b>, Chenhui Gou*, Hongdong Li, Liang Zheng',
-        note: 'Preprint, 2024',
-        link: [
-          ["https://arxiv.org/abs/2403.10520","arXiv"], ["https://arxiv.org/pdf/2403.10520.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'How Many Unicorns Are in This Image? A Safety Evaluation Benchmark for Vision LLMs',
-        img: './paperimages/paper14.png',
-        author: 'Haoqin Tu*, Chenhang Cui*, Zijun Wang*, Yiyang Zhou, Bingchen Zhao, <b>Junlin Han</b>, Wangchunshu Zhou, Huaxiu Yao, Cihang Xie',
-        note: 'ECCV, 2024',
-        link: [
-          ["https://arxiv.org/abs/2311.16101","arXiv"], ["https://arxiv.org/pdf/2311.16101.pdf","pdf"], ["https://github.com/UCSC-VLAA/vllm-safety-benchmark","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'NeRFEditor: Differentiable Style Decomposition for 3D Scene Editing',
-        img: './paperimages/paper10.png',
-        author: 'Chunyi Sun, Yanbin Liu, <b>Junlin Han</b>, Stephen Gould',
-        note: 'WACV, 2024',
-        link: [
-          ["https://chuny1.github.io/NeRFEditor/nerfeditor.html","Project page"], ["https://arxiv.org/abs/2212.03848","arXiv"], ["https://arxiv.org/pdf/2212.03848.pdf","pdf"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Hyperbolic Audio-visual Zero-shot Learning',
-        img: './paperimages/paper11.jpg',
-        author: 'Jie Hong, Zeeshan Hayder, <b>Junlin Han</b>, Pengfei Fang, Mehrtash Harandi, Lars Petersson',
-        note: 'ICCV, 2023',
-        link: [
-          ["https://arxiv.org/abs/2308.12558","arXiv"], ["https://arxiv.org/pdf/2308.12558.pdf","pdf"], ["https://github.com/JHome1/Hyper-AVZSL","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Curved Geometric Networks for Visual Anomaly Recognition',
-        img: './paperimages/paper6.JPG',
-        author: 'Jie Hong, Pengfei Fang, Weihao Li, <b>Junlin Han</b>, Lars Petersson, Mehrtash Harandi',
-        note: 'TNNLS, 2023',
-        link: [
-          ["https://ieeexplore.ieee.org/abstract/document/10244211","Paper"], ["https://arxiv.org/abs/2208.01188","arXiv"], ["https://arxiv.org/pdf/2208.01188.pdf","pdf"], ["https://github.com/JHome1/GiO-GiT","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'GOSS: Towards Generalized Open-set Semantic Segmentation',
-        img: './paperimages/paper3.png',
-        author: 'Jie Hong, Weihao Li, <b>Junlin Han</b>, Jiyang Zheng, Pengfei Fang, Mehrtash Harandi, Lars Petersson',
-        note: 'The Visual Computer, 2023',
-        link: [
-          ["https://link.springer.com/article/10.1007/s00371-023-02925-8","Paper"], ["https://arxiv.org/abs/2203.12116","arXiv"], ["https://arxiv.org/pdf/2203.12116.pdf","pdf"], ["https://github.com/JHome1/GOSS_Segmentor","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'CropMix: Sampling a Rich Input Distribution via Multi-Scale Cropping',
-        img: './paperimages/paper8.png',
-        author: '<b>Junlin Han</b>, Lars Petersson, Hongdong Li, Ian Reid',
-        note: 'Preprint, 2022',
-        link: [
-          ["https://arxiv.org/abs/2205.15955","arXiv"], ["https://arxiv.org/pdf/2205.15955.pdf","pdf"], ["https://github.com/JunlinHan/cropmix","Code"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Underwater Image Restoration via Contrastive Learning and a Real-world Dataset',
-        img: './paperimages/paper4.JPG',
-        author: '<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Ali Armin, Hongdong Li, Lars Petersson',
-        note: 'Remote Sensing (best paper award, top 0.1%), 2022',
-        link: [
-          ["https://www.mdpi.com/2072-4292/14/17/4297","Paper"], ["https://github.com/JunlinHan/CWR","Code"], ["https://github.com/JunlinHan/CWR","Dataset"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Single Underwater Image Restoration by Contrastive Learning',
-        img: './paperimages/paper2.JPG',
-        author: '<b>Junlin Han</b>, Mehrdad Shoeiby, Tim Malthus, Elizabeth Botha, Janet Anstee, Saeed Anwar, Ran Wei, Lars Petersson, Ali Armin',
-        note: 'IGARSS (oral), 2021',
-        link: [
-          ["https://arxiv.org/abs/2103.09697","arXiv"], ["https://arxiv.org/pdf/2103.09697.pdf","pdf"], ["https://github.com/JunlinHan/CWR","Code"], ["https://github.com/JunlinHan/CWR","Dataset"]
-        ],
-        highlight: false
-      },
-      {
-        title: 'Dual Contrastive Learning for Unsupervised Image-to-Image Translation',
-        img: './paperimages/paper1.PNG',
-        author: '<b>Junlin Han</b>, Mehrdad Shoeiby, Lars Petersson, Ali Armin',
-        note: 'NTIRE, CVPRW (oral), 2021',
-        link: [
-          ["https://arxiv.org/abs/2104.07689","arXiv"], ["https://arxiv.org/pdf/2104.07689.pdf","pdf"], ["https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.pdf","CVF"], ["https://github.com/JunlinHan/DCLGAN","Code"], ["https://youtu.be/w0oltXvLgmI","Video"]
-        ],
-        highlight: false
-      }
-    ];
-
-    publicationsData.sort((a, b) => {
-      const yearA = parseInt((a.note.match(/\d{4}/) || ['0'])[0], 10);
-      const yearB = parseInt((b.note.match(/\d{4}/) || ['0'])[0], 10);
-      return yearB - yearA;
-    });
-
-    function publicationRow(pub) {
-      const media = pub.img.endsWith('.mp4')
-        ? `<video autoplay loop muted playsinline><source src="${pub.img}" type="video/mp4"></video>`
-        : `<img src="${pub.img}" alt="Teaser for ${pub.title}">`;
-
-      const links = (pub.link || []).map(item => `<a href="${item[0]}" target="_blank">[${item[1]}]</a>`).join(' ');
-
-      return `
-        <tr>
-          <td class="pub-media">${media}</td>
-          <td>
-            <p class="pub-title ${pub.highlight ? 'highlight' : ''}">${pub.title}</p>
-            <p class="pub-author">${pub.author}</p>
-            <p class="pub-note">${pub.note}</p>
-            <p class="pub-links">${links}</p>
-          </td>
-        </tr>
-      `;
-    }
-
-    // Populate selected table
-    document.getElementById('selected-table').innerHTML = publicationsData
-      .filter(pub => pub.highlight)
-      .map(publicationRow)
-      .join('');
-
-    // Populate ALL table with full dataset 
-    function renderAllPubs() {
-      document.getElementById('all-table').innerHTML = publicationsData
-        .map(publicationRow)
-        .join('');
-    }
-    renderAllPubs();
+    // Publications are static HTML generated by tools/build.py.
 
     // Tab buttons for publications
     document.querySelectorAll('.pub-buttons button').forEach(btn => {
@@ -945,12 +1014,17 @@
           div.classList.remove('active');
         });
         document.getElementById(target).classList.add('active');
-
-        // re-render all papers when switching to ALL
-        if (target === 'all') {
-          renderAllPubs();
-        }
       });
+    });
+
+    // Theme toggle; follows the OS setting until the visitor picks one.
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const root = document.documentElement;
+      const current = root.dataset.theme
+        || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
 
     // Expand News toggle functionality
