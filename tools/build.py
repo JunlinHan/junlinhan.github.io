@@ -11,12 +11,15 @@ name in <b>), note (venue and year, e.g. "ICLR (oral), 2026"), link
 ([url, label] pairs) and highlight (true to list it under Selected Papers).
 Papers are ordered by the year in note, newest first; papers from the same
 year keep their order in the JSON file.
+Optional image_size, image_crops (SVG viewBox rectangles), and media_alt
+display a grid of original result panels without modifying the source image.
 """
 
 from __future__ import annotations
 
 import json
 import re
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,7 +35,16 @@ def year(pub: dict) -> int:
 
 
 def row(pub: dict) -> str:
-    if pub["img"].endswith(".mp4"):
+    if pub.get("image_crops"):
+        # Display original result panels without altering the scientific images.
+        width, height = pub["image_size"]
+        panels = "".join(
+            f'<svg viewBox="{" ".join(map(str, crop))}" aria-hidden="true" preserveAspectRatio="xMidYMid slice">'
+            f'<image href="{escape(pub["img"], quote=True)}" width="{width}" height="{height}" /></svg>'
+            for crop in pub["image_crops"]
+        )
+        media = f'<div class="pub-showcase" role="img" aria-label="{escape(pub["media_alt"], quote=True)}">{panels}</div>'
+    elif pub["img"].endswith(".mp4"):
         media = f'<video autoplay loop muted playsinline><source src="{pub["img"]}" type="video/mp4"></video>'
     else:
         media = f'<img src="{pub["img"]}" alt="Teaser for {pub["title"]}" loading="lazy">'

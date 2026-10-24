@@ -21,8 +21,33 @@
     "highlight": true
   },
   {
+    "title": "OverSeer: Multi-Agent World Models Beyond What Agents See",
+    "img": "./paperimages/overseer.mp4",
+    "author": "Runjia Li, Kam Woh Ng, Minghao Chen, <b>Junlin Han</b>, Jianyuan Wang, Zhaochong An, Juan-Manuel Perez-Rua, Andrea Vedaldi, Shikun Liu",
+    "note": "Preprint, 2026",
+    "link": [
+      [
+        "https://runjiali-rl.github.io/OverSeer/",
+        "Project page"
+      ],
+      [
+        "https://arxiv.org/abs/2610.28554",
+        "arXiv"
+      ],
+      [
+        "https://arxiv.org/pdf/2610.28554",
+        "PDF"
+      ],
+      [
+        "https://huggingface.co/collections/liguang0115/overseer",
+        "Dataset"
+      ]
+    ],
+    "highlight": false
+  },
+  {
     "title": "PartiCam: Camera Controlled Video Generation with Reward Guidance",
-    "img": "./paperimages/particam.png",
+    "img": "./paperimages/particam-results.png",
     "author": "Amine Ouasfi, Runjia Li, <b>Junlin Han</b>, Eric Marchand, Philip Torr, Adnane Boukhayma",
     "note": "Preprint, 2026",
     "link": [
@@ -35,7 +60,38 @@
         "PDF"
       ]
     ],
-    "highlight": false
+    "highlight": false,
+    "image_size": [
+      2151,
+      1442
+    ],
+    "image_crops": [
+      [
+        1715,
+        151,
+        426,
+        256
+      ],
+      [
+        1715,
+        407,
+        426,
+        256
+      ],
+      [
+        1715,
+        664,
+        426,
+        256
+      ],
+      [
+        1715,
+        1178,
+        426,
+        256
+      ]
+    ],
+    "media_alt": "PartiCam generated views: a garden house, a church interior, a courtyard sculpture, and an alpine landscape. Results from Figure 3 of the paper."
   },
   {
     "title": "AnimalLift: Reconstructing Animatable 3D Animals from a Single Image by Learning Canonical Shape, Texture, and Fur Maps",
